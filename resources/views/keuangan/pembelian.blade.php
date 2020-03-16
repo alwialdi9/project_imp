@@ -10,7 +10,7 @@
             <h1>Company Management Enterprise</h1>
 
             <div class="section-header-breadcrumb">
-              <a href="{{ url('buatpenjualan') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Pembelian</a>
+              <a href="{{ url('buatpembelian') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Pembelian</a>
             </div>
         </div>
         

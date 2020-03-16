@@ -28,3 +28,20 @@ Route::get('buatpenjualan', function () {
 Route::get('pembelian', function () {
     return view('keuangan.pembelian');
 });
+
+Route::get('buatpembelian', function () {
+    return view('keuangan.buatpembelian');
+});
+
+Route::get('biaya', function () {
+    return view('keuangan.biaya');
+});
+
+Route::get('buatbiaya', function () {
+    return view('keuangan.buatbiaya');
+});
+
+Route::get('pattycash', function () {
+    return view('keuangan.pattycash');
+});
+

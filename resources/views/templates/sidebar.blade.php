@@ -242,10 +242,10 @@
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ url('penjualan') }} ">Penjualan</a></li>
                   <li><a class="nav-link" href="{{ url('pembelian') }} ">Pembelian</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Biaya</a></li>
+                  <li><a class="nav-link" href="{{ url('biaya') }} ">Biaya</a></li>
                 </ul>
               </li>
-              <li class="{{-- active --}}"><a class="nav-link" href="blank.html"><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
+              <li class="{{-- active --}}"><a class="nav-link" href="{{ url('pattycash') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
 
               <li class=""><a class="nav-link" href="blank.html"><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
 
