@@ -66,32 +66,19 @@
 
         {{-- table --}}
         <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>Dashboard Table</h4>
-                  <div class="card-header-form">
-                    <form>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                          <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="card-body p-0">
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <tr>
-                        <th>
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                            <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                          </div>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Penjualan Table</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover" id="table-1">
+                    <thead>                                 
+                      <tr class="text-center">
+                        <th class="text-center">
+                          #
                         </th>
-                        {{-- <th>No</th> --}}
                         <th>Nama Customer</th>
                         <th>Mitra/Pesantren</th>
                         <th>Nominal Transaksi</th>
@@ -99,12 +86,11 @@
                         <th>Bukti Transaksi</th>
                         <th>Aksi</th>
                       </tr>
+                    </thead>
+                      <tbody>
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          1
                         </td>
                         <td>Ahmad Najibullah</td>
                         <td class="align-middle">
@@ -120,10 +106,7 @@
 
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                            <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          2
                         </td>
                         <td>Ahmad Najibullah</td>
                         <td class="align-middle">
@@ -139,10 +122,7 @@
 
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                            <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          3
                         </td>
                         <td>Value 8</td>
                         <td class="align-middle">
@@ -152,16 +132,13 @@
                           560.123
                         </td>
                         <td><div class="badge badge-warning">Menunggu Verifikasi</div></td>
-                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-info"><i class="fas fa-info-circle"></i> Detail</a></td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a></td>
                       </tr>
 
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                            <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          4
                         </td>
                         <td>Value 11</td>
                         <td class="align-middle">
@@ -171,10 +148,11 @@
                           788.908
                         </td>
                         <td><div class="badge badge-warning">Menunggu Verifikasi</div></td>
-                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-info"><i class="fas fa-info-circle"></i> Detail</a></td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a></td>
                       </tr>
 
+                      </tbody>
                     </table>
                   </div>
                 </div>

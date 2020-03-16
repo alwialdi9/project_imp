@@ -51,36 +51,28 @@
 
         {{-- table --}}
         <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>Dashboard Table</h4>
-                  <div class="card-header-form">
-                    <form>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                          <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="card-body p-0">
-                  <div class="table-responsive">
-                    <table class="table table-striped">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Data Pembelian</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover" id="table-1">
+                    <thead>                                 
                       <tr>
-                        <th width="20px">
-                          No
-                        </th>
-                        {{-- <th>No</th> --}}
-                        <th>Tanggal</th>
+                          <th class="text-center">
+                            #
+                          </th>
+                          <th>Tanggal</th>
                         <th>No. Faktur</th>
                         <th>Supplier</th>
                         <th>Status</th>
                         <th>Total</th>
                         <th>Aksi</th>
-                      </tr>
+                        </tr>
+                      </thead>
+                      <tbody>
                       <tr>
                         <td class="p-0 text-center">
                           1
@@ -144,7 +136,7 @@
                         <td>Rp. 100.000.000</td>
                         <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
                       </tr>
-
+                      </tbody>
                     </table>
                   </div>
                 </div>

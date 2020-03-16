@@ -7,7 +7,27 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Patty Cash</h1>
+            <h1>Patty Cash </h1>
+            <div class="card-header-action mx-3">
+              <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="collapse" id="mycard-collapse">
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Transaksi :</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-calendar"></i>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control datepicker">
+                  </div>
+                </div>
+                <a href="#" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</a>
+              </div>
+              
+            </div>
 
             <div class="section-header-breadcrumb">
               <a href="{{ url('buatpattycash') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Patty Cash</a>
@@ -67,7 +87,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                   <div class="card card-statistic-1">
                     <div class="card-icon bg-success">
-                        <i class="fas fa-donate"></i>
+                      <i class="fas fa-hand-holding-usd"></i>
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
@@ -88,112 +108,89 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Dashboard Table</h4>
-                  <div class="card-header-form">
-                    <form>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                          <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  <h4>Patty Cash Table</h4>
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table table-striped">
-                      <tr>
-                        <th>
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                            <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                          </div>
-                        </th>
-                        {{-- <th>No</th> --}}
-                        <th>Nama Customer</th>
-                        <th>Mitra/Pesantren</th>
-                        <th>Nominal Transaksi</th>
-                        <th>Status Pembayaran</th>
-                        <th>Bukti Transaksi</th>
-                        <th>Aksi</th>
-                      </tr>
+                    <table class="table table-striped table-hover" id="table-1">
+                      <thead>                                 
+                        <tr>
+                          <th class="text-center">
+                            #
+                          </th>
+                          <th>Tanggal</th>
+                          <th>Referensi Akun</th>
+                          <th>Jenis Transaksi</th>
+                          <th>Keterangan</th>
+                          <th>Nominal</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                            <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          1
                         </td>
-                        <td>Ahmad Najibullah</td>
+                        <td>09-02-2020</td>
                         <td class="align-middle">
-                          Pesantren Al ishlah
+                          1-10001
                         </td>
                         <td>
-                          120.123
+                          <div class="badge badge-info">Masuk</div>
                         </td>
-                        <td><div class="badge badge-warning">Menunggu Pembayaran</div></td>
-                        <td>-</td>
+                        <td> Pemasukan </td>
+                        <td>500.000</td>
                         <td>-</td>
                       </tr>
 
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                            <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          2
                         </td>
-                        <td>Ahmad Najibullah</td>
+                        <td>10-02-2020</td>
                         <td class="align-middle">
-                          Pesantren Uswatun Hasanah
+                          1-10001
                         </td>
                         <td>
-                          123.012
+                          <div class="badge badge-warning">Keluar</div>
                         </td>
-                        <td><div class="badge badge-info">Menunggu Konfirmasi</div></td>
-                        <td> </td>
+                        <td>Aqua galon</td>
+                        <td>40.000</td>
                         <td> </td>
                       </tr>
 
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                            <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                          </div>
+                          3
                         </td>
-                        <td>Value 8</td>
+                        <td>11-02-2020</td>
                         <td class="align-middle">
-                          Value 9
+                          1-10001
                         </td>
                         <td>
-                          560.123
+                          <div class="badge badge-warning">Keluar</div>
                         </td>
-                        <td><div class="badge badge-warning">Menunggu Verifikasi</div></td>
-                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                        <td>Iuran Bulanan</td>
+                        <td>30.000</td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a></td>
                       </tr>
 
                       <tr>
                         <td class="p-0 text-center">
-                          <div class="custom-checkbox custom-control">
-                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                            <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                          </div>
+                         4
                         </td>
-                        <td>Value 11</td>
+                        <td>12-02-2020</td>
                         <td class="align-middle">
-                          Value 12
+                          1-10001
                         </td>
                         <td>
-                          788.908
+                          <div class="badge badge-warning">Keluar</div>
                         </td>
-                        <td><div class="badge badge-warning">Menunggu Verifikasi</div></td>
-                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                        <td>Papan Triplek</td>
+                        <td>120.000</td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a></td>
                       </tr>
-
+                      </tbody>
                     </table>
                   </div>
                 </div>
