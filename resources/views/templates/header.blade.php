@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="{{ asset('modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }} ">
   <link rel="stylesheet" href="{{ asset('modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }} ">
   <link rel="stylesheet" href="{{ asset('modules/chocolat/dist/css/chocolat.css') }} ">
+  <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-bs4.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
   {{-- <script src="{{ asset('datepicker/picker.js') }} "></script> --}}
@@ -65,9 +66,9 @@
   <script src="{{ asset('modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }} "></script>
   <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
   <script src="{{ asset('modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }} "></script>
+  <script src="{{ asset('modules/cleave-js/dist/cleave.min.js') }} "></script>
   <script src="{{ asset('js/page/forms-advanced-forms.js') }} "></script>
   <script src="{{ asset('modules/bootstrap-daterangepicker/daterangepicker.js') }} "></script>
-  <script src="{{ asset('modules/cleave-js/dist/cleave.min.js') }} "></script>
   {{-- datatables --}}
   <script src="{{ asset('modules/datatables/datatables.min.js') }} "></script>
   <script src="{{ asset('modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }} "></script>
@@ -78,6 +79,15 @@
   {{-- datepicker --}}
   <script src="{{ asset('modules/chocolat/dist/js/jquery.chocolat.min.js') }} "></script>
   <script src="{{ asset('modules/jquery-ui/jquery-ui.min.js') }} "></script>
+  
+  {{-- upload file --}}
+  <script src="{{ asset('modules/summernote/summernote-bs4.js') }} "></script>
+  @if ($surat ?? '')
+  <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
+  @endif
+
+  <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }} "></script>
+  <script src="{{ asset('js/page/features-post-create.js') }} "></script>
   
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>

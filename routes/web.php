@@ -45,3 +45,20 @@ Route::get('pattycash', function () {
     return view('keuangan.pattycash');
 });
 
+Route::get('buatpattycash', function () {
+    return view('keuangan.buatpattycash');
+});
+
+Route::get('surat', function () {
+    return view('surat.index');
+});
+
+Route::get('suratmasuk', function () {
+    $surat = 'surat';
+    return view('surat.suratmasuk', compact('surat'));
+});
+
+Route::get('suratkeluar', function () {
+    $surat = 'surat';
+    return view('surat.suratkeluar', compact('surat'));
+});

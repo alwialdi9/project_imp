@@ -247,7 +247,7 @@
               </li>
               <li class="{{-- active --}}"><a class="nav-link" href="{{ url('pattycash') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
 
-              <li class=""><a class="nav-link" href="blank.html"><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
+              <li class=""><a class="nav-link" href="{{ url('surat') }} "><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
 
               {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
