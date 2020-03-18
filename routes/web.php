@@ -62,3 +62,9 @@ Route::get('suratkeluar', function () {
     $surat = 'surat';
     return view('surat.suratkeluar', compact('surat'));
 });
+
+Route::get('akun', 'AkunController@index');
+
+Route::get('invoice', function () {
+    return view('invoice.index');
+});

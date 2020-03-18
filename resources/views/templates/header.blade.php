@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="{{ asset('modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }} ">
   <link rel="stylesheet" href="{{ asset('modules/chocolat/dist/css/chocolat.css') }} ">
   <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-bs4.css') }} ">
+  <link rel="stylesheet" href="{{ asset('modules/prism/prism.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
   {{-- <script src="{{ asset('datepicker/picker.js') }} "></script> --}}
@@ -64,7 +65,12 @@
   
   <!-- Template JS File -->
   <script src="{{ asset('modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }} "></script>
+
+  @if ($surat ?? '')
+  <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
+  @endif
   <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
+
   <script src="{{ asset('modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }} "></script>
   <script src="{{ asset('modules/cleave-js/dist/cleave.min.js') }} "></script>
   <script src="{{ asset('js/page/forms-advanced-forms.js') }} "></script>
@@ -82,12 +88,11 @@
   
   {{-- upload file --}}
   <script src="{{ asset('modules/summernote/summernote-bs4.js') }} "></script>
-  @if ($surat ?? '')
-  <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
-  @endif
 
   <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }} "></script>
   <script src="{{ asset('js/page/features-post-create.js') }} "></script>
+  <script src="{{ asset('modules/prism/prism.js') }} "></script>
+  <script src="{{ asset('js/page/bootstrap-modal.js') }} "></script>
   
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
