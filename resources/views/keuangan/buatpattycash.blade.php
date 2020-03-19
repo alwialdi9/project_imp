@@ -7,11 +7,19 @@
         <section class="section">
           <div class="section-header">
             <div class="section-header-back">
+<<<<<<< HEAD
               <a href="{{ url('/petty') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Buat Patty Cash</h1>
             <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{url('/petty/buat_petty')}}">Patty Cash</a></div>
+=======
+              <a href="{{ url('pattycash') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <h1>Buat Patty Cash</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="#">Patty Cash</a></div>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
             </div>
           </div>
 
@@ -22,8 +30,12 @@
                   <div class="card-header">
                     <h4>Isi Form Patty Cash</h4>
                   </div>
+<<<<<<< HEAD
                   <form method="post" action="{{url ('/petty')}}">
                     @csrf
+=======
+                  
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                   <div class="card-body">
                     <div class="form-group row mb-4 floating-addon">
                         <div class="input-group mb-2">
@@ -34,7 +46,11 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
+<<<<<<< HEAD
                                   <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+=======
+                                  <input type="text" id="tanggal_pembelian" name="tanggal_pembelian" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
@@ -57,11 +73,17 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                         <div class="col-sm-12 col-md-7">
                           <select class="form-control select2" id="ref_akun" name="ref_akun" required>
+<<<<<<< HEAD
                             <option value="pembelian">7-50001 PattyCash</option>
                             <option>7-50002</option>
                             <option>7-50003</option>
                             <option>7-50004</option>
                             <option>7-50005</option>
+=======
+                            <option value="pembelian">5-50001 Pembelian</option>
+                            <option>Draft</option>
+                            <option>Pending</option>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                           </select>
                           <div class="valid-feedback">
                             {{-- formvalidation --}}
@@ -105,6 +127,7 @@
                         </div>
                       </div>
 
+<<<<<<< HEAD
                      <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
@@ -113,6 +136,15 @@
                      </div>
                     </div>
                    </form>
+=======
+                    <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                      <div class="col-sm-12 col-md-7">
+                        <button class="btn btn-primary">Simpan</button>
+                        <a href="{{ url('pattycash') }}" class="btn btn-danger mx-2">Batal</a>
+                      </div>
+                    </div>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                   </div>
                 </div>
               </div>

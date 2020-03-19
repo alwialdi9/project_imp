@@ -26,6 +26,10 @@
   <link rel="stylesheet" href="{{ asset('modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }} ">
   <link rel="stylesheet" href="{{ asset('modules/chocolat/dist/css/chocolat.css') }} ">
   <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-bs4.css') }} ">
+<<<<<<< HEAD
+=======
+  <link rel="stylesheet" href="{{ asset('modules/prism/prism.css') }} ">
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
   {{-- <script src="{{ asset('datepicker/picker.js') }} "></script> --}}
@@ -43,9 +47,15 @@
       <div class="footer-left">
         Copyright &copy; 2020 <div class="bullet"></div><a href="https://impstudio.id/">IMP Studio</a>
       </div>
+<<<<<<< HEAD
       <div class="footer-right">
         {{-- 2.3.0 --}}
       </div>
+=======
+      {{-- <div class="footer-right">
+        
+      </div> --}}
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
     </footer>
   </div>
 </div>
@@ -64,7 +74,16 @@
   
   <!-- Template JS File -->
   <script src="{{ asset('modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }} "></script>
+<<<<<<< HEAD
   <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
+=======
+
+  @if ($surat ?? '')
+  <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
+  @endif
+  <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
+
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
   <script src="{{ asset('modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }} "></script>
   <script src="{{ asset('modules/cleave-js/dist/cleave.min.js') }} "></script>
   <script src="{{ asset('js/page/forms-advanced-forms.js') }} "></script>
@@ -82,12 +101,20 @@
   
   {{-- upload file --}}
   <script src="{{ asset('modules/summernote/summernote-bs4.js') }} "></script>
+<<<<<<< HEAD
   @if ($surat ?? '')
   <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
   @endif
 
   <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }} "></script>
   <script src="{{ asset('js/page/features-post-create.js') }} "></script>
+=======
+
+  <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }} "></script>
+  <script src="{{ asset('js/page/features-post-create.js') }} "></script>
+  <script src="{{ asset('modules/prism/prism.js') }} "></script>
+  <script src="{{ asset('js/page/bootstrap-modal.js') }} "></script>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
   
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>

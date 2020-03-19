@@ -14,10 +14,17 @@
             <div class="search-backdrop"></div>
             <div class="search-result">
               <div class="search-header">
+<<<<<<< HEAD
                 Histories
               </div>
               <div class="search-item">
                 <a href="#">How to hack NASA using CSS</a>
+=======
+                Menu
+              </div>
+              <div class="search-item">
+                <a href="{{ url('keuangan') }} ">Keuangan</a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                 <a href="#" class="search-close"><i class="fas fa-times"></i></a>
               </div>
               <div class="search-item">
@@ -29,6 +36,7 @@
                 <a href="#" class="search-close"><i class="fas fa-times"></i></a>
               </div>
               <div class="search-header">
+<<<<<<< HEAD
                 Result
               </div>
               <div class="search-item">
@@ -50,6 +58,8 @@
                 </a>
               </div>
               <div class="search-header">
+=======
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                 Projects
               </div>
               <div class="search-item">
@@ -72,6 +82,7 @@
           </div>
         </form>
         <ul class="navbar-nav navbar-right">
+<<<<<<< HEAD
           {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
               <div class="dropdown-header">Messages
@@ -200,6 +211,12 @@
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="{{ asset('img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, Everyone</div></a>
+=======
+          
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="{{ asset('img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, IMP Studio</div></a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
@@ -225,7 +242,11 @@
             <a href="https://impstudio.id/">IMP Studio</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
+<<<<<<< HEAD
             <a href="https://impstudio.id/">IMP</a>
+=======
+            <a href="https://impstudio.id/"><img src="{{ asset('img/logo/favicon.ico') }} " alt="" width="30" height="30"></a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
@@ -238,6 +259,7 @@
               </li>
               <li class="menu-header">Starter</li>
               <li class="nav-item dropdown">
+<<<<<<< HEAD
                 <a href="{{url ('/keuangan')}}" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-fw fa-dollar-sign"></i> <span>Keuangan</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href=" {{ url('/penjualan') }} ">Penjualan</a></li>
@@ -248,6 +270,20 @@
               <li class="{{-- active --}}"><a class="nav-link" href="{{ url('/petty') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
 
               <li class=""><a class="nav-link" href="{{ url('/surat') }} "><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
+=======
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-fw fa-dollar-sign"></i> <span>Keuangan</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="{{ url('penjualan') }} ">Penjualan</a></li>
+                  <li><a class="nav-link" href="{{ url('pembelian') }} ">Pembelian</a></li>
+                  <li><a class="nav-link" href="{{ url('biaya') }} ">Biaya</a></li>
+                </ul>
+              </li>
+              <li class="{{-- active --}}"><a class="nav-link" href="{{ url('pattycash') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
+
+              <li class=""><a class="nav-link" href="{{ url('surat') }} "><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
+              <li class=""><a class="nav-link" href="{{ url('akun') }} "><i class="fas fa-fw fa-user-alt"></i> <span>Akun</span></a></li>
+              <li class=""><a class="nav-link" href="{{ url('invoice') }} "><i class="fas fa-fw fa-file-invoice"></i> <span>Invoice</span></a></li>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
 
               {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>

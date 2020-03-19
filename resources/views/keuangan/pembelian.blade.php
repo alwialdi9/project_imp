@@ -10,7 +10,11 @@
             <h1>Company Management Enterprise</h1>
 
             <div class="section-header-breadcrumb">
+<<<<<<< HEAD
               <a href="{{ url('/pembelian/buat_pembelian') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Pembelian</a>
+=======
+              <a href="{{ url('buatpembelian') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Pembelian</a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
             </div>
         </div>
         
@@ -61,6 +65,7 @@
                   <table class="table table-striped table-hover" id="table-1">
                     <thead>                                 
                       <tr>
+<<<<<<< HEAD
                         <th scope="col">No</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">No.Faktur</th>
@@ -88,6 +93,84 @@
                         </tr>
                         @endforeach
                     </tbody>
+=======
+                          <th class="text-center">
+                            #
+                          </th>
+                          <th>Tanggal</th>
+                        <th>No. Faktur</th>
+                        <th>Supplier</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td class="p-0 text-center">
+                          1
+                        </td>
+                        <td>12-12-2020</td>
+                        <td class="align-middle">
+                          F-11
+                        </td>
+                        <td>
+                          Rohmat Eko
+                        </td>
+                        <td><div class="badge badge-success">Lunas</div></td>
+                        <td>Rp. 100.000.000</td>
+                        <td>-</td>
+                      </tr>
+
+                      <tr>
+                        <td class="p-0 text-center">
+                          2
+                        </td>
+                        <td>12-12-2020</td>
+                        <td class="align-middle">
+                          F-15
+                        </td>
+                        <td>
+                          Samsul Mulya
+                        </td>
+                        <td><div class="badge badge-warning">Belum</div></td>
+                        <td>Rp. 100.000.000</td>
+                        <td> </td>
+                      </tr>
+
+                      <tr>
+                        <td class="p-0 text-center">
+                          3
+                        </td>
+                        <td>19-12-2020</td>
+                        <td class="align-middle">
+                          F-77
+                        </td>
+                        <td>
+                          Bambang Wijakarko
+                        </td>
+                        <td><div class="badge badge-success">Lunas</div></td>
+                        <td>Rp. 100.000.000</td>
+                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                      </tr>
+
+                      <tr>
+                        <td class="p-0 text-center">
+                          4
+                        </td>
+                        <td>23-12-2020</td>
+                        <td class="align-middle">
+                          F-12
+                        </td>
+                        <td>
+                          Sovia
+                        </td>
+                        <td><div class="badge badge-success">Lunas</div></td>
+                        <td>Rp. 100.000.000</td>
+                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                      </tr>
+                      </tbody>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                     </table>
                   </div>
                 </div>

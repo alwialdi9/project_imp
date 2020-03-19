@@ -21,11 +21,21 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
+<<<<<<< HEAD
                     <h4>Buat Surat Masuk</h4>
+=======
+                    <h4>Buat Surat Keluar</h4>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                   </div>
                   
                   <div class="card-body">
 
+<<<<<<< HEAD
+=======
+                    {{-- belum ada select jenis surat  --}}
+
+
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
@@ -47,7 +57,11 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
+<<<<<<< HEAD
                                   <input type="text" id="tanggal_penjualan" name="tanggal_penjualan" class="form-control daterange" placeholder="Search..." autocomplete="off" required="">
+=======
+                                  <input type="text" id="tanggal_penjualan" name="tanggal_penjualan" class="form-control datepicker" placeholder="Search..." autocomplete="off" required="">
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                                   <div class="valid-feedback">
                                     {{-- formvalidation --}}
                                     {{-- jika valid, tambahkan di input class is_valid --}}
@@ -60,9 +74,15 @@
                       </div> --}}
                     </div>
                     <div class="form-group row mb-4">
+<<<<<<< HEAD
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Asal Surat</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control" placeholder="Masukkan Asal Surat" required="" name="asal_surat">
+=======
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tujuan Surat</label>
+                      <div class="col-sm-12 col-md-7">
+                        <input type="text" class="form-control" placeholder="Masukkan Tujuan Surat" required="" name="tujuan_surat">
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                         <div class="valid-feedback">
                           {{-- formvalidation --}}
                           {{-- jika valid, tambahkan di input class is_valid --}}
@@ -92,8 +112,14 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
                         <button class="btn btn-primary">Simpan</button>
+<<<<<<< HEAD
                         <a href="{{ url('penjualan') }} " class="btn btn-danger mx-2">Batal</a>
                         <a href="#" class="btn btn-info">Reset</a>
+=======
+                        <a href="{{ url('penjualan') }} " class="btn btn-danger mx-2">Kembali</a>
+                        <a href="#" class="btn btn-info">Reset</a>
+                        <a href="#" class="btn btn-success mx-2">Cetak</a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                       </div>
                     </div>
                   </div>

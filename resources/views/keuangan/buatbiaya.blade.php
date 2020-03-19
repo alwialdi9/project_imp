@@ -7,7 +7,11 @@
         <section class="section">
           <div class="section-header">
             <div class="section-header-back">
+<<<<<<< HEAD
               <a href="{{ url('/biaya') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+=======
+              <a href="{{ url('biaya') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
             </div>
             <h1>Buat Biaya</h1>
             <div class="section-header-breadcrumb">
@@ -23,8 +27,12 @@
                   <div class="card-header">
                     <h4>Isi Form Biaya</h4>
                   </div>
+<<<<<<< HEAD
                   <form method="post" action="{{url ('/biaya')}}">
                     @csrf
+=======
+                  
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                   <div class="card-body">
                     <div class="form-group row mb-4 floating-addon">
                         <div class="input-group mb-2">
@@ -57,6 +65,7 @@
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                         <div class="col-sm-12 col-md-7">
+<<<<<<< HEAD
                           <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
                             <option value="pembelian">6-50001 Pembelian</option>
                               <option>6-10002</option>
@@ -64,6 +73,12 @@
                               <option>6-10004</option>
                               <option>6-10005</option>
                               <option>6-10006</option>
+=======
+                          <select class="form-control select2" id="ref_akun" name="ref_akun" required>
+                            <option value="pembelian">5-50001 Pembelian</option>
+                            <option>Draft</option>
+                            <option>Pending</option>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                           </select>
                           <div class="valid-feedback">
                             {{-- formvalidation --}}
@@ -141,10 +156,16 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
                         <button class="btn btn-primary">Simpan</button>
+<<<<<<< HEAD
                         <a href="{{ url('/biaya') }}" class="btn btn-danger mx-2">Batal</a>
                       </div>
                     </div>
                    </form>
+=======
+                        <a href="{{ url('biaya') }}" class="btn btn-danger mx-2">Batal</a>
+                      </div>
+                    </div>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                   </div>
                 </div>
               </div>

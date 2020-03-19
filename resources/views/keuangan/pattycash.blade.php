@@ -30,7 +30,11 @@
             </div>
 
             <div class="section-header-breadcrumb">
+<<<<<<< HEAD
               <a href="{{ url('/petty/buat_petty') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Buat Patty Cash</a>
+=======
+              <a href="{{ url('buatpattycash') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Patty Cash</a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
             </div>
         </div>
         
@@ -115,6 +119,7 @@
                     <table class="table table-striped table-hover" id="table-1">
                       <thead>                                 
                         <tr>
+<<<<<<< HEAD
                             <th scope="col">No</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Referensi Akun</th>
@@ -141,6 +146,84 @@
                         </tr>
                         @endforeach
                      </tbody>
+=======
+                          <th class="text-center">
+                            #
+                          </th>
+                          <th>Tanggal</th>
+                          <th>Referensi Akun</th>
+                          <th>Jenis Transaksi</th>
+                          <th>Keterangan</th>
+                          <th>Nominal</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td class="text-center">
+                          1
+                        </td>
+                        <td>09-02-2020</td>
+                        <td class="align-middle">
+                          1-10001
+                        </td>
+                        <td>
+                          <div class="badge badge-info">Masuk</div>
+                        </td>
+                        <td> Pemasukan </td>
+                        <td>500.000</td>
+                        <td>-</td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">
+                          2
+                        </td>
+                        <td>10-02-2020</td>
+                        <td class="align-middle">
+                          1-10001
+                        </td>
+                        <td>
+                          <div class="badge badge-warning">Keluar</div>
+                        </td>
+                        <td>Aqua galon</td>
+                        <td>40.000</td>
+                        <td> </td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">
+                          3
+                        </td>
+                        <td>11-02-2020</td>
+                        <td class="align-middle">
+                          1-10001
+                        </td>
+                        <td>
+                          <div class="badge badge-warning">Keluar</div>
+                        </td>
+                        <td>Iuran Bulanan</td>
+                        <td>30.000</td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a></td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">
+                         4
+                        </td>
+                        <td>12-02-2020</td>
+                        <td class="align-middle">
+                          1-10001
+                        </td>
+                        <td>
+                          <div class="badge badge-warning">Keluar</div>
+                        </td>
+                        <td>Papan Triplek</td>
+                        <td>120.000</td>
+                        <td><a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a></td>
+                      </tr>
+                      </tbody>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
                     </table>
                   </div>
                 </div>

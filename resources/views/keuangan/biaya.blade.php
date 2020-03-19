@@ -10,7 +10,11 @@
             <h1>Company Management Enterprise</h1>
 
             <div class="section-header-breadcrumb">
+<<<<<<< HEAD
               <a href=" {{ url('/biaya/buat_biaya') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Biaya</a>
+=======
+              <a href="{{ url('buatbiaya') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Biaya</a>
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
             </div>
         </div>
 
@@ -64,6 +68,7 @@
               </div>
         </div>
 
+<<<<<<< HEAD
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -118,6 +123,8 @@
           </div>
         </div>
 
+=======
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
     </section>
 </div>
 
