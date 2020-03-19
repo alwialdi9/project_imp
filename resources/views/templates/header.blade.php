@@ -30,8 +30,75 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
   {{-- <script src="{{ asset('datepicker/picker.js') }} "></script> --}}
+  <script src="{{ asset('modules/jquery.min.js') }}"></script>
+  <script src="{{ asset('modules/bootstrap/js/bootstrap.min.js') }}"></script>
 
-  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.btn-wizard').click(function(){
+      var menu = $(this).attr('id');
+      if (menu == "next-button") {
+        var element = document.getElementById("nomor_invoice");
+        var element2 = document.getElementById("aplikasi");
+        element.classList.remove("wizard-step-active");
+        element2.classList.add("wizard-step-active");
+        $('#back-mid-button').show();
+        $('#next-mid-button').show();
+        $('#next-button').hide();
+        $('#save-button').hide();
+        $('#back-button').hide();
+        $('.nomor-faktur').hide(1200);
+        $('.about-aplikasi').show(1200);
+        $('.total-harga').hide(1200);
+      }if (menu == "back-mid-button") {
+        var element = document.getElementById("nomor_invoice");
+        var element2 = document.getElementById("aplikasi");
+        element2.classList.remove("wizard-step-active");
+        element.classList.add("wizard-step-active");
+        $('#back-button').hide();
+        $('#next-button').show();
+        $('#next-mid-button').hide();
+        $('#back-mid-button').hide();
+        $('#save-button').hide();
+        $('.nomor-faktur').show(1200);
+        $('.about-aplikasi').hide(1200);
+        $('.total-harga').hide(1200);
+      }if (menu == "next-mid-button") {
+        var element = document.getElementById("harga-total");
+        var element2 = document.getElementById("aplikasi");
+        element2.classList.remove("wizard-step-active");
+        element.classList.add("wizard-step-active");
+        $('#back-button').show();
+        $('#save-button').show();
+        $('#next-mid-button').hide();
+        $('#back-mid-button').hide();
+        $('#next-button').hide();
+        $('.nomor-faktur').hide(1200);
+        $('.about-aplikasi').hide(1200);
+        $('.total-harga').show(1200);
+      }if (menu == "back-button") {
+        var element = document.getElementById("harga-total");
+        var element2 = document.getElementById("aplikasi");
+        element.classList.remove("wizard-step-active");
+        element2.classList.add("wizard-step-active");
+        $('#back-mid-button').show();
+        $('#next-mid-button').show();
+        $('#save-button').hide();
+        $('#next-button').hide();
+        $('#back-button').hide();
+        $('.nomor-faktur').hide();
+        $('.about-aplikasi').show(1200);
+        $('.total-harga').hide();
+      }
+      })
+      $('#back-button').hide();
+      $('#back-mid-button').hide();
+      $('#next-mid-button').hide();
+      $('#save-button').hide();
+      $('.total-harga').hide();
+      $('.about-aplikasi').hide();
+    })
+  </script>
 
 </head>
 
@@ -52,11 +119,9 @@
 </div>
 
     <!-- General JS Scripts -->
-  <script src="{{ asset('modules/jquery.min.js') }}"></script>
   <script src="{{ asset('modules/jquery.mask.min.js') }}"></script>
   <script src="{{ asset('modules/popper.js') }}"></script>
   <script src="{{ asset('modules/tooltip.js') }}"></script>
-  <script src="{{ asset('modules/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
   <script src="{{ asset('modules/moment.min.js') }}"></script>
   <script src="{{ asset('js/stisla.js') }}"></script>
@@ -93,9 +158,16 @@
   <script src="{{ asset('js/page/features-post-create.js') }} "></script>
   <script src="{{ asset('modules/prism/prism.js') }} "></script>
   <script src="{{ asset('js/page/bootstrap-modal.js') }} "></script>
+
+  {{-- <script src="{{ asset('modules/cleave-js/dist/addons/cleave-phone.id.js') }} "></script> --}}
   
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
+
+  {{-- terbilang --}}
+  <script src="{{ asset('terbilang/jquery-1.11.2.min.js') }}"></script>
+  <script src="{{ asset('terbilang/jquery.mask.min.js') }}"></script>
+  <script src="{{ asset('terbilang/terbilang.js') }}"></script>
 
   <!-- Page Specific JS File -->
 
@@ -103,9 +175,32 @@
     $(document).ready(function(){
 
         // Format mata uang.
-        $( '.currency' ).mask('000,000,000,000,000,000', {reverse: true});
+        $( '.currency' ).mask('000.000.000.000.000', {reverse: true});
 
     })
+
+  $(function() {
+    $('.only-numbers').on('keydown', '#telepon', function(e){
+        -1!==$
+        .inArray(e.keyCode,[46,8,9,27,13,110,190]) || /65|67|86|88/
+        .test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey)
+        || 35 <= e.keyCode && 40 >= e.keyCode || (e.shiftKey|| 48 > e.keyCode || 57 < e.keyCode)
+        && (96 > e.keyCode || 105 < e.keyCode) && e.preventDefault()
+    });
+  })
+</script>
+
+<script type="text/javascript">
+  function inputTerbilang() {
+    //membuat inputan otomatis jadi mata uang
+    $('.mata-uang').mask('00.000.000.000.000', {reverse: true});
+
+    //mengambil data uang yang akan dirubah jadi terbilang
+     var input = document.getElementById("terbilang-input").value.replace(/\./g, "");
+
+     //menampilkan hasil dari terbilang
+     document.getElementById("terbilang-output").value = terbilang(input).replace(/  +/g, ' ');
+  } 
 </script>
 
 </body>

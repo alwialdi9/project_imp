@@ -30,7 +30,7 @@
             </div>
 
             <div class="section-header-breadcrumb">
-              <a href="{{ url('buatpattycash') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Invoice</a>
+              <a href="{{ url('buatinvoice') }} " class="btn btn-primary"><i class="fas fa-plus"></i> Buat Invoice</a>
             </div>
         </div>
         

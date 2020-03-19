@@ -68,3 +68,7 @@ Route::get('akun', 'AkunController@index');
 Route::get('invoice', function () {
     return view('invoice.index');
 });
+
+Route::get('buatinvoice', function () {
+    return view('invoice.buatinvoice');
+});
