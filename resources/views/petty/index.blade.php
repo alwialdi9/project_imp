@@ -112,7 +112,7 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table table-striped table-hover" id="table-1">
+                    <table class="table table-striped table-hover text-center" id="table-1">
                       <thead>                                 
                         <tr>
                             <th scope="col">No</th>
@@ -127,14 +127,14 @@
                       <tbody>
                         @foreach ($petty as $p)
                         <tr>
-                            <th class="border border-success" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border border-success">{{$p->tanggal}}</td>
-                            <td class="border border-success">{{$p->referensi_akun}}</td>
-                            <td class="border border-success">{{$p->jenis_transaksi}}</td>
-                            <td class="border border-success ">{{$p->keterangan}}</td>
-                            <td class="border border-success">Rp. {{($p->nominal)}}</td>
-                            <td class="border border-success">@if ($p->jenis_transaksi == "Keluar")
-                              <a href="#" class="text-black">[Verifikasi]</a>
+                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
+                            <td class="border">{{$p->tanggal}}</td>
+                            <td class="border">{{$p->referensi_akun}}</td>
+                            <td class="border">{{$p->jenis_transaksi}}</td>
+                            <td class="border ">{{$p->keterangan}}</td>
+                            <td class="border">Rp. {{($p->nilai_transaksi)}}</td>
+                            <td class="border">@if ($p->jenis_transaksi == "Keluar")
+                              <a href="#" class="badge badge-info">[Verifikasi]</a>
                               @else
                                 -
                               @endif</td>

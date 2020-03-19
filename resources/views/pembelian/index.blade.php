@@ -58,7 +58,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-striped table-hover" id="table-1">
+                  <table class="table table-striped table-hover text-center" id="table-1">
                     <thead>                                 
                       <tr>
                         <th scope="col">No</th>
@@ -73,14 +73,14 @@
                       <tbody>
                         @foreach ( $pembelian as $b)
                         <tr>
-                            <th class="border border-success" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border border-success">{{$b->tanggal}}</td>
-                            <td class="border border-success">{{$b->nomor_faktur}}</td>
-                            <td class="border border-success">{{$b->supplier}}</td>
-                            <td class="border border-success">{{$b->status_penjualan}}</td>
-                            <td class="border border-success">Rp. {{$b->total}}</td>
-                            <td class="border border-success">@if ($b->status_penjualan == "Lunas")
-                              <a class="text-black" href="#">[Verifikasi]</a>
+                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
+                            <td class="border">{{$b->tanggal}}</td>
+                            <td class="border">{{$b->nomor_faktur}}</td>
+                            <td class="border">{{$b->supplier}}</td>
+                            <td class="border">{{$b->status_pembelian}}</td>
+                            <td class="border">Rp. {{$b->total}}</td>
+                            <td class="border">@if ($b->status_pembelian == "Lunas")
+                              <a class="badge badge-info" href="#">Verifikasi</a>
                                 @else
                                   -
                                 @endif

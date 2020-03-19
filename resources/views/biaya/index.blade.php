@@ -64,7 +64,7 @@
               </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -82,9 +82,9 @@
               </div>
               <div class="card-body p-0">
                 <div class="table-responsive">
-                  <table class="table table-striped" id="myTable">
+                  <table class="table table-striped" id="table-1">
                     <tr>
-                      {{-- <th>No</th> --}}
+                      
                       <th scope="col">No</th>
                       <th scope="col">Tanggal</th>
                       <th scope="col">Keterangan</th>
@@ -96,13 +96,13 @@
                     <tbody>
                       @foreach ( $biaya as $b)
                       <tr>
-                          <th class="border border-success" scope="row"> {{ $loop->iteration }} </th>
-                          <td class="border border-success">{{$b->tanggal}}</td>
-                          <td class="border border-success">{{$b->keterangan}}</td>
-                          <td class="border border-success">{{$b->penerima}}</td>
-                          <td class="border border-success">{{$b->status}}</td>
-                          <td class="border border-success">Rp. {{$b->total}}</td>
-                          <td class="border border-success">@if($b->status == "Lunas")
+                          <th class="border" scope="row"> {{ $loop->iteration }} </th>
+                          <td class="border">{{$b->tanggal}}</td>
+                          <td class="border">{{$b->keterangan}}</td>
+                          <td class="border">{{$b->penerima}}</td>
+                          <td class="border">{{$b->status}}</td>
+                          <td class="border">Rp. {{$b->total}}</td>
+                          <td class="border">@if($b->status == "Lunas")
                             <a class="text-black" href="#">[Verifikasi]</a>
                               @else
                                 -
@@ -116,7 +116,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 
     </section>
 </div>

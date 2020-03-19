@@ -111,9 +111,9 @@
       <div class="footer-left">
         Copyright &copy; 2020 <div class="bullet"></div><a href="https://impstudio.id/">IMP Studio</a>
       </div>
-      {{-- <div class="footer-right">
-        
-      </div> --}}
+      <div class="footer-right">
+        {{-- 2.3.0 --}}
+      </div>
     </footer>
   </div>
 </div>
@@ -153,13 +153,25 @@
   
   {{-- upload file --}}
   <script src="{{ asset('modules/summernote/summernote-bs4.js') }} "></script>
+<<<<<<< HEAD
+  @if ($surat ?? '')
+  <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
+  @endif
+
+  <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }} "></script>
+  <script src="{{ asset('js/page/features-post-create.js') }} "></script>
+=======
 
   <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }} "></script>
   <script src="{{ asset('js/page/features-post-create.js') }} "></script>
   <script src="{{ asset('modules/prism/prism.js') }} "></script>
   <script src="{{ asset('js/page/bootstrap-modal.js') }} "></script>
+<<<<<<< HEAD
 
   {{-- <script src="{{ asset('modules/cleave-js/dist/addons/cleave-phone.id.js') }} "></script> --}}
+=======
+>>>>>>> 9b7c64d1e7f913c1a70a50a722c3b06fb32605c1
+>>>>>>> ae892939d935aa437b739f2ccf3198ff20688517
   
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>

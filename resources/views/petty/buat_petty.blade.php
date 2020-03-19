@@ -34,7 +34,7 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
-                                  <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+                                  <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off" required="">
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
@@ -45,7 +45,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis Transaksi</label>
                         <div class="col-sm-12 col-md-7">
-                          <select class="form-control" id="jenis_transaksi" name="jenis_transaksi">
+                          <select class="form-control" id="jenis_transaksi" name="jenis_transaksi" required>
                             <option label="Pilih Jenis Transaksi"></option>
                             <option value="masuk">Masuk</option>
                             <option value="keluar">Keluar</option>
@@ -56,12 +56,12 @@
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                         <div class="col-sm-12 col-md-7">
-                          <select class="form-control select2" id="ref_akun" name="ref_akun" required>
+                          <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
                             <option value="pembelian">7-50001 PattyCash</option>
-                            <option>7-50002</option>
-                            <option>7-50003</option>
-                            <option>7-50004</option>
-                            <option>7-50005</option>
+                            <option>7-50002 PattyCash</option>
+                            <option>7-50003 PattyCash</option>
+                            <option>7-50004 PattyCash</option>
+                            <option>7-50005 PattyCash</option>
                           </select>
                           <div class="valid-feedback">
                             {{-- formvalidation --}}
@@ -74,7 +74,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Keterangan</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required="">
+                        <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required="" autocomplete="off">
                         <div class="valid-feedback">
                             {{-- formvalidation --}}
                             {{-- jika valid, tambahkan di input class is_valid --}}
@@ -87,7 +87,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Penerima</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control inputtags" placeholder="Masukkan Penerima" name="penerima">
+                          <input type="text" class="form-control inputtags" placeholder="Masukkan Penerima" name="penerima" autocomplete="off" required="">
                         </div>
                       </div>
 
@@ -100,7 +100,7 @@
                                     Rp
                                   </div>
                                 </div>
-                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="nilai_transaksi">
+                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="nilai_transaksi" autocomplete="off" required="">
                         </div>
                         </div>
                       </div>

@@ -11,8 +11,8 @@
             </div>
             <h1>Buat Pembelian</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Keuangan</a></div>
-              <div class="breadcrumb-item"><a href="#">Buat Pembelian</a></div>
+              <div class="breadcrumb-item active"><a href="{{ url('/') }}">Keuangan</a></div>
+              <div class="breadcrumb-item"><a href="{{ url('/pembelian/buat_pembelian') }}">Buat Pembelian</a></div>
             </div>
           </div>
 
@@ -35,7 +35,7 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
-                                  <input type="text" id="tanggal_pembelian" name="tanggal_pembelian" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+                                  <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off" required="">
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
@@ -45,18 +45,18 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Faktur</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control inputtags" placeholder="Masukkan Nomor Faktur">
+                        <input type="text" class="form-control inputtags" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" required="">
                       </div>
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control select2" id="referensi_akun" name="referensi_akun">
-                              <option>4-10001</option>
-                              <option>4-10002</option>
-                              <option>4-10003</option>
-                              <option>4-10004</option>
-                              <option>4-10005</option>
+                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
+                              <option>5-10001 Pembelian</option>
+                              <option>5-10002 Pembelian</option>
+                              <option>5-10003 Pembelian</option>
+                              <option>5-10004 Pembelian</option>
+                              <option>5-10005 Pembelian</option>
                         </select>
                       </div>
                     </div>
@@ -64,14 +64,14 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Supplier</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control inputtags" placeholder="Masukkan Supplier" name="supplier">
+                          <input type="text" class="form-control inputtags" placeholder="Masukkan Supplier" name="supplier" required="">
                         </div>
                       </div>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Pembelian</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control selectric" name="status_pembelian">
+                        <select class="form-control selectric" name="status_pembelian" id="status_pembelian" required>
                           <option>Lunas</option>
                           <option>Belum</option>
                           {{-- <option>Pending</option> --}}
@@ -82,8 +82,15 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Total</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total_penjualan">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                Rp
+                              </div>
+                            </div>                
+                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required>
                         </div>
+                       </div>
                       </div>
 
                     <div class="form-group row mb-4">
