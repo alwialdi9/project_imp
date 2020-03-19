@@ -44,9 +44,9 @@
       <div class="footer-left">
         Copyright &copy; 2020 <div class="bullet"></div><a href="https://impstudio.id/">IMP Studio</a>
       </div>
-      <div class="footer-right">
-        {{-- 2.3.0 --}}
-      </div>
+      {{-- <div class="footer-right">
+        
+      </div> --}}
     </footer>
   </div>
 </div>

@@ -80,7 +80,7 @@
             <a href="https://impstudio.id/">IMP Studio</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="https://impstudio.id/">IMP</a>
+            <a href="https://impstudio.id/"><img src="{{ asset('img/logo/favicon.ico') }} " alt="" width="30" height="30"></a>
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
