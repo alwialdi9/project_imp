@@ -125,7 +125,7 @@
                                 Rp
                               </div>
                             </div>     
-                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required value="{{old('total')}}">
+                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required value="{{old('total')}}"><br>
                           <div class="has-feedback{{ $errors->has('total') ? 'has-error' : ''}}"> 
                             @if ($errors->has('total'))
                             <span class="help-block">

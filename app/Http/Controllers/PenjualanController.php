@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Penjualan;
 use App\Http\Requests\SendRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PenjualanController extends Controller
 {
@@ -18,7 +19,14 @@ class PenjualanController extends Controller
         //
         $penjualan = Penjualan::all();
         $penjualan_belum = Penjualan::where('status_penjualan', 'Belum')->sum('total');
-        return view('penjualan.index', compact('penjualan', 'penjualan_belum'));
+        $tampilpenjualanbelum = number_format($penjualan_belum, 0, ".", ".");
+        $month = date('m');
+        $lunas = DB::table('penjualan')
+            ->whereDate('tanggal', $month)
+            ->orWhere('status_penjualan', '=', 'Lunas')
+            ->sum('total');
+        $tampillunas = number_format($lunas, 0, ".", ".");
+        return view('penjualan.index', compact('penjualan', 'tampilpenjualanbelum', 'lunas', 'tampillunas'));
     }
 
     /**
@@ -40,13 +48,14 @@ class PenjualanController extends Controller
      */
     public function store(SendRequest $request)
     {
+        $total = str_replace(',', '', $request->total);
         $this->validate(request(), [
             'tanggal' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
             'nama_pelanggan' => 'required|min:8',
             'status_penjualan' => 'required',
-            'total' => 'required'
+            'total' => 'required',
         ]);
 
         Penjualan::create([
@@ -54,7 +63,7 @@ class PenjualanController extends Controller
             'status_penjualan' => $request->status_penjualan,
             'nomor_faktur' => $request->nomor_faktur,
             'referensi_akun' => $request->referensi_akun,
-            'total' => $request->total,
+            'total' => $total,
             'nama_pelanggan' => $request->nama_pelanggan,
         ]);
         return redirect('/penjualan');

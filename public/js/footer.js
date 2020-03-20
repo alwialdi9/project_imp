@@ -1,12 +1,3 @@
-$(document).ready(function () {
-
-    // Format mata uang.
-    $('.currency').mask('000.000.000.000.000', {
-        reverse: true
-    });
-
-})
-
 $(function () {
     $('.only-numbers').on('keydown', '#telepon', function (e) {
         -1 !== $

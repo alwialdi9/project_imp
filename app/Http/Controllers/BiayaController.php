@@ -36,6 +36,7 @@ class BiayaController extends Controller
      */
     public function store(Request $request)
     {
+        $total = str_replace(',', '', $request->total);
         Pbiaya::create([
 
             'tanggal' => $request->tanggal,
@@ -45,7 +46,7 @@ class BiayaController extends Controller
             'referensi_akun' => $request->referensi_akun,
             'tag' => $request->tag,
             'keterangan' => $request->keterangan,
-            'total' => $request->total,
+            'total' => $total,
             ]);
             return redirect('/biaya');
     }

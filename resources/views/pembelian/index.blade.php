@@ -26,7 +26,7 @@
                         <h4>Pengeluaran (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        20.000.000
+                        {{ $tampilpembelianbelum }}
                       </div>
                     </div>
                   </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
-                        <h4>Saldo (Rp)</h4>
+                        <h4>Saldo (Rp) tidak tahu datanya darimana</h4>
                       </div>
                       <div class="card-body">
                         459.000
@@ -78,7 +78,7 @@
                             <td class="border">{{$b->nomor_faktur}}</td>
                             <td class="border">{{$b->supplier}}</td>
                             <td class="border">{{$b->status_pembelian}}</td>
-                            <td class="border">Rp. {{$b->total}}</td>
+                            <td class="border">Rp. <div class="currency" style="display:inline-table;">{{$b->total}}</div></td>
                             <td class="border">@if ($b->status_pembelian == "Lunas")
                               <a class="badge badge-info" href="#">Verifikasi</a>
                                 @else

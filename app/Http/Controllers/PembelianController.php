@@ -16,7 +16,9 @@ class PembelianController extends Controller
     {
         //
         $pembelian = Pembelian::all();
-        return view('pembelian.index', compact('pembelian'));
+        $pembelian_belum = Pembelian::where('status_pembelian', 'Belum')->sum('total');
+        $tampilpembelianbelum = number_format($pembelian_belum, 0, ".", ".");
+        return view('pembelian.index', compact('pembelian', 'tampilpembelianbelum'));
     }
 
     /**
@@ -37,17 +39,17 @@ class PembelianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $total = str_replace(',', '', $request->total);
         Pembelian::create([
 
             'tanggal' => $request->tanggal,
             'status_pembelian' => $request->status_pembelian,
             'nomor_faktur' => $request->nomor_faktur,
             'referensi_akun' => $request->referensi_akun,
-            'total' => $request->total,
+            'total' => $total,
             'supplier' => $request->supplier,
-            ]);
-            return redirect('/pembelian');
+        ]);
+        return redirect('/pembelian');
     }
 
     /**
@@ -97,15 +99,15 @@ class PembelianController extends Controller
 
     public function validation(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'tanggal' => 'required',
             'status_pembelian' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
             'total' => 'required|numeric',
             'supplier' => 'required'
-            
+
         ]);
-        return view('/pembelian',['b' => $request]);
+        return view('/pembelian', ['b' => $request]);
     }
 }

@@ -26,7 +26,7 @@
                         <h4>Penjualan Belum dibayar (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        {{ $penjualan_belum }}
+                        {{ $tampilpenjualanbelum }}
                       </div>
                     </div>
                   </div>
@@ -42,6 +42,7 @@
                       </div>
                       <div class="card-body">
                         140.000.000
+                        masihbelom
                       </div>
                     </div>
                   </div>
@@ -56,7 +57,7 @@
                         <h4>Saldo (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        459.000
+                        {{ $tampillunas }}
                       </div>
                     </div>
                   </div>
@@ -76,7 +77,7 @@
                   <table class="table table-striped table-hover text-center" id="table-1">
                     <thead>                                 
                       <tr class="">
-                        <th scope="col">No</th>
+                        <th scope="col" width="10">No</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">No.Faktur</th>
                         <th scope="col">Pelanggan</th>
@@ -88,13 +89,13 @@
                       <tbody>
                         @foreach ( $penjualan as $p)
                         <tr>
-                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border">{{$p->tanggal}}</td>
-                            <td class="border">{{$p->nomor_faktur}}</td>
-                            <td class="border">{{$p->nama_pelanggan}}</td>
-                            <td class="border">{{$p->status_penjualan}}</td>
-                            <td class="border">Rp. {{$p->total}}</td>
-                            <td class="border">@if ($p->status_penjualan == "Lunas")
+                            <th scope="row"> {{ $loop->iteration }} </th>
+                            <td>{{$p->tanggal}}</td>
+                            <td>{{$p->nomor_faktur}}</td>
+                            <td>{{$p->nama_pelanggan}}</td>
+                            <td>{{$p->status_penjualan}}</td>
+                            <td>Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
+                            <td>@if ($p->status_penjualan == "Lunas")
                               <a class="badge badge-info" href="#">Verifikasi</a>
                                 @else
                                   -
