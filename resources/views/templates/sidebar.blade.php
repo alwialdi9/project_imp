@@ -100,7 +100,7 @@
                   <li><a class="nav-link" href="{{ url('biaya') }} ">Biaya</a></li>
                 </ul>
               </li>
-              <li class="{{-- active --}}"><a class="nav-link" href="{{ url('pattycash') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
+              <li class="{{-- active --}}"><a class="nav-link" href="{{ url('/petty') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
 
               <li class=""><a class="nav-link" href="{{ url('surat') }} "><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
               <li class=""><a class="nav-link" href="{{ url('akun') }} "><i class="fas fa-fw fa-user-alt"></i> <span>Akun</span></a></li>

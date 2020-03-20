@@ -23,10 +23,10 @@
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
-                        <h4>Pemasukan (Rp) </h4>
+                        <h4>Penjualan Belum dibayar (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        20.000.000.000
+                        {{ $penjualan_belum }}
                       </div>
                     </div>
                   </div>

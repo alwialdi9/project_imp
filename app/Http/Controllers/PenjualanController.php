@@ -17,7 +17,8 @@ class PenjualanController extends Controller
     {
         //
         $penjualan = Penjualan::all();
-        return view('penjualan.index', compact('penjualan'));
+        $penjualan_belum = Penjualan::where('status_penjualan', 'Belum')->sum('total');
+        return view('penjualan.index', compact('penjualan', 'penjualan_belum'));
     }
 
     /**
@@ -43,21 +44,20 @@ class PenjualanController extends Controller
             'tanggal' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
-            'nama_pelanggan' => 'required|min:20',
+            'nama_pelanggan' => 'required|min:8',
             'status_penjualan' => 'required',
             'total' => 'required'
-            ]);
+        ]);
 
         Penjualan::create([
-
             'tanggal' => $request->tanggal,
             'status_penjualan' => $request->status_penjualan,
             'nomor_faktur' => $request->nomor_faktur,
             'referensi_akun' => $request->referensi_akun,
             'total' => $request->total,
             'nama_pelanggan' => $request->nama_pelanggan,
-            ]);
-            return redirect('/penjualan');
+        ]);
+        return redirect('/penjualan');
     }
 
     /**
@@ -105,28 +105,28 @@ class PenjualanController extends Controller
         //
     }
 
-//     public function rules()
-//     {
-//         return [
-//             'tanggal' => ['required', new OnlyUppercase],
-//             'nomor_faktur' => 'required',
-//             'referensi_akun' => 'required',
-//             'nama_pelanggan' => 'required|max:200',
-//             'status_penjualan' => 'required',
-//             'total' => 'required|numeric'
-//         ];
-          
-//         // return view('/penjualan',['p' => $request]);
-//     }
-//     public function messages()
-//     {
-//         return [
-//             'tanggal.required' => 'Tanggal tidak boleh kosong',
-//             'nomor_faktur.required' => 'Nomor Fakur tidak boleh kosong',
-//             'referensi_akun.required' => 'Referensi Akun tidak boleh kosong',
-//             'nama_pelanggan.max' => 'Nama Pelanggan maximal 20 karakter',
-//             'status_penjualan.required' => 'Status Penjualan tidak boleh kosong',
-//             'total.numeric' => 'Total harus berupa angka',
-//         ];
-// }
+    //     public function rules()
+    //     {
+    //         return [
+    //             'tanggal' => ['required', new OnlyUppercase],
+    //             'nomor_faktur' => 'required',
+    //             'referensi_akun' => 'required',
+    //             'nama_pelanggan' => 'required|max:200',
+    //             'status_penjualan' => 'required',
+    //             'total' => 'required|numeric'
+    //         ];
+
+    //         // return view('/penjualan',['p' => $request]);
+    //     }
+    //     public function messages()
+    //     {
+    //         return [
+    //             'tanggal.required' => 'Tanggal tidak boleh kosong',
+    //             'nomor_faktur.required' => 'Nomor Fakur tidak boleh kosong',
+    //             'referensi_akun.required' => 'Referensi Akun tidak boleh kosong',
+    //             'nama_pelanggan.max' => 'Nama Pelanggan maximal 20 karakter',
+    //             'status_penjualan.required' => 'Status Penjualan tidak boleh kosong',
+    //             'total.numeric' => 'Total harus berupa angka',
+    //         ];
+    // }
 }

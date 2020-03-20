@@ -10,7 +10,7 @@
             <h1>Daftar Akun</h1>
 
             <div class="section-header-breadcrumb">
-              <a href="{{ url('buatakun') }} " class="btn btn-primary" id="modal-5"><i class="fas fa-user-plus"></i> Buat Akun</a>
+              <a href="#" class="btn btn-primary" id="modal-5"><i class="fas fa-user-plus"></i> Buat Akun</a>
             </div>
         </div>
         
