@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Petty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PettyCashController extends Controller
 {
@@ -14,9 +15,19 @@ class PettyCashController extends Controller
      */
     public function index()
     {
-        //
         $petty = Petty::all();
-        return view('petty.index', compact('petty'));
+        $pettymasuk = Petty::where('jenis_transaksi', 'masuk')->sum('nilai_transaksi');
+        $masuk = number_format($pettymasuk, 0, ".", ".");
+
+        $pettykeluar = Petty::where('jenis_transaksi', 'keluar')->sum('nilai_transaksi');
+        $keluar = number_format($pettykeluar, 0, ".", ".");
+
+        $pettysaldo = $pettymasuk - $pettykeluar;
+        $saldo = number_format($pettysaldo, 0, ".", ".");
+
+        $jumlah = Petty::all()->count();
+
+        return view('petty.index', compact('petty', 'masuk', 'keluar', 'saldo', 'jumlah'));
     }
 
     /**
@@ -38,16 +49,15 @@ class PettyCashController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $total = str_replace(',', '', $request->nilai_transaksi);
         Petty::create([
-
             'tanggal' => $request->tanggal,
-            'nilai_transaksi' => $request->nilai_transaksi,
+            'nilai_transaksi' => $total,
             'jenis_transaksi' => $request->jenis_transaksi,
             'referensi_akun' => $request->referensi_akun,
             'keterangan' => $request->keterangan,
-            ]);
-            return redirect('/petty');
+        ]);
+        return redirect('/petty');
     }
 
     /**
@@ -56,9 +66,41 @@ class PettyCashController extends Controller
      * @param  \App\Petty  $petty
      * @return \Illuminate\Http\Response
      */
-    public function show(Petty $petty)
+    public function show(Request $request)
     {
-        //
+        // $search = $request->search;
+        //mengambil tanggal dari search
+        $date1 = substr($request->search, 0, 10);
+        $date2 = substr($request->search, 13, 10);
+        $petty = DB::table('petty')
+            ->whereBetween('tanggal', [$date1, $date2])
+            ->get();
+
+        $pettymasuk = DB::table('petty')
+            ->whereBetween('tanggal', [$date1, $date2])
+            ->where(function ($query) {
+                $query->where('jenis_transaksi', '=', 'masuk');
+            })
+            ->sum('nilai_transaksi');
+        $masuk = number_format($pettymasuk, 0, ".", ".");
+
+        // dd($masuk);
+        $pettykeluar = DB::table('petty')
+            ->whereBetween('tanggal', [$date1, $date2])
+            ->where(function ($query) {
+                $query->where('jenis_transaksi', '=', 'keluar');
+            })
+            ->sum('nilai_transaksi');
+        $keluar = number_format($pettykeluar, 0, ".", ".");
+
+        $pettysaldo = $pettymasuk - $pettykeluar;
+        $saldo = number_format($pettysaldo, 0, ".", ".");
+
+        $jumlah = DB::table('petty')
+            ->whereBetween('tanggal', [$date1, $date2])
+            ->count();
+
+        return view('petty.index', compact('petty', 'masuk', 'keluar', 'jumlah', 'saldo'));
     }
 
     /**
@@ -69,7 +111,6 @@ class PettyCashController extends Controller
      */
     public function edit(Petty $petty)
     {
-        //
     }
 
     /**
@@ -97,13 +138,13 @@ class PettyCashController extends Controller
 
     public function validation(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'tanggal' => 'required',
             'nilai_transaksi' => 'required|numeric',
             'jenis_transaksi' => 'required',
             'keterangan' => 'required|min:5|max:20'
-            
+
         ]);
-        return view('/petty',['p' => $request]);
+        return view('/petty', ['p' => $request]);
     }
 }

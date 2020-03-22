@@ -110,7 +110,16 @@
                         <td> <div class="badge badge-success">Lunas</div> </td>
                         <td>Aplikasi Guru PAI</td>
                         <td>Rp. 45.000.000</td>
-                        <td> <a href="#" class="btn btn-info btn-icon"><i class="far fa-eye"></i></a></td>
+                        <td> <div class="dropdown d-inline">
+                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pilihan
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
+                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                            <a class="dropdown-item has-icon" href="{{ url('invoicepreview') }} "><i class="fas fa-fw fa-book-open"></i> Preview</a>
+                          </div>
+                        </div></td>
                       </tr>
 
                       <tr>
@@ -127,7 +136,16 @@
                         <td><div class="badge badge-warning">Termin I</div></td>
                         <td>Aplikasi SIPUSPA</td>
                         <td>Rp. 20.000.000</td>
-                        <td><a href="#" class="btn btn-info btn-icon"><i class="far fa-eye"></i></a></td>
+                        <td><div class="dropdown d-inline">
+                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pilihan
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
+                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                            <a class="dropdown-item has-icon" href="{{ url('invoicepreview') }}"><i class="fas fa-fw fa-book-open"></i> Preview</a>
+                          </div>
+                        </div></td>
                       </tr>
 
                       <tr>
@@ -144,7 +162,16 @@
                         <td><div class="badge badge-success">Lunas</div></td>
                         <td>Mobile Banking</td>
                         <td>Rp. 90.000.000</td>
-                        <td><a href="#" class="btn btn-info btn-icon"><i class="far fa-eye"></i></a></td>
+                        <td><div class="dropdown d-inline">
+                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pilihan
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
+                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                            <a class="dropdown-item has-icon" href="{{ url('invoicepreview') }}"><i class="fas fa-fw fa-book-open"></i> Preview</a>
+                          </div>
+                        </div></td>
                       </tr>
 
                       </tbody>

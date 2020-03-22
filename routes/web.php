@@ -37,6 +37,8 @@ Route::get('/petty/buat_petty', 'PettyCashController@create');
 Route::post('/petty', 'PenjualanController@validation');
 Route::post('/petty', 'PettyCashController@store');
 
+Route::post('/search', 'PettyCashController@show');
+
 Route::get('surat', function () {
     return view('surat.index');
 });
@@ -59,4 +61,8 @@ Route::get('invoice', function () {
 
 Route::get('buatinvoice', function () {
     return view('invoice.buatinvoice');
+});
+
+Route::get('invoicepreview', function () {
+    return view('invoice.preview');
 });

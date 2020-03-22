@@ -13,6 +13,8 @@
             </div>
             <div class="collapse" id="mycard-collapse">
               <div class="card-body">
+                <form action="{{ url('/search') }} " method="post">
+                  @csrf
                 <div class="form-group">
                   <label>Transaksi :</label>
                   <div class="input-group">
@@ -21,10 +23,11 @@
                         <i class="fas fa-calendar"></i>
                       </div>
                     </div>
-                    <input type="text" class="form-control daterange">
+                    <input type="text" class="form-control daterange" name="search">
                   </div>
                 </div>
-                <a href="#" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</a>
+                <button type="submit" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</button>
+              </form>
               </div>
               
             </div>
@@ -46,7 +49,7 @@
                         <h4>Pemasukan (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        500.000
+                        {{ $masuk }}
                       </div>
                     </div>
                   </div>
@@ -62,7 +65,7 @@
                         <h4>Pengeluaran (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        190.000
+                        {{ $keluar }}
                       </div>
                     </div>
                   </div>
@@ -78,7 +81,7 @@
                         <h4>Saldo (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        310.000
+                        {{ $saldo }}
                       </div>
                     </div>
                   </div>
@@ -94,7 +97,7 @@
                         <h4>Transaksi </h4>
                       </div>
                       <div class="card-body">
-                        4
+                        {{ $jumlah }}
                       </div>
                     </div>
                   </div>
@@ -127,14 +130,14 @@
                       <tbody>
                         @foreach ($petty as $p)
                         <tr>
-                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border">{{$p->tanggal}}</td>
-                            <td class="border">{{$p->referensi_akun}}</td>
-                            <td class="border">{{$p->jenis_transaksi}}</td>
-                            <td class="border ">{{$p->keterangan}}</td>
-                            <td class="border">Rp. {{($p->nilai_transaksi)}}</td>
-                            <td class="border">@if ($p->jenis_transaksi == "Keluar")
-                              <a href="#" class="badge badge-info">[Verifikasi]</a>
+                            <th scope="row"> {{ $loop->iteration }} </th>
+                            <td>{{$p->tanggal}}</td>
+                            <td>{{$p->referensi_akun}}</td>
+                            <td>{{$p->jenis_transaksi}}</td>
+                            <td>{{$p->keterangan}}</td>
+                            <td>Rp. <div class="currency" style="display:inline-table;">{{$p->nilai_transaksi}}</div></td>
+                            <td>@if ($p->jenis_transaksi == "keluar")
+                              <a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a>
                               @else
                                 -
                               @endif</td>

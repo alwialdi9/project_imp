@@ -27,7 +27,7 @@ class SendRequest extends FormRequest
             'tanggal' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
-            'nama_pelanggan' => 'required|min:20',
+            'nama_pelanggan' => 'required',
             'status_penjualan' => 'required',
             'total' => 'required'
         ];
@@ -41,7 +41,7 @@ class SendRequest extends FormRequest
             'referensi_akun.required' => 'Referensi Akun tidak boleh kosong',
             'nama_pelanggan.max' => 'Nama Pelanggan minimal 20 karakter',
             'status_penjualan.required' => 'Status Penjualan tidak boleh kosong',
-            'total.numeric' => 'Total tidak boleh kosong'
+            'total.required' => 'Total tidak boleh kosong'
         ];
     }
 }
