@@ -60,16 +60,8 @@
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
-<<<<<<< HEAD
               <a href="features-activities.html" class="dropdown-item has-icon">
                 <i class="fas fa-bolt"></i> Activities
-=======
-              @if ()
-                  
-              @endif
-              <a href="features-activities.html" class="dropdown-item has-icon">
-                <i class="fas fa-user-plus"></i> Add User
->>>>>>> 78cf913ddb234f8df07571e1e64f2d9c1a58d7d8
               </a>
               <a href="features-settings.html" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i> Settings
@@ -103,16 +95,16 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-fw fa-dollar-sign"></i> <span>Keuangan</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ url('penjualan') }} ">Penjualan</a></li>
-                  <li><a class="nav-link" href="{{ url('pembelian') }} ">Pembelian</a></li>
-                  <li><a class="nav-link" href="{{ url('biaya') }} ">Biaya</a></li>
+                  <li><a class="nav-link" href="{{ url('/penjualan') }} ">Penjualan</a></li>
+                  <li><a class="nav-link" href="{{ url('/pembelian') }} ">Pembelian</a></li>
+                  <li><a class="nav-link" href="{{ url('/biaya') }} ">Biaya</a></li>
                 </ul>
               </li>
               <li class="{{-- active --}}"><a class="nav-link" href="{{ url('/petty') }} "><i class="fas fa-fw fa-wallet"></i> <span>Pattycash</span></a></li>
 
-              <li class=""><a class="nav-link" href="{{ url('surat') }} "><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
-              <li class=""><a class="nav-link" href="{{ url('akun') }} "><i class="fas fa-fw fa-user-alt"></i> <span>Akun</span></a></li>
-              <li class=""><a class="nav-link" href="{{ url('invoice') }} "><i class="fas fa-fw fa-file-invoice"></i> <span>Invoice</span></a></li>
+              <li class=""><a class="nav-link" href="{{ url('/surat') }} "><i class="fas fa-fw fa-envelope"></i> <span>Surat</span></a></li>
+              <li class=""><a class="nav-link" href="{{ url('/akun') }} "><i class="fas fa-fw fa-user-alt"></i> <span>Akun</span></a></li>
+              <li class=""><a class="nav-link" href="{{ url('/invoice') }} "><i class="fas fa-fw fa-file-invoice"></i> <span>Invoice</span></a></li>
 
               {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>

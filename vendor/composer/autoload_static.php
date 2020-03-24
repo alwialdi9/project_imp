@@ -4584,10 +4584,7 @@ class ComposerStaticInit99dca9677585eaab9c56a2fe3d924975
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-<<<<<<< HEAD
-=======
         'userSeeder' => __DIR__ . '/../..' . '/database/seeds/userSeeder.php',
->>>>>>> 78cf913ddb234f8df07571e1e64f2d9c1a58d7d8
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 
