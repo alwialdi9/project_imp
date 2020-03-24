@@ -33,6 +33,7 @@
   <script src="{{ asset('modules/jquery.min.js') }}"></script>
   <script src="{{ asset('modules/popper.js') }}"></script>
   <script src="{{ asset('modules/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('modules/sweetalert/sweetalert.min.js') }} "></script>
   <script src="{{ asset('js/wizard.js') }} "></script>
 
   
@@ -71,7 +72,8 @@
   <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
   @endif
   <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
-
+  <script src="{{ asset('js/page/modules-sweetalert.js') }} "></script>
+  
   <script src="{{ asset('modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }} "></script>
   <script src="{{ asset('modules/cleave-js/dist/cleave.min.js') }} "></script>
   <script src="{{ asset('js/page/forms-advanced-forms.js') }} "></script>

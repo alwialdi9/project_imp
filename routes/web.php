@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index');
-Route::get('login', 'LoginController@index');
+Route::get('/', 'LoginController@index');
 
+Route::get('/dashboard', 'LoginController@index');
+Route::get('/login', 'LoginController@login');
+Route::post('/loginPost', 'LoginController@loginPost');
+Route::get('/register', 'LoginController@register');
+Route::post('/registerPost', 'LoginController@registerPost');
+Route::get('/logout', 'LoginController@logout');
+
+
+Route::get('dashboard', 'DashboardController@index');
 Route::get('/keuangan', 'KeuanganController@index');
 Route::get('/keuangan/create', 'KeuanganController@create');
 
@@ -68,4 +76,3 @@ Route::get('invoicepreview', function () {
 //     $surat = 'surat';
 //     return view('surat.suratkeluar', compact('surat'));
 // });
-

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Dasboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -15,12 +16,11 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        // if ($request->session()->get('login') == 'admin' || $request->session()->get('login') == 'operator') {
+        if (!Session::get('login')) {
+            return redirect('login')->with('alert', 'Anda harus login dulu');
+        } else {
             return view('dashboard.index');
-        // } else {
-        //     # code...
-        //     return view('auth.login');
-        // }
+        }
     }
 
     /**
