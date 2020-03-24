@@ -60,8 +60,16 @@
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
+<<<<<<< HEAD
               <a href="features-activities.html" class="dropdown-item has-icon">
                 <i class="fas fa-bolt"></i> Activities
+=======
+              @if ()
+                  
+              @endif
+              <a href="features-activities.html" class="dropdown-item has-icon">
+                <i class="fas fa-user-plus"></i> Add User
+>>>>>>> 78cf913ddb234f8df07571e1e64f2d9c1a58d7d8
               </a>
               <a href="features-settings.html" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i> Settings

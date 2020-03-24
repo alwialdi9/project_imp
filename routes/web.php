@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'DashboardController@index');
+Route::get('login', 'LoginController@index');
 
 Route::get('/keuangan', 'KeuanganController@index');
 Route::get('/keuangan/create', 'KeuanganController@create');
@@ -33,6 +34,7 @@ Route::post('/biaya', 'BiayaController@store');
 Route::get('/petty', 'PettyCashController@index');
 Route::get('/petty/buat_petty', 'PettyCashController@create');
 Route::post('/petty', 'PettyCashController@store');
+Route::post('/search', 'PettyCashController@show');
 
 Route::get('/surat', 'SuratController@index');
 Route::get('/surat/suratmasuk', 'SuratController@create');
@@ -45,3 +47,25 @@ Route::get('akun', 'AkunController@index');
 Route::get('/invoice', 'InvoiceController@index');
 Route::get('/invoice/buatinvoice', 'InvoiceController@create');
 Route::post('/invoice', 'InvoiceController@store');
+
+Route::post('/petty', 'PenjualanController@validation');
+Route::post('/petty', 'PettyCashController@store');
+Route::get('invoicepreview', function () {
+    return view('invoice.preview');
+});
+
+
+// Route::get('surat', function () {
+//     return view('surat.index');
+// });
+
+// Route::get('suratmasuk', function () {
+//     $surat = 'surat';
+//     return view('surat.suratmasuk', compact('surat'));
+// });
+
+// Route::get('suratkeluar', function () {
+//     $surat = 'surat';
+//     return view('surat.suratkeluar', compact('surat'));
+// });
+

@@ -38,7 +38,7 @@
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
-                        <h4>Pengeluaran (Rp) </h4>
+                        <h4>Penjualan Jatuh Tempo (Rp) </h4>
                       </div>
                       <div class="card-body">
                         140.000.000

@@ -23,6 +23,8 @@ class SuratController extends Controller
         $keluar = Surat::where('jenis', 'Keluar')->count();
         $jumlah = Surat::all()->count();
         return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah'), ['surat_id' => $surat_id]);
+        $petty = Petty::all();
+        return view('surat.index', compact('surat'));
     }
 
     /**
