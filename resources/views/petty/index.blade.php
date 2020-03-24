@@ -121,26 +121,41 @@
                             <th scope="col">No</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Referensi Akun</th>
-                            <th scope="col">Jenis Transaksi</th>
+                            <th scope="col">Pemasukan</th>
+                            <th scope="col">Pengeluaran</th>
                             <th scope="col" >Keterangan</th>
-                            <th scope="col">Nominal</th>
-                            <th scope="col">Aksi</th>
+                            {{-- <th scope="col" >Action</th> --}}
                         </tr>
                       </thead>
                       <tbody>
                         @foreach ($petty as $p)
                         <tr>
                             <th scope="row"> {{ $loop->iteration }} </th>
-                            <td>{{$p->tanggal}}</td>
+                            <td>{{$p->tanggal}}
+                            </td>
                             <td>{{$p->referensi_akun}}</td>
-                            <td>{{$p->jenis_transaksi}}</td>
-                            <td>{{$p->keterangan}}</td>
-                            <td>Rp. <div class="currency" style="display:inline-table;">{{$p->nilai_transaksi}}</div></td>
-                            <td>@if ($p->jenis_transaksi == "keluar")
-                              <a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Verifikasi</a>
+                            <td>
+                              @if ($p->jenis_transaksi == "masuk")
+                              Rp. <div class="currency" style="display:inline-table;">{{$p->nilai_transaksi}}
                               @else
-                                -
-                              @endif</td>
+                                
+                              @endif
+                            </td>
+                            <td>
+                              @if ($p->jenis_transaksi == "keluar")
+                              Rp. <div class="currency" style="display:inline-table;">{{$p->nilai_transaksi}}
+                              @else
+                                
+                              @endif
+                            </td>
+                            <td>{{$p->keterangan}}
+                              {{-- <div class="table-links">
+                                
+                                <a href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                                
+                              </div> --}}
+                            </td>
+                            {{-- <td><a class="btn btn-icon icon-left btn-success" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a></td> --}}
                         </tr>
                         @endforeach
                      </tbody>

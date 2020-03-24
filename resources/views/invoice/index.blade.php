@@ -89,10 +89,9 @@
                           <th>Tanggal</th>
                           <th>Nomor Faktur</th>
                           <th>Pelanggan</th>
-                          <th>Keterangan</th>
+                          <th>Status</th>
                           <th>Keterangan</th>
                           <th>Nilai Transaksi</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -103,6 +102,13 @@
                         <td>09-02-2020</td>
                         <td class="align-middle">
                           134/FT/IMP/II/2020
+                          <div class="table-links">
+                            <a href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
+                            <div class="bullet"></div>
+                            <a href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                            <div class="bullet"></div>
+                            <a href="{{ url('invoicepreview') }} "><i class="fas fa-fw fa-book-open"></i> Preview</a>
+                          </div>
                         </td>
                         <td>
                           Kemenag RI
@@ -110,16 +116,7 @@
                         <td> <div class="badge badge-success">Lunas</div> </td>
                         <td>Aplikasi Guru PAI</td>
                         <td>Rp. 45.000.000</td>
-                        <td> <div class="dropdown d-inline">
-                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pilihan
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
-                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
-                            <a class="dropdown-item has-icon" href="{{ url('invoicepreview') }} "><i class="fas fa-fw fa-book-open"></i> Preview</a>
-                          </div>
-                        </div></td>
+                        
                       </tr>
 
                       <tr>
@@ -129,6 +126,13 @@
                         <td>11-02-2020</td>
                         <td class="align-middle">
                           134/FT/IMP/II/2020
+                          <div class="table-links">
+                            <a href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
+                            <div class="bullet"></div>
+                            <a href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                            <div class="bullet"></div>
+                            <a href="{{ url('invoicepreview') }} "><i class="fas fa-fw fa-book-open"></i> Preview</a>
+                          </div>
                         </td>
                         <td>
                             BNN
@@ -136,16 +140,7 @@
                         <td><div class="badge badge-warning">Termin I</div></td>
                         <td>Aplikasi SIPUSPA</td>
                         <td>Rp. 20.000.000</td>
-                        <td><div class="dropdown d-inline">
-                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pilihan
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
-                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
-                            <a class="dropdown-item has-icon" href="{{ url('invoicepreview') }}"><i class="fas fa-fw fa-book-open"></i> Preview</a>
-                          </div>
-                        </div></td>
+                        
                       </tr>
 
                       <tr>
@@ -155,6 +150,13 @@
                         <td>12-02-2020</td>
                         <td class="align-middle">
                           135/FT/IMP/II/2020
+                          <div class="table-links">
+                            <a href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
+                            <div class="bullet"></div>
+                            <a href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
+                            <div class="bullet"></div>
+                            <a href="{{ url('invoicepreview') }} "><i class="fas fa-fw fa-book-open"></i> Preview</a>
+                          </div>
                         </td>
                         <td>
                             BNI
@@ -162,16 +164,7 @@
                         <td><div class="badge badge-success">Lunas</div></td>
                         <td>Mobile Banking</td>
                         <td>Rp. 90.000.000</td>
-                        <td><div class="dropdown d-inline">
-                          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pilihan
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-share-alt"></i> Kirim</a>
-                            <a class="dropdown-item has-icon" href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>
-                            <a class="dropdown-item has-icon" href="{{ url('invoicepreview') }}"><i class="fas fa-fw fa-book-open"></i> Preview</a>
-                          </div>
-                        </div></td>
+                        
                       </tr>
 
                       </tbody>

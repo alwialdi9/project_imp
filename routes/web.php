@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'DashboardController@index');
+Route::get('login', 'LoginController@index');
 
 Route::get('/keuangan', 'KeuanganController@index');
 Route::get('/keuangan/create', 'KeuanganController@create');

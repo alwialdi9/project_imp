@@ -46,7 +46,7 @@
 
     <footer class="main-footer">
       <div class="footer-left">
-        Copyright &copy; 2020 <div class="bullet"></div><a href="https://impstudio.id/">IMP Studio</a>
+        Copyright &copy; <?= date('Y') ?> <div class="bullet"></div><a href="https://impstudio.id/">IMP Studio</a>
       </div>
       {{-- <div class="footer-right">
         
