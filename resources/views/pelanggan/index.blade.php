@@ -7,10 +7,10 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Daftar Akun</h1>
+            <h1>Daftar Pelanggan</h1>
 
             <div class="section-header-breadcrumb">
-              <a href="#" class="btn btn-primary" id="modal-5"><i class="fas fa-user-plus"></i> Buat Akun</a>
+              <a href="#" class="btn btn-primary" id="modal-6"><i class="fas fa-user-plus"></i> Tambah Pelanggan</a>
             </div>
         </div>
         
@@ -23,10 +23,10 @@
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
-                        <h4>Akun Tersedia </h4>
+                        <h4>Total Pelanggan </h4>
                       </div>
                       <div class="card-body">
-                        {{ $totalakun }}
+                        {{ $total }}
                       </div>
                     </div>
                   </div>
@@ -39,25 +39,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h4>Data Akun</h4>
-
-                <div class="card-header-action dropdown">
-                <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><i class="fas fa-filter"></i> Filter Akun</a>
-                <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                    <li class="dropdown-title">Pilih Akun</li>
-                    <li><a href="{{ url('akun') }} " class="dropdown-item">Semua</a></li>
-                    <li><a href="{{ url('akun/1') }} " class="dropdown-item">Kas & Bank</a></li>
-                    <li><a href="{{ url('akun/2') }} " class="dropdown-item">Akun Piutang</a></li>
-                    <li><a href="{{ url('akun/3') }} " class="dropdown-item">Aktiva Tetap</a></li>
-                    <li><a href="{{ url('akun/4') }} " class="dropdown-item">Aktiva Lancar</a></li>
-                    <li><a href="{{ url('akun/5') }} " class="dropdown-item">Akun Hutang</a></li>
-                    <li><a href="{{ url('akun/6') }} " class="dropdown-item">Kewajiban Jangka Panjang</a></li>
-                    <li><a href="{{ url('akun/7') }} " class="dropdown-item">Ekuitas</a></li>
-                    <li><a href="{{ url('akun/8') }} " class="dropdown-item">Pendapatan</a></li>
-                    <li><a href="{{ url('akun/9') }} " class="dropdown-item">Beban Usaha</a></li>
-                    <li><a href="{{ url('akun/10') }} " class="dropdown-item">Beban</a></li>
-                  </ul>
-            </div>
+                <h4>Data Pelanggan</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -67,23 +49,32 @@
                           <th class="text-center">
                             #
                           </th>
-                        <th>Kode Akun</th>
-                        <th>Nama Akun</th>
-                        <th>Kategori Akun</th>
+                        <th>Nama Lengkap</th>
+                        <th>Email</th>
+                        <th>Telepon</th>
+                        <th>Faksimile</th>
+                        <th>Instansi</th>
+                        <th>Alamat</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach ($akun as $akun)    
+                          @foreach ($pelanggan as $p)    
                           <tr>
                             <td class="text-center">
                               {{ $loop->iteration }}
                             </td>
-                            <td>{{ $akun->kode_akun }} </td>
+                            <td>{{ $p->nama_lengkap }} </td>
                             <td class="align-middle">
-                              {{ $akun->nama_akun }}
+                              {{ $p->email }}
                             </td>
                             <td>
-                              {{ $akun->kategori_akun }}
+                              {{ $p->faksimile }}
+                            </td>
+                            <td>
+                              {{ $p->instansi }}
+                            </td>
+                            <td>
+                              {{ $p->alamat }}
                             </td>
                             
                           </tr>
@@ -99,40 +90,77 @@
 
     <form class="modal-part" id="modal-login-part">
         <div class="form-group">
-          <label>Kode Akun</label>
+          <label>Nama Lengkap</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <i class="fas fa-fw fa-user-cog"></i>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Kode Akun" name="email">
+            <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama_lengkap">
           </div>
         </div>
 
         <div class="form-group">
-          <label>Nama Akun</label>
+          <label>Email</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-at"></i>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Nama Akun" name="email">
+            <input type="text" class="form-control" placeholder="Email" name="email">
           </div>
         </div>
 
         <div class="form-group">
-          <label>Kategori Akun</label>
+          <label>Telepon</label>
+          <div class="input-group only-numbers">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-phone"></i>
+              </div>
+            </div>
+            <input type="text" class="form-control phone-number" placeholder="Telepon" name="telepon" id="telepon">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Faksimile</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text">
-                <i class="fas fa-user-tag"></i>
+                <i class="fas fa-fw fa-fax"></i>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Kategori Akun" name="password">
+            <input type="text" class="form-control" placeholder="Faksimile" name="faksimile">
           </div>
         </div>
+
+        <div class="form-group">
+          <label>Instansi</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-fw fa-building"></i>
+              </div>
+            </div>
+            <input type="text" class="form-control" placeholder="Instansi" name="instansi">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Alamat</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+            </div>
+            <input type="text" class="form-control" placeholder="Alamat" name="alamat">
+          </div>
+        </div>
+
       </form>
 
 </div>

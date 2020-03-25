@@ -67,12 +67,12 @@
   
   <!-- Template JS File -->
   <script src="{{ asset('modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }} "></script>
+  <script src="{{ asset('js/page/modules-sweetalert.js') }} "></script>
 
-  @if ($surat ?? '')
+  @if ($nampilgambar ?? '')
   <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
   @endif
   <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
-  <script src="{{ asset('js/page/modules-sweetalert.js') }} "></script>
   
   <script src="{{ asset('modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }} "></script>
   <script src="{{ asset('modules/cleave-js/dist/cleave.min.js') }} "></script>

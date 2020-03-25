@@ -13,7 +13,7 @@ class LoginController extends Controller
     public function index()
     {
         if (!Session::get('login')) {
-            return redirect('login')->with('alert', 'Anda harus login dulu');
+            return redirect('login');
         } else {
             return view('dashboard.index');
         }

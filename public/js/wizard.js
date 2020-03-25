@@ -64,4 +64,257 @@ $(document).ready(function () {
     $('#save-button').hide();
     $('.total-harga').hide();
     $('.about-aplikasi').hide();
+
+
+    $('.btn-wizard-laba').click(function () {
+        var menu = $(this).attr('id');
+        var element = document.getElementById("penerimaan");
+        var element2 = document.getElementById("biaya_projek");
+        var element3 = document.getElementById("biaya_tetap");
+        var element4 = document.getElementById("biaya_administrasi");
+
+        if (menu == "next-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element2.classList.add("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            $('#back-mid-button').show();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#next-button').hide();
+            $('#save-button').hide();
+            $('#back-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.biaya_projek').show(1200);
+            $('.biaya_tetap').hide(1200);
+            $('.biaya_administrasi').hide(1200);
+        }
+
+        if (menu == "back-mid-button") {
+            element2.classList.remove("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element.classList.add("wizard-step-active");
+            $('#back-button').hide();
+            $('#next-button').show();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').hide();
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#save-button').hide();
+            $('.penerimaan').show(1200);
+            $('.biaya_projek').hide(1200);
+            $('.biaya_tetap').hide(1200);
+            $('.biaya_administrasi').hide(1200);
+        }
+
+        if (menu == "next-mid-button") {
+            element2.classList.remove("wizard-step-active");
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.add("wizard-step-active");
+            $('#back-button').show();
+            $('#save-button').hide();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').show();
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#next-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.biaya_projek').hide(1200);
+            $('.biaya_tetap').show(1200);
+            $('.biaya_administrasi').hide(1200);
+        }
+
+        if (menu == "back-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element2.classList.add("wizard-step-active");
+            $('#back-mid-button').show();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#save-button').hide();
+            $('#next-button').hide();
+            $('#back-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.biaya_projek').show(1200);
+            $('.biaya_tetap').hide(1200);
+            $('.biaya_administrasi').hide(1200);
+        }
+
+        if (menu == "next-mid2-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.add("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element2.classList.remove("wizard-step-active");
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').show();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').hide();
+            $('#save-button').show();
+            $('#next-button').hide();
+            $('#back-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.biaya_projek').hide(1200);
+            $('.biaya_tetap').hide(1200);
+            $('.biaya_administrasi').show(1200);
+        }
+
+        if (menu == "back-mid2-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.add("wizard-step-active");
+            element2.classList.remove("wizard-step-active");
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#save-button').hide();
+            $('#next-button').hide();
+            $('#back-button').show();
+            $('.penerimaan').hide(1200);
+            $('.biaya_projek').show(1200);
+            $('.biaya_tetap').hide(1200);
+            $('.biaya_administrasi').hide(1200);
+        }
+    })
+    $('#back-button').hide();
+    $('#back-mid-button').hide();
+    $('#back-mid2-button').hide();
+    $('#next-mid-button').hide();
+    $('#next-mid2-button').hide();
+    $('#save-button').hide();
+    $('.biaya_projek').hide();
+    $('.biaya_tetap').hide();
+    $('.biaya_administrasi').hide();
+    // ---------------------------------------------------
+
+    $('.btn-wizard-kas').click(function () {
+        var menu = $(this).attr('id');
+        var element = document.getElementById("penerimaan");
+        var element2 = document.getElementById("pengeluaran");
+        var element3 = document.getElementById("pengeluaran_lain");
+        var element4 = document.getElementById("total_keseluruhan");
+
+        if (menu == "next-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element2.classList.add("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            $('#back-mid-button').show();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#next-button').hide();
+            $('#save-button').hide();
+            $('#back-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.pengeluaran').show(1200);
+            $('.pengeluaran_lainnya').hide(1200);
+            $('.total_keseluruhan').hide(1200);
+        }
+
+        if (menu == "back-mid-button") {
+            element2.classList.remove("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element.classList.add("wizard-step-active");
+            $('#back-button').hide();
+            $('#next-button').show();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').hide();
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#save-button').hide();
+            $('.penerimaan').show(1200);
+            $('.pengeluaran').hide(1200);
+            $('.pengeluaran_lainnya').hide(1200);
+            $('.total_keseluruhan').hide(1200);
+        }
+
+        if (menu == "next-mid-button") {
+            element2.classList.remove("wizard-step-active");
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.add("wizard-step-active");
+            $('#back-button').show();
+            $('#save-button').hide();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').show();
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#next-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.pengeluaran').hide(1200);
+            $('.pengeluaran_lainnya').show(1200);
+            $('.total_keseluruhan').hide(1200);
+        }
+
+        if (menu == "back-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element2.classList.add("wizard-step-active");
+            $('#back-mid-button').show();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#save-button').hide();
+            $('#next-button').hide();
+            $('#back-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.pengeluaran').show(1200);
+            $('.pengeluaran_lainnya').hide(1200);
+            $('.total_keseluruhan').hide(1200);
+        }
+
+        if (menu == "next-mid2-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.add("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element2.classList.remove("wizard-step-active");
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').show();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').hide();
+            $('#save-button').show();
+            $('#next-button').hide();
+            $('#back-button').hide();
+            $('.penerimaan').hide(1200);
+            $('.pengeluaran').hide(1200);
+            $('.pengeluaran_lainnya').hide(1200);
+            $('.total_keseluruhan').show(1200);
+        }
+
+        if (menu == "back-mid2-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.add("wizard-step-active");
+            element2.classList.remove("wizard-step-active");
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#save-button').hide();
+            $('#next-button').hide();
+            $('#back-button').show();
+            $('.penerimaan').hide(1200);
+            $('.pengeluaran').show(1200);
+            $('.pengeluaran_lainnya').hide(1200);
+            $('.total_keseluruhan').hide(1200);
+        }
+    })
+    $('#back-button').hide();
+    $('#back-mid-button').hide();
+    $('#back-mid2-button').hide();
+    $('#next-mid-button').hide();
+    // $('#next-button').show();
+    $('#next-mid2-button').hide();
+    $('#save-button').hide();
+    $('.pengeluaran').hide();
+    $('.pengeluaran_lainnya').hide();
+    $('.total_keseluruhan').hide();
 })

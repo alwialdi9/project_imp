@@ -49,7 +49,9 @@
                         <h4>Pemasukan (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        {{ $masuk }}
+                        
+                            {{ $masuk ?? '' == 0 }}
+                        {{-- {{ $masuk ?? '' }} --}}
                       </div>
                     </div>
                   </div>
@@ -65,7 +67,7 @@
                         <h4>Pengeluaran (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        {{ $keluar }}
+                        {{ $keluar ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -81,7 +83,7 @@
                         <h4>Saldo (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        {{ $saldo }}
+                        {{ $saldo ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -97,7 +99,7 @@
                         <h4>Transaksi </h4>
                       </div>
                       <div class="card-body">
-                        {{ $jumlah }}
+                        {{ $jumlah ?? '' }}
                       </div>
                     </div>
                   </div>

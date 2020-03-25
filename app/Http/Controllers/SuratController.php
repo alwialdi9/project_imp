@@ -24,7 +24,7 @@ class SuratController extends Controller
         $jumlah = Surat::all()->count();
         return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah'), ['surat_id' => $surat_id]);
         $petty = Petty::all();
-        return view('surat.index', compact('surat'));
+        return view('surat.index', compact('surat','masuk','keluar','jumlah'));
     }
 
     /**
@@ -35,8 +35,16 @@ class SuratController extends Controller
     public function create()
     {
         //
-        return view('surat.suratmasuk');
-        return view('surat.suratkeluar');
+        $nampilgambar = True;
+        return view('surat.suratmasuk', compact('nampilgambar'));
+    }
+
+    public function createkeluar()
+    {
+        //
+        $nampilgambar = True;
+
+        return view('surat.suratkeluar', compact('nampilgambar'));
     }
 
     /**

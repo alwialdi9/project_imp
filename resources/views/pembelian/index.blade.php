@@ -73,13 +73,13 @@
                       <tbody>
                         @foreach ( $pembelian as $b)
                         <tr>
-                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border">{{$b->tanggal}}</td>
-                            <td class="border">{{$b->nomor_faktur}}</td>
-                            <td class="border">{{$b->supplier}}</td>
-                            <td class="border">{{$b->status_pembelian}}</td>
-                            <td class="border">Rp. <div class="currency" style="display:inline-table;">{{$b->total}}</div></td>
-                            <td class="border">@if ($b->status_pembelian == "Lunas")
+                            <th scope="row"> {{ $loop->iteration }} </th>
+                            <td>{{$b->tanggal}}</td>
+                            <td>{{$b->nomor_faktur}}</td>
+                            <td>{{$b->supplier}}</td>
+                            <td>{{$b->status_pembelian}}</td>
+                            <td>Rp. <div class="currency" style="display:inline-table;">{{$b->total}}</div></td>
+                            <td>@if ($b->status_pembelian == "Lunas")
                               <a class="badge badge-info" href="#">Verifikasi</a>
                                 @else
                                   -

@@ -70,7 +70,7 @@ class PettyCashController extends Controller
      * @param  \App\Petty  $petty
      * @return \Illuminate\Http\Response
      */
-        //
+    //
     public function show(Request $request)
     {
         // $search = $request->search;

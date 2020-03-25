@@ -46,11 +46,12 @@ Route::post('/search', 'PettyCashController@show');
 
 Route::get('/surat', 'SuratController@index');
 Route::get('/surat/suratmasuk', 'SuratController@create');
-Route::get('/surat/suratkeluar', 'SuratController@create');
+Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
 Route::post('/surat', 'SuratController@store');
 
 
 Route::get('akun', 'AkunController@index');
+Route::get('akun/{id}', 'AkunController@show');
 
 Route::get('/invoice', 'InvoiceController@index');
 Route::get('/invoice/buatinvoice', 'InvoiceController@create');
@@ -62,6 +63,11 @@ Route::get('invoicepreview', function () {
     return view('invoice.preview');
 });
 
+Route::get('/pelanggan', 'PelangganController@index');
+
+Route::get('/labarugi', 'LabaRugiController@index');
+
+Route::get('/rencanaaruskas', 'RencanaKasController@index');
 
 // Route::get('surat', function () {
 //     return view('surat.index');

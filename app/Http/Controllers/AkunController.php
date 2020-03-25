@@ -48,7 +48,31 @@ class AkunController extends Controller
      */
     public function show($id)
     {
-        //
+        if ($id == 1) {
+            $kategori = "Kas & Bank";
+        } elseif ($id == 2) {
+            $kategori = "Akun Piutang";
+        } elseif ($id == 3) {
+            $kategori = "Aktiva Tetap";
+        } elseif ($id == 4) {
+            $kategori = "Aktiva Lancar";
+        } elseif ($id == 5) {
+            $kategori = "Akun Hutang";
+        } elseif ($id == 6) {
+            $kategori = "Kewajiban Jangka Panjang";
+        } elseif ($id == 7) {
+            $kategori = "Ekuitas";
+        } elseif ($id == 8) {
+            $kategori = "Pendapatan";
+        } elseif ($id == 9) {
+            $kategori = "Beban Usaha";
+        } elseif ($id == 10) {
+            $kategori = "Beban";
+        }
+
+        $akun = Akun::where('kategori_akun', $kategori)->get();
+        $totalakun = Akun::where('kategori_akun', $kategori)->count();
+        return view('akun.index', compact('akun', 'totalakun'));
     }
 
     /**
