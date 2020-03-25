@@ -62,7 +62,14 @@
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Nomor Faktur</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" id="nomor_faktur" required="">
+                            <input type="text" class="form-control" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" id="nomor_faktur" value="{{old('nomor_faktur')}}" required="">
+                            <div class="has-feedback{{ $errors->has('nomor_faktur') ? 'has-error' : ''}}">
+                              @if ($errors->has('nomor_faktur'))
+                              <span class="help-block">
+                                <p>{{ $errors->first('nomor_faktur') }} </p>
+                              </span>
+                              @endif
+                          </div>
                             </div>
                           </div>
 
@@ -75,7 +82,14 @@
                                         <i class="far far-fw fa-calendar-alt"></i>
                                       </div>
                                     </div>
-                                    <input type="text" id="tanggal_invoice" name="tanggal_invoice" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+                                    <input type="text" id="tanggal_invoice" name="tanggal_invoice" class="form-control datepicker" placeholder="Search..." autocomplete="off" value="{{old('tanggal_invoice')}}" required="">
+                                    <div class="has-feedback{{ $errors->has('tanggal_invoice') ? 'has-error' : ''}}">
+                                      @if ($errors->has('tanggal_invoice'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('tanggal_invoice') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
                                   </div>
                             </div>
                           </div>
@@ -83,18 +97,33 @@
                           <div class="form-group row">
                             <label class="col-md-4 text-md-right text-left mt-2">Pelanggan</label>
                             <div class="col-lg-4 col-md-6">
-                                <select class="form-control select2" id="pelanggan" name="pelanggan">
-                                    <option value="masuk">Kementrian Agama RI</option>
-                                    <option value="keluar">Direktorat Jenderal Pendidikan Islam</option>
+                                <select class="form-control select2" id="pelanggan" name="pelanggan" value="{{old('pelanggan')}}" required>
+                                    <option value="Kementrian Agama RI">Kementrian Agama RI</option>
+                                    <option value="Direktorat Jenderal Pendidikan Islam">Direktorat Jenderal Pendidikan Islam</option>
+                                    <option value="BNN">BNN</option>
                                   </select>
+                                  <div class="has-feedback{{ $errors->has('pelanggan') ? 'has-error' : ''}}">
+                                    @if ($errors->has('pelanggan'))
+                                    <span class="help-block">
+                                      <p>{{ $errors->first('pelanggan') }} </p>
+                                    </span>
+                                    @endif
+                                </div>
                             </div>
                           </div>
 
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Alamat</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" placeholder="Masukkan Alamat" name="alamat" id="alamat" required="">
-                            </div>
+                                <input type="text" class="form-control" placeholder="Masukkan Alamat" name="alamat" id="alamat" value="{{old('alamat')}}" required="">
+                                <div class="has-feedback{{ $errors->has('alamat') ? 'has-error' : ''}}">
+                                  @if ($errors->has('alamat'))
+                                  <span class="help-block">
+                                    <p>{{ $errors->first('alamat') }} </p>
+                                  </span>
+                                  @endif
+                              </div>
+                              </div>
                           </div>
 
                           <div class="form-group row align-items-center">
@@ -106,7 +135,14 @@
                                         <i class="fas fa-phone"></i>
                                       </div>
                                     </div>
-                                    <input type="text" class="form-control phone-number" name="telepon" id="telepon" placeholder="Masukkan telepon">
+                                    <input type="text" class="form-control phone-number" name="telepon" id="telepon" placeholder="Masukkan telepon" value="{{old('telepon')}}" required="">
+                                    <div class="has-feedback{{ $errors->has('telepon') ? 'has-error' : ''}}">
+                                      @if ($errors->has('telepon'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('telepon') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
                                   </div>
                             </div>
                           </div>
@@ -114,8 +150,15 @@
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Faximile</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" name="faximile" id="faximile" placeholder="Masukkan faximile">
-                            </div>
+                                <input type="text" class="form-control" name="faximile" id="faximile" placeholder="Masukkan faximile" value="{{old('faximile')}}" required="">
+                                <div class="has-feedback{{ $errors->has('faximile') ? 'has-error' : ''}}">
+                                  @if ($errors->has('faximile'))
+                                  <span class="help-block">
+                                    <p>{{ $errors->first('faximile') }} </p>
+                                  </span>
+                                  @endif
+                              </div>
+                              </div>
                           </div>
                         </div>
 
@@ -130,7 +173,14 @@
                                             <i class="far far-fw fa-calendar-alt"></i>
                                           </div>
                                         </div>
-                                        <input type="text" id="jatuh_tempo" name="jatuh_tempo" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+                                        <input type="text" id="jatuh_tempo" name="jatuh_tempo" class="form-control datepicker" placeholder="Search..." autocomplete="off" value="{{old('jatuh_tempo')}}" required="">
+                                        <div class="has-feedback{{ $errors->has('jatuh_tempo') ? 'has-error' : ''}}">
+                                          @if ($errors->has('jatuh_tempo'))
+                                          <span class="help-block">
+                                            <p>{{ $errors->first('jatuh_tempo') }} </p>
+                                          </span>
+                                          @endif
+                                      </div>
                                       </div>
                                 </div>
                               </div>
@@ -138,15 +188,29 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Cara Pembayaran</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control" placeholder="Masukkan Metode Pembayaran" name="metode_pembayaran" id="metode_pembayaran" required="">
-                                </div>
+                                    <input type="text" class="form-control" placeholder="Masukkan Metode Pembayaran" name="metode_pembayaran" id="metode_pembayaran" value="{{old('metode_pembayaran')}}" required="">
+                                    <div class="has-feedback{{ $errors->has('metode_pembayaran') ? 'has-error' : ''}}">
+                                      @if ($errors->has('metode_pembayaran'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('metode_pembayaran') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
+                                  </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Keterangan</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required="">
-                                </div>
+                                    <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" value="{{old('keterangan')}}" required="">
+                                    <div class="has-feedback{{ $errors->has('keterangan') ? 'has-error' : ''}}">
+                                      @if ($errors->has('keterangan'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('keterangan') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
+                                  </div>
                               </div>
 
                         </div>
@@ -156,7 +220,7 @@
                             <label class="col-md-4 text-md-right text-left">Kuantitas (Qty)</label>
                             <div class="col-lg-4 col-md-6">
                                 <div class="input-group only-numbers">
-                                    <input type="text" class="form-control phone-number" name="kuantitas" id="telepon" placeholder="Masukkan Kuantitas">
+                                    <input type="text" class="form-control phone-number" name="kuantitas" id="telepon" placeholder="Masukkan Kuantitas" value="{{old('kuantitas')}}"> 
                                   </div>
                             </div>
                           </div>
@@ -180,22 +244,36 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Harga Satuan</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Masukkan Harga Satuan" name="harga_satuan" id="harga_satuan" required="">
+                                    <input type="text" class="form-control currency" placeholder="Masukkan Harga Satuan" name="harga_satuan" id="harga_satuan" value="{{old('harga_satuan')}}" required="">
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Pajak</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Masukkan Pajak" name="pajak" id="pajak" required="">
-                                </div>
+                                    <input type="text" class="form-control currency" placeholder="Masukkan Pajak" name="pajak" id="pajak" value="{{old('pajak')}}" required="">
+                                    <div class="has-feedback{{ $errors->has('pajak') ? 'has-error' : ''}}">
+                                      @if ($errors->has('pajak'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('pajak') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
+                                  </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Total Tagihan</label>
                                 <div class="col-lg-4 col-md-6">
                                     <input type="text" class="form-control currency mata-uang" placeholder="Masukkan Total Tagihan" name="total_tagihan" id="terbilang-input" required="" onkeyup="inputTerbilang()">
-                                </div>
+                                    <div class="has-feedback{{ $errors->has('total_tagihan') ? 'has-error' : ''}}">
+                                      @if ($errors->has('total_tagihan'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('total_tagihan') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
+                                  </div>
                               </div>
 
                               <div class="form-group row align-items-center">
@@ -204,6 +282,13 @@
                                     <textarea type="text" class="form-control currency" placeholder="Masukkan Terbilang" name="terbilang" id="terbilang-output" required="">
 
                                     </textarea>
+                                    <div class="has-feedback{{ $errors->has('terbilang') ? 'has-error' : ''}}">
+                                      @if ($errors->has('terbilang'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('terbilang') }} </p>
+                                      </span>
+                                      @endif
+                                  </div>
                                 </div>
                               </div>
 

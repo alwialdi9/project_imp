@@ -35,7 +35,14 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
-                                  <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+                                <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off" required="" value="{{old ('tanggal')}}">
+                                <div class="has-feedback{{ $errors->has('tanggal') ? 'has-error' : ''}}">
+                                  @if ($errors->has('tanggal'))
+                                  <span class="help-block">
+                                    <p>{{ $errors->first('tanggal') }} </p>
+                                  </span>
+                                  @endif
+                              </div>
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
@@ -46,26 +53,38 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis Biaya</label>
                         <div class="col-sm-12 col-md-7">
-                          <select class="form-control" id="jenis_biaya" name="jenis_biaya" required>
+                          <select class="form-control" id="jenis_biaya" name="jenis_biaya" required value="{{old ('jenis_biaya')}}">
                             <option label="Pilih Jenis Biaya"></option>
                             <option value="masuk">Masuk</option>
                             <option value="keluar">Keluar</option>
                           </select>
+                          <div class="has-feedback{{ $errors->has('jenis_biaya') ? 'has-error' : ''}}">
+                            @if ($errors->has('jenis_biaya'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('jenis_biaya') }} </p>
+                            </span>
+                            @endif
+                        </div>
                         </div>
                       </div>
 
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                         <div class="col-sm-12 col-md-7">
-                          <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
-                            <option value="pembelian">6-50001 Biaya</option>
-                              <option>6-10002 Biaya</option>
-                              <option>6-10003 Biaya</option>
-                              <option>6-10004 Biaya</option>
-                              <option>6-10005 Biaya</option>
-                              <option>6-10006 Biaya</option>
+                          <select class="form-control select2" id="referensi_akun" name="referensi_akun" required value="{{old ('referensi_akun')}}">
+                            <option value="6-50001 Biaya">6-50001 Biaya</option>
+                              <option value="6-50002 Biaya">6-10002 Biaya</option>
+                              <option value="6-50003 Biaya">6-10003 Biaya</option>
+                              <option value="6-50004 Biaya">6-10004 Biaya</option>
+                              <option value="6-50005 Biaya">6-10005 Biaya</option>
+                              <option value="6-50006 Biaya">6-10006 Biaya</option>
                           </select>
-                          <div class="valid-feedback">
+                          <div class="has-feedback{{ $errors->has('referensi_akun') ? 'has-error' : ''}}">
+                            @if ($errors->has('referensi_akun'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('referensi_akun') }}</p>
+                            </span>
+                            @endif
                             {{-- formvalidation --}}
                             {{-- jika valid, tambahkan di input class is_valid --}}
                             {{-- jika invalid, tambahkan di input class is_invalid --}}
@@ -76,8 +95,13 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Keterangan</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required="">
-                        <div class="valid-feedback">
+                        <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required="" value="{{old ('keterangan')}}">
+                        <div class="has-feedback{{ $errors->has('keterangan') ? 'has-error' : ''}}">
+                          @if ($errors->has('keterangan'))
+                          <span class="help-block">
+                            <p>{{ $errors->first('keterangan') }} </p>
+                          </span>
+                          @endif
                             {{-- formvalidation --}}
                             {{-- jika valid, tambahkan di input class is_valid --}}
                             {{-- jika invalid, tambahkan di input class is_invalid --}}
@@ -89,32 +113,51 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Penerima</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control inputtags" placeholder="Masukkan Penerima" name="penerima" required="">
+                          <input type="text" class="form-control inputtags" placeholder="Masukkan Penerima" name="penerima" required="" value="{{old ('penerima')}}">
+                          <div class="has-feedback{{ $errors->has('penerima') ? 'has-error' : ''}}">
+                            @if ($errors->has('penerima'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('penerima') }} </p>
+                            </span>
+                            @endif
+                        </div>
                         </div>
                       </div>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control" name="status" required>
+                        <select class="form-control" name="status" required value="{{old ('status')}}">
                           <option>Lunas</option>
                           <option>Belum</option>
                           {{-- <option>Pending</option> --}}
                         </select>
+                        <div class="has-feedback{{ $errors->has('status') ? 'has-error' : ''}}">
+                          @if ($errors->has('status'))
+                          <span class="help-block">
+                            <p>{{ $errors->first('status') }} </p>
+                          </span>
+                          @endif
+                      </div>
                       </div>
                     </div>
 
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tag</label>
                         <div class="col-sm-12 col-md-7">
-                            <select class="form-control select2" id="tag" name="tag" multiple required>
+                            <select class="form-control select2" id="tag" name="tag" value="{{old ('tag')}}" multiple required>
                               <option value="Kemenag RI">Kemenag RI</option>
                               <option value="Server">Server</option>
                               <option value="Pending">Pending</option>
                               <option value="Option 4">Option 4</option>
                               <option value="Option 5">Option 5</option>
                             </select>
-                            <div class="valid-feedback">
+                            <div class="has-feedback{{ $errors->has('tag') ? 'has-error' : ''}}">
+                              @if ($errors->has('tag'))
+                              <span class="help-block">
+                                <p>{{ $errors->first('tag') }} </p>
+                              </span>
+                              @endif
                               {{-- formvalidation --}}
                               {{-- jika valid, tambahkan di input class is_valid --}}
                               {{-- jika invalid, tambahkan di input class is_invalid --}}
@@ -132,7 +175,14 @@
                                     Rp
                                   </div>
                                 </div>
-                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required="">
+                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required="" value="{{old ('total')}}">
+                          <div class="has-feedback{{ $errors->has('total') ? 'has-error' : ''}}">
+                            @if ($errors->has('total'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('total') }} </p>
+                            </span>
+                            @endif
+                        </div>
                         </div>
                         </div>
                       </div>
@@ -149,7 +199,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
 @endsection

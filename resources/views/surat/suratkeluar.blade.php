@@ -23,6 +23,7 @@
                   <div class="card-header">
                     <h4>Buat Surat Keluar</h4>
                   </div>
+                  
                 <form action="{{url('/surat')}}" method="post">
                   <div class="card-body">
                     <div class="form-group row mb-4">
@@ -94,13 +95,13 @@
                         <a href="{{ url('/surat') }} " class="btn btn-danger mx-2">Batal</a>
                         <a href="#" class="btn btn-info">Reset</a>
                       </div>
+                     </div>
                     </div>
                    </form>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
 @endsection

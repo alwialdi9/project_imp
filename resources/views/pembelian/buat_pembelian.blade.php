@@ -4,7 +4,7 @@
 @section('content')
     <!-- Main Content -->
     <div class="main-content">
-        <section class="section">
+    <section class="section">
           <div class="section-header">
             <div class="section-header-back">
               <a href="{{ url('/pembelian') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
@@ -35,7 +35,7 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
-                                  <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off" required="">
+                                <input type="text" id="tanggal" name="tanggal" class="form-control datepicker" placeholder="Search..." autocomplete="off" value="{{old('tanggal')}}" required="">
                                   <div class="has-feedback{{ $errors->has('tanggal') ? 'has-error' : ''}}">
                                     @if ($errors->has('tanggal'))
                                       <span class="help-block">
@@ -46,24 +46,23 @@
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
-                        
                       </div> --}}
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Faktur</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control inputtags" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" required="">
+                        <input type="text" class="form-control inputtags" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" value="{{old('nomor_faktur')}}" required="">
                       </div>
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
-                              <option>5-10001 Pembelian</option>
-                              <option>5-10002 Pembelian</option>
-                              <option>5-10003 Pembelian</option>
-                              <option>5-10004 Pembelian</option>
-                              <option>5-10005 Pembelian</option>
+                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" value="{{old('referensi_akun')}}" required>
+                              <option value=">5-10001 Pembelian">5-10001 Pembelian</option>
+                              <option value=">5-10001 Pembelian">5-10002 Pembelian</option>
+                              <option value=">5-10001 Pembelian">5-10003 Pembelian</option>
+                              <option value=">5-10001 Pembelian">5-10004 Pembelian</option>
+                              <option value=">5-10001 Pembelian">5-10005 Pembelian</option>
                         </select>
                         <div class="has-feedback{{ $errors->has('referensi_akun') ? 'has-error' : ''}}">
                           @if ($errors->has('referensi_akun'))
@@ -78,22 +77,23 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Supplier</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control inputtags" placeholder="Masukkan Supplier" name="supplier" required="">
+                          <input type="text" class="form-control inputtags" placeholder="Masukkan Supplier" name="supplier" value="{{old('supplier')}}" required="">
                           <div class="has-feedback{{ $errors->has('supplier') ? 'has-error' : ''}}">
                             @if ($errors->has('supplier'))
                               <span class="help-block">
                                 <p>{{ $errors->first('supplier') }} </p>
                               </span>
                               @endif
+                         </div>
                         </div>
                       </div>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Pembelian</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control selectric" name="status_pembelian" id="status_pembelian" required>
-                          <option>Lunas</option>
-                          <option>Belum</option>
+                        <select class="form-control selectric" name="status_pembelian" id="status_pembelian" value="{{old('status_pembelian')}}" required>
+                          <option value="lunas">Lunas</option>
+                          <option value="belum">Belum</option>
                           {{-- <option>Pending</option> --}}
                         </select>
                         <div class="has-feedback{{ $errors->has('status_pembelian') ? 'has-error' : ''}}">
@@ -103,7 +103,9 @@
                             </span>
                             @endif
                       </div>
+                     </div>
                     </div>
+                  
 
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Total</label>
@@ -114,7 +116,7 @@
                                 Rp
                               </div>
                             </div>                
-                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required>
+                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" value="{{old('total')}}" required>
                           <div class="has-feedback{{ $errors->has('total') ? 'has-error' : ''}}">
                             @if ($errors->has('total'))
                               <span class="help-block">
@@ -124,6 +126,7 @@
                         </div>
                        </div>
                       </div>
+                    </div>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
@@ -132,12 +135,12 @@
                         <a href="{{ url('/pembelian') }} " class="btn btn-danger mx-2">Batal</a>
                       </div>
                     </div>
+                    </div>
                    </form>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
 @endsection

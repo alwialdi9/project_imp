@@ -43,10 +43,9 @@ class PembelianController extends Controller
         $total = str_replace(',', '', $request->total);
         $this->validate(request(), [
             'tanggal' => 'required',
-            'nomor_faktur' => 'required',
+            'status_pembelian' => 'required',
+            'nomor_faktur' => 'required|min:10',
             'referensi_akun' => 'required',
-            'nama_pelanggan' => 'required|max:20',
-            'status_penjualan' => 'required',
             'total' => 'required',
             'supplier' => 'required|max:20',
         ]);
