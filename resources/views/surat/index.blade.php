@@ -94,29 +94,29 @@
 
         {{-- table --}}
         <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>Daftar Surat</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-striped table-hover text-center" id="table-1">
-                      <thead>                                 
-                        <tr>
-                          <th>No</th>
-                          <th>Tanggal</th>
-                          <th>Nomor Surat</th>
-                          <th>Jenis Surat</th>
-                          <th>Perihal</th>
-                          <th>Dari/Kepada</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Penjualan Table</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover text-center" id="table-1">
+                    <thead>                                 
+                      <tr class="">
+                        <th scope="col" width="10">No</th>
+                        <th scope="col">Tanggal</th>
+                        <th scope="col">Nomor Surat</th>
+                        <th scope="col">Jenis Surat</th>
+                        <th scope="col">Perihal</th>
+                        <th scope="col">Dari/Kepada</th>
+                        <th scope="col">Aksi</th>
+                      </tr>
+                    </thead>
                       <tbody>
                         @foreach ($surat as $s)
                         <tr>
-                        <td class="border">{{ $loop->iteration }} </td>
+                        <td class="border" scope="row">{{ $loop->iteration }} </td>
                         <td class="border">{{ $s->tanggal_surat }} </td>
                         <td class="border">{{ $s->nomor_surat }} </td>
                         <td class="border">{{ $s->jenis }} </td>

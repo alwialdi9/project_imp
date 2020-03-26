@@ -11,8 +11,8 @@
             </div>
             <h1>Buat Penjualan</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{url('/dashboard/index')}}">Keuangan</a></div>
-              <div class="breadcrumb-item"><a href="#">Buat Penjualan</a></div>
+              <div class="breadcrumb-item active"><a href="{{url('/')}}">Keuangan</a></div>
+              <div class="breadcrumb-item"><a href="{{url('/penjualan/buat_penjualan')}}">Buat Penjualan</a></div>
             </div>
           </div>
 
@@ -129,7 +129,7 @@
                           <div class="has-feedback{{ $errors->has('total') ? 'has-error' : ''}}"> 
                             @if ($errors->has('total'))
                             <span class="help-block">
-                              <p>{{ $errors->first('total') }} </p>
+                              <p>{{ $errors->first('total') }}</p>
                             </span>
                             @endif
                          </div>
@@ -144,11 +144,12 @@
                         <a href="{{ url('penjualan') }} " class="btn btn-danger mx-2">Batal</a>
                       </div>
                     </div>
+                   </div>
                    </form>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
         </section>
       </div>
 @endsection

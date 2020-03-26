@@ -95,13 +95,13 @@
                         <a href="{{ url('/surat') }} " class="btn btn-danger mx-2">Batal</a>
                         <a href="#" class="btn btn-info">Reset</a>
                       </div>
-                    </div>
+                     </div>
+                    </div> 
                    </form>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
 @endsection

@@ -49,7 +49,6 @@ Route::get('/surat/suratmasuk', 'SuratController@create');
 Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
 Route::post('/surat', 'SuratController@store');
 
-
 Route::get('akun', 'AkunController@index');
 Route::get('akun/{id}', 'AkunController@show');
 
