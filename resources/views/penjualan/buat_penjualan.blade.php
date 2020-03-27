@@ -11,7 +11,7 @@
             </div>
             <h1>Buat Penjualan</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{url('/')}}">Keuangan</a></div>
+              <div class="breadcrumb-item active"><a href="{{url('/dashboard')}}">Keuangan</a></div>
               <div class="breadcrumb-item"><a href="{{url('/penjualan/buat_penjualan')}}">Buat Penjualan</a></div>
             </div>
           </div>
@@ -72,11 +72,11 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                       <div class="col-sm-12 col-md-7">
                         <select class="form-control select2" id="referensi_akun" name="referensi_akun" required value="{{old('referensi_akun')}}">
-                              <option>4-10001 Penjualan</option>
-                              <option>4-10002 Penjualan</option>
-                              <option>4-10003 Penjualan</option>
-                              <option>4-10004 Penjualan</option>
-                              <option>4-10005 Penjualan</option>
+                              <option value="4-10001 Penjualan">4-10001 Penjualan</option>
+                              <option value="4-10002 Penjualan">4-10002 Penjualan</option>
+                              <option value="4-10003 Penjualan">4-10003 Penjualan</option>
+                              <option value="4-10004 Penjualan">4-10004 Penjualan</option>
+                              <option value="4-10005 Penjualan">4-10005 Penjualan</option>
                         </select>
                         <div class="has-feedback{{ $errors->has('referensi_akun') ? 'has-error' : ''}}">
                           @if ($errors->has('referensi_akun'))
@@ -141,8 +141,9 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
                         <button class="btn btn-primary" type="submit">Simpan</button>
-                        <a href="{{ url('penjualan') }} " class="btn btn-danger mx-2">Batal</a>
+                        <a href="{{ url('/penjualan') }} " class="btn btn-danger mx-2">Batal</a>
                       </div>
+                     </div>
                     </div>
                    </div>
                    </form>

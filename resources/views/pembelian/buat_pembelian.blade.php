@@ -11,7 +11,7 @@
             </div>
             <h1>Buat Pembelian</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{ url('/') }}">Keuangan</a></div>
+              <div class="breadcrumb-item active"><a href="{{ url('/dashboard') }}">Keuangan</a></div>
               <div class="breadcrumb-item"><a href="{{ url('/pembelian/buat_pembelian') }}">Buat Pembelian</a></div>
             </div>
           </div>
@@ -45,8 +45,6 @@
                                   </div>
                                 </div>
                           </div>
-                      {{-- <div class="col-sm-10 col-md-7">
-                      </div> --}}
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Faktur</label>
@@ -57,12 +55,12 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" value="{{old('referensi_akun')}}" required>
-                              <option value=">5-10001 Pembelian">5-10001 Pembelian</option>
-                              <option value=">5-10001 Pembelian">5-10002 Pembelian</option>
-                              <option value=">5-10001 Pembelian">5-10003 Pembelian</option>
-                              <option value=">5-10001 Pembelian">5-10004 Pembelian</option>
-                              <option value=">5-10001 Pembelian">5-10005 Pembelian</option>
+                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
+                              <option value="5-10001 Pembelian">5-10001 Pembelian</option>
+                              <option value="5-10002 Pembelian">5-10002 Pembelian</option>
+                              <option value="5-10003 Pembelian">5-10003 Pembelian</option>
+                              <option value="5-10004 Pembelian">5-10004 Pembelian</option>
+                              <option value="5-10005 Pembelian">5-10005 Pembelian</option>
                         </select>
                         <div class="has-feedback{{ $errors->has('referensi_akun') ? 'has-error' : ''}}">
                           @if ($errors->has('referensi_akun'))
@@ -87,6 +85,7 @@
                          </div>
                         </div>
                       </div>
+                    </div>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Pembelian</label>
@@ -126,7 +125,7 @@
                         </div>
                        </div>
                       </div>
-                    </div>
+                     </div> 
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
@@ -134,8 +133,8 @@
                         <button class="btn btn-primary">Simpan</button>
                         <a href="{{ url('/pembelian') }} " class="btn btn-danger mx-2">Batal</a>
                       </div>
-                    </div>
-                    </div>
+                     </div>
+                    </div> 
                    </form>
                   </div>
                 </div>

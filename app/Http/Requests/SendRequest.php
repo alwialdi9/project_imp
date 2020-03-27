@@ -28,7 +28,7 @@ class SendRequest extends FormRequest
             'tanggal' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
-            'nama_pelanggan' => 'required|min:10',
+            'nama_pelanggan' => 'required|max:15',
             'status_penjualan' => 'required',
             'total' => 'required',
         ];
@@ -37,7 +37,7 @@ class SendRequest extends FormRequest
         return [
             'tanggal' => 'required',
             'status_pembelian' => 'required',
-            'nomor_faktur' => 'required|max:10',
+            'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
             'total' => 'required',
             'supplier' => 'required|max:20',
@@ -79,6 +79,7 @@ class SendRequest extends FormRequest
             'total_tagihan' => 'required',
             'terbilang' => 'required',
             'pelanggan' => 'required',
+            'status_invoice' => 'required',
         ];
     }
 
@@ -89,7 +90,7 @@ class SendRequest extends FormRequest
             'tanggal.required' => 'Tanggal tidak boleh kosong',
             'nomor_faktur.required' => 'Nomor Fakur tidak boleh kosong',
             'referensi_akun.required' => 'Referensi Akun tidak boleh kosong',
-            'nama_pelanggan.min' => 'Nama Pelanggan minimal 10 karakter',
+            'nama_pelanggan.max' => 'Nama Pelanggan maximal 15 karakter',
             'status_penjualan.required' => 'Status Penjualan tidak boleh kosong',
             'total.required' => 'Total Penjualan tidak boleh kosong',
         ];
@@ -142,7 +143,8 @@ class SendRequest extends FormRequest
             'pajak.required' => 'Pajak tidak boleh kosong',
             'total_tagihan.required' => 'Total Tagihan tidak boleh kosong',
             'terbilang.required' => 'Tidak boleh kosong',
-            'pelanggan.required' => 'Pelanggan tidak boleh kosong', 
+            'pelanggan.required' => 'Pelanggan tidak boleh kosong',
+            'status_invoice.required' => 'Status Invoice tidak boleh kosong',
         ];
     }
 }

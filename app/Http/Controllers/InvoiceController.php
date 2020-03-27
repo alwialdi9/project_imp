@@ -54,6 +54,7 @@ class InvoiceController extends Controller
             'total_tagihan' => 'required',
             'terbilang' => 'required',
             'pelanggan' => 'required',
+            'status_invoice' => 'required',
         ]);
 
         Invoice::create([
@@ -74,8 +75,9 @@ class InvoiceController extends Controller
             'total_tagihan' => $request->total_tagihan,
             'terbilang' => $request->terbilang,
             'pelanggan' => $request->pelanggan,
-            ]);
-            return redirect('/invoice');
+            'status_invoice' => $request->status_invoice,
+        ]);
+        return redirect('/invoice');
     }
 
     /**

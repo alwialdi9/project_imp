@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pembelian;
 use App\Http\Requests\SendRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PembelianController extends Controller
 {
@@ -46,15 +47,16 @@ class PembelianController extends Controller
             'status_pembelian' => 'required',
             'nomor_faktur' => 'required|min:10',
             'referensi_akun' => 'required',
+            'status_pembelian' => 'required',
             'total' => 'required',
             'supplier' => 'required|max:20',
         ]);
         Pembelian::create([
 
             'tanggal' => $request->tanggal,
-            'status_pembelian' => $request->status_pembelian,
             'nomor_faktur' => $request->nomor_faktur,
             'referensi_akun' => $request->referensi_akun,
+            'status_pembelian' => $request->status_pembelian,
             'total' => $total,
             'supplier' => $request->supplier,
         ]);
@@ -78,9 +80,10 @@ class PembelianController extends Controller
      * @param  \App\Pembelian  $pembelian
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pembelian $pembelian)
+    public function edit($id)
     {
-        //
+        $pembelian = DB::table('pembelian')->where('id', $id)->get();
+        return view('pembelian.edit', ['pembelian' => $pembelian]);
     }
 
     /**
@@ -90,9 +93,17 @@ class PembelianController extends Controller
      * @param  \App\Pembelian  $pembelian
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pembelian $pembelian)
+    public function update(Request $request)
     {
-        //
+        $total = str_replace(',', '', $request->total);
+        DB::table('pembelian')->where('id', $request->id)->update([
+            'tanggal' => $request->tanggal,
+            'status_pembelian' => $request->status_pembelian,
+            'nomor_faktur' => $request->nomor_faktur,
+            'total' => $total,
+            'supplier' => $request->supplier,
+        ]);
+        return redirect('/pembelian');
     }
 
     /**
@@ -106,17 +117,9 @@ class PembelianController extends Controller
         //
     }
 
-    public function validation(Request $request)
+    public function hapus($id)
     {
-        $this->validate($request, [
-            'tanggal' => 'required',
-            'status_pembelian' => 'required',
-            'nomor_faktur' => 'required',
-            'referensi_akun' => 'required',
-            'total' => 'required|numeric',
-            'supplier' => 'required'
-
-        ]);
-        return view('/pembelian', ['b' => $request]);
+        DB::table('pembelian')->where('id', $id)->delete();
+        return redirect('/pembelian');
     }
 }

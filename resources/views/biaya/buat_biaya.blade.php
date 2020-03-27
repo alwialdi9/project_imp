@@ -11,7 +11,7 @@
             </div>
             <h1>Buat Biaya</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{url('/')}}">Keuangan</a></div>
+              <div class="breadcrumb-item active"><a href="{{url('/dashboard')}}">Keuangan</a></div>
               <div class="breadcrumb-item"><a href="{{url('/biaya/buat_biaya')}}">Buat Biaya</a></div>
             </div>
           </div>

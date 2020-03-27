@@ -107,20 +107,20 @@ class BiayaController extends Controller
     {
         //
     }
-
-    public function validation(Request $request)
-    {
-        $this->validate($request,[
-            'tanggal' => 'required',
-            'penerima' => 'required',
-            'jenis_biaya' => 'required',
-            'status' => 'required',
-            'referensi_akun' => 'required',
-            'tag' => 'required',
-            'keterangan' => 'required',
-            'total' => 'required|numeric'
-            
-        ]);
-        return view('/biaya',['b' => $request]);
-    }
 }
+    // public function validation(Request $request)
+    // {
+    //     $this->validate($request,[
+    //         'tanggal' => 'required',
+    //         'penerima' => 'required',
+    //         'jenis_biaya' => 'required',
+    //         'status' => 'required',
+    //         'referensi_akun' => 'required',
+    //         'tag' => 'required',
+    //         'keterangan' => 'required',
+    //         'total' => 'required|numeric'
+            
+    //     ]);
+    //     return view('/biaya',['b' => $request]);
+    // }
+
