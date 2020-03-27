@@ -6,6 +6,7 @@ use App\Penjualan;
 use App\Http\Requests\SendRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Account;
 
 class PenjualanController extends Controller
 {
@@ -36,8 +37,8 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        //
-        return view('penjualan.buat_penjualan');
+        $ref_akun = Account::all();
+        return view('penjualan.buat_penjualan', compact('ref_akun'));
     }
 
     /**
@@ -122,10 +123,10 @@ class PenjualanController extends Controller
     {
         //
     }
-    
+
     public function hapus($id)
     {
-        DB::table('penjualan')->where('id',$id)->delete();
+        DB::table('penjualan')->where('id', $id)->delete();
         return redirect('/penjualan');
     }
 }
@@ -153,4 +154,3 @@ class PenjualanController extends Controller
     //             'total.numeric' => 'Total harus berupa angka',
     //         ];
     // }
-

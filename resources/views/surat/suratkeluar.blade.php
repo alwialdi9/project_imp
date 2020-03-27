@@ -24,7 +24,8 @@
                     <h4>Buat Surat Keluar</h4>
                   </div>
                   
-                <form action="{{url('/surat')}}" method="post">
+                <form action="{{url('/surat')}}" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
                   <div class="card-body">
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>

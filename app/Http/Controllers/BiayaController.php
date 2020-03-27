@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pbiaya;
 use App\Http\Requests\SendRequest;
 use Illuminate\Http\Request;
+use App\Account;
 
 class BiayaController extends Controller
 {
@@ -26,7 +27,8 @@ class BiayaController extends Controller
      */
     public function create()
     {
-        return view('biaya.buat_biaya');
+        $ref_akun = Account::all();
+        return view('biaya.buat_biaya', compact('ref_akun'));
     }
 
     /**
@@ -59,8 +61,8 @@ class BiayaController extends Controller
             'keterangan' => $request->keterangan,
             'tag' => $request->tag,
             'total' => $total,
-            ]);
-            return redirect('/biaya');
+        ]);
+        return redirect('/biaya');
     }
 
     /**
@@ -123,4 +125,3 @@ class BiayaController extends Controller
     //     ]);
     //     return view('/biaya',['b' => $request]);
     // }
-

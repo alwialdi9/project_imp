@@ -178,15 +178,7 @@
                 </address>
               </div>
               <div class="col-md-4 text-md-left">
-                {{-- <address> --}}
-                  <strong class="mr-3">Faktur# </strong>:
-                  179<br>
-                  {{-- 1234 Main<br>
-                  Apt. 4B<br>
-                  Bogor Barat, Indonesia --}}
-                  <strong class="mr-3">Tanggal </strong>:
-                  12/12/2019<br>
-                {{-- </address> --}}
+                <img src="{{ asset('img/logo/ttd-masagung.png') }} " alt="">
               </div>
             </div>
           </div>

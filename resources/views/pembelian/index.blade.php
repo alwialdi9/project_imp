@@ -67,26 +67,25 @@
                         <th scope="col">Supplier</th>
                         <th scope="col">Status</th>
                         <th scope="col">Total</th>
-                        <th scope="col">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
                         @foreach ( $pembelian as $b)
                         <tr>
-                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border">{{$b->tanggal}}</td>
-                            <td class="border">{{$b->nomor_faktur}}</td>
-                            <td class="border">{{$b->supplier}}</td>
-                            <td class="border">{{$b->status_pembelian}}</td>
-                            <td class="border">Rp. <div class="currency" style="display:inline-table;">{{$b->total}}</div></td>
-                            <td class="border">@if ($b->status_pembelian == "Lunas")
-                              <a class="btn btn-outline-secondary" href="#">lihat</a>
-                              <a class="btn btn-outline-info" href="/pembelian/edit/{{ $b->id }}">edit</a>
-                              <a class="btn btn-outline-danger" href="/pembelian/hapus/{{ $b->id }}">hapus</a>
-                                @else
-                                  -
-                                @endif
-                              </td>
+                            <th scope="row"> {{ $loop->iteration }} </th>
+                            <td>{{$b->tanggal}}</td>
+                            <td>{{$b->nomor_faktur}}
+                              <div class="table-links">
+                                <a href="/pembelian/edit/{{ $b->id }}"><i class="fas fa-edit"></i> Ubah</a>
+                                <div class="bullet"></div>
+                                <a href="#"><i class="far fa-eye"></i> Lihat</a>
+                                <div class="bullet"></div>
+                                <a href="/pembelian/hapus/{{ $b->id }}" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+                              </div>
+                            </td>
+                            <td>{{$b->supplier}}</td>
+                            <td>{{$b->status_pembelian}}</td>
+                            <td>Rp. <div class="currency" style="display:inline-table;">{{$b->total}}</div></td>
                         </tr>
                         @endforeach
                     </tbody>

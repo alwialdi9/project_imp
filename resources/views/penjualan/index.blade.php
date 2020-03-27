@@ -83,26 +83,25 @@
                         <th scope="col">Pelanggan</th>
                         <th scope="col">Status</th>
                         <th scope="col">Total</th>
-                        <th scope="col">Aksi</th>
                       </tr>
                     </thead>
                       <tbody>
                         @foreach ( $penjualan as $p)
                         <tr>
-                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
-                            <td class="border">{{$p->tanggal}}</td>
-                            <td class="border">{{$p->nomor_faktur}}</td>
-                            <td class="border">{{$p->nama_pelanggan}}</td>
-                            <td class="border">{{$p->status_penjualan}}</td>
-                            <td class="border">Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
-                            <td class="border">@if ($p->status_penjualan == "Lunas")
-                              <a class="btn btn-outline-secondary" href="#">lihat</a>
-                              <a class="btn btn-outline-info" href="/penjualan/edit/{{ $p->id }}">edit</a>
-                              <a class="btn btn-outline-danger" href="/penjualan/hapus/{{ $p->id }}">hapus</a>
-                                @else
-                                  -
-                                @endif
-                              </td>
+                            <th scope="row"> {{ $loop->iteration }} </th>
+                            <td>{{$p->tanggal}}</td>
+                            <td>{{$p->nomor_faktur}}
+                              <div class="table-links">
+                                <a href="#"><i class="fas fa-edit"></i> Ubah</a>
+                                <div class="bullet"></div>
+                                <a href="#"><i class="far fa-eye"></i> Lihat</a>
+                                <div class="bullet"></div>
+                                <a href="#" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+                              </div>
+                            </td>
+                            <td>{{$p->nama_pelanggan}}</td>
+                            <td>{{$p->status_penjualan}}</td>
+                            <td>Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
                         </tr>
                         @endforeach
                       </tbody>

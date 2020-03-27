@@ -6,6 +6,7 @@ use App\Pembelian;
 use App\Http\Requests\SendRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Account;
 
 class PembelianController extends Controller
 {
@@ -30,7 +31,8 @@ class PembelianController extends Controller
      */
     public function create()
     {
-        return view('pembelian.buat_pembelian');
+        $ref_akun = Account::all();
+        return view('pembelian.buat_pembelian', compact('ref_akun'));
     }
 
     /**

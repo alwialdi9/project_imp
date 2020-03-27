@@ -72,11 +72,9 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                       <div class="col-sm-12 col-md-7">
                         <select class="form-control select2" id="referensi_akun" name="referensi_akun" required value="{{old('referensi_akun')}}">
-                              <option value="4-10001 Penjualan">4-10001 Penjualan</option>
-                              <option value="4-10002 Penjualan">4-10002 Penjualan</option>
-                              <option value="4-10003 Penjualan">4-10003 Penjualan</option>
-                              <option value="4-10004 Penjualan">4-10004 Penjualan</option>
-                              <option value="4-10005 Penjualan">4-10005 Penjualan</option>
+                          @foreach ($ref_akun as $akun)
+                          <option value="{{ $akun->nama_akun }} ">{{ $akun->nama_akun }} </option>
+                          @endforeach
                         </select>
                         <div class="has-feedback{{ $errors->has('referensi_akun') ? 'has-error' : ''}}">
                           @if ($errors->has('referensi_akun'))

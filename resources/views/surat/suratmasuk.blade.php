@@ -24,8 +24,10 @@
                     <h4>Buat Surat Masuk</h4>
                   </div>
                   
-                  <form action="{{url('/surat')}}" method="post">
+                  <form action="{{url('/surat')}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                   <div class="card-body">
+                    <input type="hidden" name="jenissurat" value="Masuk">
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
@@ -47,12 +49,8 @@
                                       <i class="far far-fw fa-calendar-alt"></i>
                                     </div>
                                   </div>
-                                  <input type="text" id="tanggal_penjualan" name="tanggal_penjualan" class="form-control daterange" placeholder="Search..." autocomplete="off" required="">
-                                  <div class="valid-feedback">
-                                    {{-- formvalidation --}}
-                                    {{-- jika valid, tambahkan di input class is_valid --}}
-                                    {{-- jika invalid, tambahkan di input class is_invalid --}}
-                                  </div>
+                                  <input type="text" id="tanggal_surat" name="tanggal_surat" class="form-control daterange" placeholder="Search..." autocomplete="off" required>
+                                  
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
@@ -83,7 +81,7 @@
                         <div class="col-sm-12 col-md-7">
                           <div id="image-preview" class="image-preview">
                             <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" name="surat_path" id="image-upload" />
+                            <input type="file" name="surat_path" id="image-upload">
                           </div>
                         </div>
                       </div>
@@ -91,9 +89,9 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
-                        <button class="btn btn-primary">Simpan</button>
+                        <button class="btn btn-primary" type="submit">Simpan</button>
                         <a href="{{ url('/surat') }} " class="btn btn-danger mx-2">Batal</a>
-                        <a href="#" class="btn btn-info">Reset</a>
+                        <button type="reset" class="btn btn-info">Reset</button>
                       </div>
                      </div>
                     </div> 

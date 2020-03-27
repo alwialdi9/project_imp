@@ -72,12 +72,9 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                         <div class="col-sm-12 col-md-7">
                           <select class="form-control select2" id="referensi_akun" name="referensi_akun" required value="{{old ('referensi_akun')}}">
-                            <option value="6-50001 Biaya">6-50001 Biaya</option>
-                              <option value="6-50002 Biaya">6-10002 Biaya</option>
-                              <option value="6-50003 Biaya">6-10003 Biaya</option>
-                              <option value="6-50004 Biaya">6-10004 Biaya</option>
-                              <option value="6-50005 Biaya">6-10005 Biaya</option>
-                              <option value="6-50006 Biaya">6-10006 Biaya</option>
+                            @foreach ($ref_akun as $akun)
+                          <option value="{{ $akun->nama_akun }} ">{{ $akun->nama_akun }} </option>
+                          @endforeach
                           </select>
                           <div class="has-feedback{{ $errors->has('referensi_akun') ? 'has-error' : ''}}">
                             @if ($errors->has('referensi_akun'))
@@ -95,7 +92,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Keterangan</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required="" value="{{old ('keterangan')}}">
+                        <input type="text" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" id="keterangan" required value="{{old ('keterangan')}}">
                         <div class="has-feedback{{ $errors->has('keterangan') ? 'has-error' : ''}}">
                           @if ($errors->has('keterangan'))
                           <span class="help-block">
@@ -113,7 +110,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Penerima</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control inputtags" placeholder="Masukkan Penerima" name="penerima" required="" value="{{old ('penerima')}}">
+                          <input type="text" class="form-control inputtags" placeholder="Masukkan Penerima" name="penerima" required value="{{old ('penerima')}}">
                           <div class="has-feedback{{ $errors->has('penerima') ? 'has-error' : ''}}">
                             @if ($errors->has('penerima'))
                             <span class="help-block">
