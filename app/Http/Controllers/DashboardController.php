@@ -19,6 +19,7 @@ class DashboardController extends Controller
         if (!Session::get('login')) {
             return redirect('login')->with('alert', 'Anda harus login dulu');
         } else {
+
             return view('dashboard.index');
         }
     }

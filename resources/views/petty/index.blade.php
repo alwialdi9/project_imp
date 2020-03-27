@@ -49,9 +49,7 @@
                         <h4>Pemasukan (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        
-                            {{ $masuk ?? '' == 0 }}
-                        {{-- {{ $masuk ?? '' }} --}}
+                          {{ $masuk ?? '' }}
                       </div>
                     </div>
                   </div>

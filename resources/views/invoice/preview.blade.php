@@ -19,42 +19,70 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="invoice-title">
-                  <h2>Invoice</h2>
-                  <div class="invoice-number">Order #Disini kode tokennya</div>
+                  <div class="row">
+                    <div class="col-md-8">
+                    <h2 class="">CV. INFORMATIKA MEDIA PRATAMA</h2>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="float-left"><img src="{{ asset('img/logo/imp_invoice.png') }} " alt="" height="80"></div>
+                    </div>
+                  </div>
+                  
                 </div>
                 <hr>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                     <address>
-                      <strong>Billed To:</strong><br>
-                        Ujang Maman<br>
-                        1234 Main<br>
-                        Apt. 4B<br>
-                        Bogor Barat, Indonesia
+                      {{-- <strong>CV. INFORMATIKA MEDIA PRATAMA (IMP)</strong><br> --}}
+                      Jalan Manunggal Pratama, Jl. Raya Kalimalang No.8, Cipinang Melayu,
+                      Makasar,<br> Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13620<br> Telp: 021-87722941<br>
+                      Email: admin@impstudio.id<br> 81.095.180.6-005.000
+                      
                     </address>
                   </div>
-                  <div class="col-md-6 text-md-right">
-                    <address>
-                      <strong>Shipped To:</strong><br>
-                      Muhamad Nauval Azhar<br>
-                      1234 Main<br>
+                  <div class="col-md-4 text-md-left">
+                    {{-- <address> --}}
+                      <strong class="mr-3">Faktur# </strong>:
+                      179<br>
+                      {{-- 1234 Main<br>
                       Apt. 4B<br>
-                      Bogor Barat, Indonesia
-                    </address>
+                      Bogor Barat, Indonesia --}}
+                      <strong class="mr-3">Tanggal </strong>:
+                      12/12/2019<br>
+                    {{-- </address> --}}
                   </div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-8" >
                     <address>
-                      <strong>Payment Method:</strong><br>
-                      Visa ending **** 4242<br>
-                      ujang@maman.com
+                      <strong>Pelanggan :</strong><br>
+                      <div class="row">
+                        <div class="col-md-2">
+                          NAMA<br>
+                          ALAMAT<br><br>
+                          TELP<br>
+                          FAX<br>
+                        </div>
+                        <div class="mx-1">
+                          :<br>
+                          :<br><br>
+                          :<br>
+                          :<br>
+                        </div>
+                        <div class="col-md-8">
+                          Alwi Aldiansyach<br>
+                          Jl. BDN 1 Ujung Rt 001/013 Cilandak Barat, Jakarta Selatan<br>
+                          085891829851<br>
+                          -
+                        </div>
+                      </div>
                     </address>
                   </div>
-                  <div class="col-md-6 text-md-right">
+                  <div class="col-md-4 text-md-left">
                     <address>
-                      <strong>Order Date:</strong><br>
-                      September 19, 2018<br><br>
+                      <strong>Jatuh Tempo:</strong><br>
+                      19 September, 2018<br><br>
                     </address>
                   </div>
                 </div>
@@ -63,67 +91,102 @@
             
             <div class="row mt-4">
               <div class="col-md-12">
-                <div class="section-title">Order Summary</div>
+                <div class="section-title">Faktur</div>
                 <p class="section-lead">All items here cannot be deleted.</p>
                 <div class="table-responsive">
                   <table class="table table-striped table-hover table-md">
                     <tr>
                       <th data-width="40">#</th>
-                      <th>Item</th>
-                      <th class="text-center">Price</th>
-                      <th class="text-center">Quantity</th>
-                      <th class="text-right">Totals</th>
+                      <th>Keterangan</th>
+                      <th class="text-center">QTY</th>
+                      <th class="text-center">Harga Satuan (Rp)</th>
+                      <th class="text-right">Pajak</th>
+                      <th class="text-right">Jumlah</th>
                     </tr>
                     <tr>
                       <td>1</td>
-                      <td>Mouse Wireless</td>
-                      <td class="text-center">$10.99</td>
-                      <td class="text-center">1</td>
-                      <td class="text-right">$10.99</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Keyboard Wireless</td>
-                      <td class="text-center">$20.00</td>
-                      <td class="text-center">3</td>
-                      <td class="text-right">$60.00</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Headphone Blitz TDR-3000</td>
-                      <td class="text-center">$600.00</td>
-                      <td class="text-center">1</td>
-                      <td class="text-right">$600.00</td>
+                      <td></td>
+                      <td class="text-center">1 Paket</td>
+                      <td class="text-center">41.877.000</td>
+                      <td class="text-right">X</td>
+                      <td class="text-right">41.877.000</td>
                     </tr>
                   </table>
                 </div>
                 <div class="row mt-4">
                   <div class="col-lg-8">
-                    <div class="section-title">Payment Method</div>
-                    <p class="section-lead">The payment method that we provide is to make it easier for you to pay invoices.</p>
-                    <div class="images">
-                      <img src="{{ asset('img/visa.png') }}" alt="visa">
-                      <img src="{{ asset('img/jcb.png') }}" alt="jcb">
-                      <img src="{{ asset('img/mastercard.png') }}" alt="mastercard">
-                      <img src="{{ asset('img/paypal.png') }}" alt="paypal">
-                    </div>
+                    <div class="section-title">Pesan</div>
+                    <address class="section-lead">
+                      Harap Melakukan Transfer Ke :<br>
+                      Bank Mandiri<br>
+                      No Rekening : 1290011074867<br>
+                      Atas Nama : CV. Informatika Media Pratama
+                    </address>
+                    {{-- <div class="images">
+                      <img src="{{ asset('img/logo/mandiri.jpg') }}" alt="mandiri" width="64" height="40">
+                    </div> --}}
                   </div>
                   <div class="col-lg-4 text-right">
                     <div class="invoice-detail-item">
-                      <div class="invoice-detail-name">Subtotal</div>
-                      <div class="invoice-detail-value">$670.99</div>
+                      <div class="invoice-detail-name"><strong>Subtotal (Rp)</strong></div>
+                      <div class="invoice-detail-value">37.390.179</div>
                     </div>
                     <div class="invoice-detail-item">
-                      <div class="invoice-detail-name">Shipping</div>
-                      <div class="invoice-detail-value">$15</div>
+                      <div class="invoice-detail-name"><strong>termasuk Pajak<br>(PPN+PPH) 12.0%</strong></div>
+                      <div class="invoice-detail-value">4.486.821</div>
                     </div>
                     <hr class="mt-2 mb-2">
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name">Total</div>
-                      <div class="invoice-detail-value invoice-detail-value-lg">$685.99</div>
+                      <div class="invoice-detail-value invoice-detail-value-lg">41.877.000</div>
+                    </div>
+                    <div class="invoice-detail-item">
+                      <div class="invoice-detail-name">Sisa Tagihan</div>
+                      <div class="invoice-detail-value">41.877.000</div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <address>
+                  <strong>Detail Pembayaran</strong><br>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      NAMA BANK<br>
+                      CABANG BANK<br>
+                      NOMOR AKUN BANK<br>
+                      ATAS NAMA<br>
+                    </div>
+                    <div class="mx-1">
+                      :<br>
+                      :<br>
+                      :<br>
+                      :<br>
+                    </div>
+                    <div class="col-md-7">
+                      Bank Mandiri<br>
+                      KCP. Jakarta Cijantung <br>
+                      129-00-1107486-7<br>
+                      CV. Informatika Media Pratama<br>
+                    </div>
+                  </div>
+                  <strong class="mt-3">Terbilang :</strong><br>
+                  Empat Juta Lima Ratus Tiga Puluh Ribu Rupiah
+                </address>
+              </div>
+              <div class="col-md-4 text-md-left">
+                {{-- <address> --}}
+                  <strong class="mr-3">Faktur# </strong>:
+                  179<br>
+                  {{-- 1234 Main<br>
+                  Apt. 4B<br>
+                  Bogor Barat, Indonesia --}}
+                  <strong class="mr-3">Tanggal </strong>:
+                  12/12/2019<br>
+                {{-- </address> --}}
               </div>
             </div>
           </div>
@@ -131,7 +194,7 @@
           <div class="text-md-right">
             <div class="float-lg-left mb-lg-0 mb-3">
                 {{-- mengirim datanya dengan id --}}
-                <a href="{{ url('buatinvoice') }} " class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-edit"></i> Ubah Data</a>
+                <a href="{{ url('invoice/buatinvoice') }} " class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-edit"></i> Ubah Data</a>
               <button class="btn btn-danger btn-icon icon-left"><i class="fas fa-times"></i> Cancel</button>
             </div>
             <button class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i> Print</button>

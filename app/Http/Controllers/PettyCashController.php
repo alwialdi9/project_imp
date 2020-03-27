@@ -15,9 +15,7 @@ class PettyCashController extends Controller
      */
     public function index()
     {
-        //
         $petty = Petty::all();
-        return view('petty.index', compact('petty'));
         $petty = Petty::all();
         $pettymasuk = Petty::where('jenis_transaksi', 'masuk')->sum('nilai_transaksi');
         $masuk = number_format($pettymasuk, 0, ".", ".");
@@ -30,6 +28,7 @@ class PettyCashController extends Controller
 
         $jumlah = Petty::all()->count();
 
+        // dd($jumlah, $masuk, $keluar, $saldo);
         return view('petty.index', compact('petty', 'masuk', 'keluar', 'saldo', 'jumlah'));
     }
 
@@ -61,7 +60,7 @@ class PettyCashController extends Controller
             'referensi_akun' => 'required',
             'keterangan' => 'required',
         ]);
-        
+
         Petty::create([
             'tanggal' => $request->tanggal,
             'nilai_transaksi' => $total,
