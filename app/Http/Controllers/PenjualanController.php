@@ -53,7 +53,7 @@ class PenjualanController extends Controller
             'tanggal' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
-            'nama_pelanggan' => 'required',
+            'nama_pelanggan' => 'required|max:15',
             'status_penjualan' => 'required',
             'total' => 'required',
         ]);
@@ -86,9 +86,10 @@ class PenjualanController extends Controller
      * @param  \App\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penjualan $penjualan)
+    public function edit($id)
     {
-        //
+        $penjualan = DB::table('penjualan')->where('id', $id)->get();
+        return view('penjualan.edit', ['penjualan' => $penjualan]);
     }
 
     /**
@@ -98,9 +99,17 @@ class PenjualanController extends Controller
      * @param  \App\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penjualan $penjualan)
+    public function update(Request $request)
     {
-        //
+        $total = str_replace(',', '', $request->total);
+        DB::table('penjualan')->where('id', $request->id)->update([
+            'tanggal' => $request->tanggal,
+            'status_penjualan' => $request->status_penjualan,
+            'nomor_faktur' => $request->nomor_faktur,
+            'total' => $total,
+            'nama_pelanggan' => $request->nama_pelanggan,
+        ]);
+        return redirect('/penjualan');
     }
 
     /**
@@ -113,7 +122,13 @@ class PenjualanController extends Controller
     {
         //
     }
-
+    
+    public function hapus($id)
+    {
+        DB::table('penjualan')->where('id',$id)->delete();
+        return redirect('/penjualan');
+    }
+}
     //     public function rules()
     //     {
     //         return [
@@ -138,4 +153,4 @@ class PenjualanController extends Controller
     //             'total.numeric' => 'Total harus berupa angka',
     //         ];
     // }
-}
+

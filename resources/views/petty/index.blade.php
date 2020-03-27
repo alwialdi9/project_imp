@@ -132,25 +132,25 @@
                       <tbody>
                         @foreach ($petty as $p)
                         <tr>
-                            <th scope="row"> {{ $loop->iteration }} </th>
-                            <td>{{$p->tanggal}}
+                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
+                            <td class="border">{{$p->tanggal}}
                             </td>
-                            <td>{{$p->referensi_akun}}</td>
-                            <td>
+                            <td class="border">{{$p->referensi_akun}}</td>
+                            <td class="border">
                               @if ($p->jenis_transaksi == "masuk")
                               Rp. <div class="currency" style="display:inline-table;">{{$p->nilai_transaksi}}
                               @else
                                 
                               @endif
                             </td>
-                            <td>
+                            <td class="border">
                               @if ($p->jenis_transaksi == "keluar")
                               Rp. <div class="currency" style="display:inline-table;">{{$p->nilai_transaksi}}
                               @else
                                 
                               @endif
                             </td>
-                            <td>{{$p->keterangan}}
+                            <td class="border">{{$p->keterangan}}
                               {{-- <div class="table-links">
                                 
                                 <a href="#"><i class="fas fa-fw fa-print"></i> Cetak</a>

@@ -89,14 +89,16 @@
                       <tbody>
                         @foreach ( $penjualan as $p)
                         <tr>
-                            <th scope="row"> {{ $loop->iteration }} </th>
-                            <td>{{$p->tanggal}}</td>
-                            <td>{{$p->nomor_faktur}}</td>
-                            <td>{{$p->nama_pelanggan}}</td>
-                            <td>{{$p->status_penjualan}}</td>
-                            <td>Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
-                            <td>@if ($p->status_penjualan == "Lunas")
-                              <a class="badge badge-info" href="#">Verifikasi</a>
+                            <th class="border" scope="row"> {{ $loop->iteration }} </th>
+                            <td class="border">{{$p->tanggal}}</td>
+                            <td class="border">{{$p->nomor_faktur}}</td>
+                            <td class="border">{{$p->nama_pelanggan}}</td>
+                            <td class="border">{{$p->status_penjualan}}</td>
+                            <td class="border">Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
+                            <td class="border">@if ($p->status_penjualan == "Lunas")
+                              <a class="btn btn-outline-secondary" href="#">lihat</a>
+                              <a class="btn btn-outline-info" href="/penjualan/edit/{{ $p->id }}">edit</a>
+                              <a class="btn btn-outline-danger" href="/penjualan/hapus/{{ $p->id }}">hapus</a>
                                 @else
                                   -
                                 @endif

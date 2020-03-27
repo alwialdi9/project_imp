@@ -31,6 +31,7 @@ class InvoiceTable extends Migration
             $table->string('pelanggan');
             $table->string('faximile');
             $table->string('total_tagihan');
+            $table->string('status_invoice');
             $table->timestamps();
         });
     }

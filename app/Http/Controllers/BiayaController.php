@@ -40,10 +40,11 @@ class BiayaController extends Controller
         $total = str_replace(',', '', $request->total);
         $this->validate(request(), [
             'tanggal' => 'required',
-            'penerima' => 'required|max:20|unique:pembelian',
+            'penerima' => 'required|max:20|unique:biaya',
             'jenis_biaya' => 'required',
             'status' => 'required',
             'referensi_akun' => 'required',
+            'keterangan' => 'required',
             'tag' => 'required',
             'total' => 'required',
         ]);
@@ -106,20 +107,20 @@ class BiayaController extends Controller
     {
         //
     }
-
-    public function validation(Request $request)
-    {
-        $this->validate($request,[
-            'tanggal' => 'required',
-            'penerima' => 'required',
-            'jenis_biaya' => 'required',
-            'status' => 'required',
-            'referensi_akun' => 'required',
-            'tag' => 'required',
-            'keterangan' => 'required',
-            'total' => 'required|numeric'
-            
-        ]);
-        return view('/biaya',['b' => $request]);
-    }
 }
+    // public function validation(Request $request)
+    // {
+    //     $this->validate($request,[
+    //         'tanggal' => 'required',
+    //         'penerima' => 'required',
+    //         'jenis_biaya' => 'required',
+    //         'status' => 'required',
+    //         'referensi_akun' => 'required',
+    //         'tag' => 'required',
+    //         'keterangan' => 'required',
+    //         'total' => 'required|numeric'
+            
+    //     ]);
+    //     return view('/biaya',['b' => $request]);
+    // }
+

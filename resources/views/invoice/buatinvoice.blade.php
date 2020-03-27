@@ -84,8 +84,9 @@
                             <label class="col-md-4 text-md-right text-left mt-2">Pelanggan</label>
                             <div class="col-lg-4 col-md-6">
                                 <select class="form-control select2" id="pelanggan" name="pelanggan">
-                                    <option value="masuk">Kementrian Agama RI</option>
-                                    <option value="keluar">Direktorat Jenderal Pendidikan Islam</option>
+                                    <option value="Kementrian Agama RI">Kementrian Agama RI</option>
+                                    <option value="Direktorat Jenderal Pendidikan Islam">Direktorat Jenderal Pendidikan Islam</option>
+                                    <option value="BNN">BNN</option>
                                   </select>
                             </div>
                           </div>
@@ -149,6 +150,16 @@
                                 </div>
                               </div>
 
+                              <div class="form-group row align-items-center">
+                                <label class="col-md-4 text-md-right text-left">Status Invoice (Keterangan)</label>
+                                <div class="col-lg-4 col-md-6">
+                                  <select class="form-control selectric" name="status_invoice" id="status_invoice" required>
+                                    <option value="Lunas">Lunas</option>
+                                    <option value="Termin I">Belum</option>
+                                  </select>
+                                </div>
+                              </div>
+
                         </div>
 
                         <div class="total-harga">
@@ -201,13 +212,10 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Terbilang</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <textarea type="text" class="form-control currency" placeholder="Masukkan Terbilang" name="terbilang" id="terbilang-output" required="">
-
-                                    </textarea>
+                                    <textarea type="text" class="form-control currency" placeholder="Masukkan Terbilang" name="terbilang" id="terbilang-output" required=""></textarea>
                                 </div>
                               </div>
-
-                        </div>
+                          </div>
 
                           <div class="form-group row">
                             <div class="col-md-4"></div>

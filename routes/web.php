@@ -23,17 +23,23 @@ Route::post('/registerPost', 'LoginController@registerPost');
 Route::get('/logout', 'LoginController@logout');
 
 
-Route::get('dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index');
 Route::get('/keuangan', 'KeuanganController@index');
 Route::get('/keuangan/create', 'KeuanganController@create');
 
 Route::get('/penjualan', 'PenjualanController@index');
 Route::get('/penjualan/buat_penjualan', 'PenjualanController@create');
 Route::post('/penjualan', 'PenjualanController@store');
+Route::get('/penjualan/edit/{id}', 'PenjualanController@edit');
+Route::post('/penjualan/update','PenjualanController@update');
+Route::get('/penjualan/hapus/{id}', 'PenjualanController@hapus');
 
 Route::get('/pembelian', 'PembelianController@index');
 Route::get('/pembelian/buat_pembelian', 'PembelianController@create');
 Route::post('/pembelian', 'PembelianController@store');
+Route::get('/pembelian/edit/{id}', 'PembelianController@edit');
+Route::post('/pembelian/update','PembelianController@update');
+Route::get('/pembelian/hapus/{id}', 'PembelianController@hapus');
 
 Route::get('/biaya', 'BiayaController@index');
 Route::get('/biaya/buat_biaya', 'BiayaController@create');
@@ -56,12 +62,12 @@ Route::get('akun/{id}', 'AkunController@show');
 Route::get('/invoice', 'InvoiceController@index');
 Route::get('/invoice/buatinvoice', 'InvoiceController@create');
 Route::post('/invoice', 'InvoiceController@store');
-
-Route::post('/petty', 'PenjualanController@validation');
-Route::post('/petty', 'PettyCashController@store');
 Route::get('invoicepreview', function () {
     return view('invoice.preview');
 });
+
+Route::post('/petty', 'PenjualanController@validation');
+Route::post('/petty', 'PettyCashController@store');
 
 Route::get('/pelanggan', 'PelangganController@index');
 

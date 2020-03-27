@@ -88,6 +88,7 @@
                           <th>Nomor Faktur</th>
                           <th>Pelanggan</th>
                           <th>Keterangan</th>
+                          <th>Keterangan</th>
                           <th>Nilai Transaksi</th>
                           <th>Action</th>
                         </tr>
@@ -99,9 +100,10 @@
                       <th class="border">{{ $voice->tanggal_invoice }}</th>
                       <th class="border">{{ $voice->nomor_faktur }}</th>
                       <th class="border">{{ $voice->pelanggan }}</th>
+                      <th class="border">{{ $voice->status_invoice }}</th>
                       <th class="border">{{ $voice->keterangan }}</th>
                       <th class="border">{{ $voice->total_tagihan }}</th>
-                      <th class="border"><a href="" class="badge badge-success">view</a></th>
+                      <th class="border"><a href="" class="btn btn-outline-success">view</a></th>
                       </tr>
                       @endforeach
                       </tbody>

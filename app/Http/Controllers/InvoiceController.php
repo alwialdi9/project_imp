@@ -40,6 +40,23 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate(request(), [
+            'nomor_faktur' => 'required',
+            'tanggal_invoice' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'faximile' => 'required',
+            'jatuh_tempo' => 'required',
+            'metode_pembayaran' => 'required',
+            'keterangan' => 'required',
+            'harga_satuan' => 'required',
+            'pajak' => 'required',
+            'total_tagihan' => 'required',
+            'terbilang' => 'required',
+            'pelanggan' => 'required',
+            'status_invoice' => 'required',
+        ]);
+
         Invoice::create([
 
             'nomor_faktur' => $request->nomor_faktur,
@@ -58,6 +75,7 @@ class InvoiceController extends Controller
             'total_tagihan' => $request->total_tagihan,
             'terbilang' => $request->terbilang,
             'pelanggan' => $request->pelanggan,
+            'status_invoice' => $request->status_invoice,
             ]);
             return redirect('/invoice');
     }

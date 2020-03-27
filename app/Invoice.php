@@ -25,5 +25,6 @@ class Invoice extends Model
         'total_tagihan',
         'terbilang',
         'pelanggan',
+        'status_invoice',
     ];
 }

@@ -54,6 +54,14 @@ class PettyCashController extends Controller
     {
         //
         $total = str_replace(',', '', $request->nilai_transaksi);
+        $this->validate(request(),  [
+            'tanggal' => 'required',
+            'nilai_transaksi' => 'required',
+            'jenis_transaksi' => 'required',
+            'referensi_akun' => 'required',
+            'keterangan' => 'required',
+        ]);
+        
         Petty::create([
             'tanggal' => $request->tanggal,
             'nilai_transaksi' => $total,
