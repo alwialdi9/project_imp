@@ -88,15 +88,15 @@
                       <tbody>
                         @foreach ( $penjualan as $p)
                         <tr>
-                            <th scope="row"> {{ $loop->iteration }} </th>
+                            <td scope="row"> {{ $loop->iteration }} </td>
                             <td>{{$p->tanggal}}</td>
                             <td>{{$p->nomor_faktur}}
                               <div class="table-links">
-                                <a href="#"><i class="fas fa-edit"></i> Ubah</a>
+                              <a href="/penjualan/edit/{{ $p->id }}"><i class="fas fa-edit"></i> Ubah</a>
                                 <div class="bullet"></div>
                                 <a href="#"><i class="far fa-eye"></i> Lihat</a>
                                 <div class="bullet"></div>
-                                <a href="#" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                <a href="/penjualan/hapus/{{ $p->id }}" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
                               </div>
                             </td>
                             <td>{{$p->nama_pelanggan}}</td>

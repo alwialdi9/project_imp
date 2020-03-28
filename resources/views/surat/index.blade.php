@@ -24,7 +24,7 @@
                     <input type="text" class="form-control daterange">
                   </div>
                 </div>
-               <a href="{{('/')}}" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</a>
+               <a href="{{('/search')}}" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</a>
               </div>
               
             </div>

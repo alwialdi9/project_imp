@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Petty;
+use App\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,7 +41,8 @@ class PettyCashController extends Controller
     public function create()
     {
         //
-        return view('petty.buat_petty');
+        $ref_akun = Account::all();
+        return view('petty.buat_petty', compact('ref_akun'));
     }
 
     /**

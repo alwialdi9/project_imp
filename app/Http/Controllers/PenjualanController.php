@@ -38,7 +38,10 @@ class PenjualanController extends Controller
     public function create()
     {
         $ref_akun = Account::all();
-        return view('penjualan.buat_penjualan', compact('ref_akun'));
+        $no_faktur = Penjualan::orderBy('id', 'desc')->first();
+        $nomor = substr($no_faktur->nomor_faktur,2);
+        $faktur = $nomor+1;
+        return view('penjualan.buat_penjualan', compact('ref_akun', 'no_faktur', 'faktur'));
     }
 
     /**
