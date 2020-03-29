@@ -51,6 +51,16 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Faktur</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control inputtags" id="nomor_faktur" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" value="F-{{$faktur}}" required="">
+                        <div class="has-feedback{{ $errors->has('nomor_faktur') ? 'has-error' : ''}}">
+                          @if ($errors->has('nomor_faktur'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('nomor_faktur') }} </p>
+                            </span>
+                            @endif
+                          {{-- formvalidation --}}
+                          {{-- jika valid, tambahkan di input class is_valid --}}
+                          {{-- jika invalid, tambahkan di input class is_invalid --}}
+                        </div>
                       </div>
                     </div>
 

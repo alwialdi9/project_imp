@@ -57,7 +57,7 @@ class PenjualanController extends Controller
             'tanggal' => 'required',
             'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
-            'nama_pelanggan' => 'required|min:10',
+            'nama_pelanggan' => 'required|min:5',
             'status_penjualan' => 'required',
             'total' => 'required',
         ]);
