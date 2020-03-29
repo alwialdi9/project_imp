@@ -32,7 +32,10 @@ class PembelianController extends Controller
     public function create()
     {
         $ref_akun = Account::all();
-        return view('pembelian.buat_pembelian', compact('ref_akun'));
+        $no_faktur = Pembelian::orderBy('id', 'desc')->first();
+        $nomor = substr($no_faktur->nomor_faktur,2);
+        $faktur = $nomor+1;
+        return view('pembelian.buat_pembelian', compact('ref_akun', 'no_faktur', 'faktur'));
     }
 
     /**
@@ -46,19 +49,17 @@ class PembelianController extends Controller
         $total = str_replace(',', '', $request->total);
         $this->validate(request(), [
             'tanggal' => 'required',
-            'status_pembelian' => 'required',
-            'nomor_faktur' => 'required|min:10',
+            'nomor_faktur' => 'required|min:5',
             'referensi_akun' => 'required',
             'status_pembelian' => 'required',
             'total' => 'required',
-            'supplier' => 'required|max:20',
+            'supplier' => 'required|min:5',
         ]);
         Pembelian::create([
-
             'tanggal' => $request->tanggal,
+            'status_pembelian' => $request->status_pembelian,
             'nomor_faktur' => $request->nomor_faktur,
             'referensi_akun' => $request->referensi_akun,
-            'status_pembelian' => $request->status_pembelian,
             'total' => $total,
             'supplier' => $request->supplier,
         ]);

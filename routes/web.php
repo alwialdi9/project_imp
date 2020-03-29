@@ -75,8 +75,10 @@ Route::post('/petty', 'PettyCashController@store');
 Route::get('/pelanggan', 'PelangganController@index');
 
 Route::get('/labarugi', 'LabaRugiController@index');
+Route::post('/labarugi', 'LabaRugiController@store');
 
 Route::get('/rencanaaruskas', 'RencanaKasController@index');
+Route::get('/rencanaaruskas', 'RencanaKasController@store');
 
 // Route::get('surat', function () {
 //     return view('surat.index');

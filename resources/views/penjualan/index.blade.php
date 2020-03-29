@@ -88,9 +88,9 @@
                       <tbody>
                         @foreach ( $penjualan as $p)
                         <tr>
-                            <td scope="row"> {{ $loop->iteration }} </td>
-                            <td>{{$p->tanggal}}</td>
-                            <td>{{$p->nomor_faktur}}
+                            <td class="border" scope="row"> {{ $loop->iteration }} </td>
+                            <td class="border">{{$p->tanggal}}</td>
+                            <td class="border">{{$p->nomor_faktur}}
                               <div class="table-links">
                               <a href="/penjualan/edit/{{ $p->id }}"><i class="fas fa-edit"></i> Ubah</a>
                                 <div class="bullet"></div>
@@ -99,9 +99,9 @@
                                 <a href="/penjualan/hapus/{{ $p->id }}" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
                               </div>
                             </td>
-                            <td>{{$p->nama_pelanggan}}</td>
-                            <td>{{$p->status_penjualan}}</td>
-                            <td>Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
+                            <td class="border">{{$p->nama_pelanggan}}</td>
+                            <td class="border">{{$p->status_penjualan}}</td>
+                            <td class="border">Rp. <div class="currency" style="display:inline-table;">{{$p->total}}</div></td>
                         </tr>
                         @endforeach
                       </tbody>
