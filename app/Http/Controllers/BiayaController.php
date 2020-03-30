@@ -42,7 +42,7 @@ class BiayaController extends Controller
         $total = str_replace(',', '', $request->total);
         $this->validate(request(), [
             'tanggal' => 'required',
-            'penerima' => 'required|min:10|unique:biaya',
+            'penerima' => 'required|min:5|unique:biaya',
             'jenis_biaya' => 'required',
             'status' => 'required',
             'referensi_akun' => 'required',

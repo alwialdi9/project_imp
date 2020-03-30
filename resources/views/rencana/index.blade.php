@@ -61,7 +61,7 @@
                         </div>
                       </div>
   
-                      <form action="{{url('/invoice')}}" method="post" class="wizard-content mt-2">
+                      <form action="{{url('/rencanaaruskas')}}" method="post" class="wizard-content mt-2">
                         @csrf
                         <div class="wizard-pane">
                             <div class="penerimaan">
