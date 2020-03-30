@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Surat;
 use App\kategori_surat;
+use App\Petty;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -66,8 +67,6 @@ class SuratController extends Controller
         //     $satukan = implode('-', $array);
         //     return $satukan;
         // }
-        $date1 = substr($request->tanggal_surat, 0, 10);
-        $date2 = substr($request->tanggal_surat, 13, 10);
 
         // dd($date1, $date2);
         // $waktu_surat = ubahTanggal($date1);
@@ -75,7 +74,6 @@ class SuratController extends Controller
 
         //inputfile
         $file = $request->file('surat_path');
-        dd($request->all());
         // \var_dump($request->file('surat_path'));
         // nama file
         $nama_file = $file->getClientOriginalName();
@@ -112,7 +110,7 @@ class SuratController extends Controller
                 'kategori_id' => $request->jenis_surat,
                 'nomor_surat' => $request->nomor_surat,
                 'tanggal_terima' => '',
-                'tanggal_surat' => $waktu_surat,
+                'tanggal_surat' => $date1,
                 'asal_surat' => '',
                 'tujuan_surat' => $request->tujuan_surat,
                 'perihal' => $request->perihal,
