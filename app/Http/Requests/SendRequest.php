@@ -31,41 +31,41 @@ class SendRequest extends FormRequest
             'nama_pelanggan' => 'required|min:5',
             'status_penjualan' => 'required',
             'total' => 'required',
-        ];
+    
 
         // Pembelian
-        return [
+    
             'tanggal' => 'required',
             'nomor_faktur' => 'required|min:4',
             'referensi_akun' => 'required',
             'status_pembelian' => 'required',
             'total' => 'required',
             'supplier' => 'required|min:5',
-        ];
+        
 
         // Biaya
-        return [
+    
             'tanggal' => 'required',
-            'penerima' => 'required|min:10|unique:biaya',
+            'penerima' => 'required|min:5|unique:biaya',
             'jenis_biaya' => 'required',
             'status' => 'required',
             'referensi_akun' => 'required',
             'keterangan' => 'required',
             'tag' => 'required',
             'total' => 'required',
-        ];
+        
 
         // PattyCash
-        return [
+    
             'tanggal' => 'required',
             'nilai_transaksi' => 'required',
             'jenis_transaksi' => 'required',
             'referensi_akun' => 'required',
             'keterangan' => 'required',
-        ];
+        
 
         // Invoice
-        return [
+    
             'nomor_faktur' => 'required',
             'tanggal_invoice' => 'required',
             'alamat' => 'required',
@@ -93,10 +93,10 @@ class SendRequest extends FormRequest
             'nama_pelanggan.min' => 'Nama Pelanggan minimal 5 karakter',
             'status_penjualan.required' => 'Status Penjualan tidak boleh kosong',
             'total.required' => 'Total Penjualan tidak boleh kosong',
-        ];
+       
 
         // Pembelian
-        return [
+        
             'tanggal.required' => 'Tanggal tidak boleh kosong',
             'nomor_faktur.required' => 'Nomor Fakur tidak boleh kosong',
             'nomor_faktur.min' => 'Nomor Faktur minimal 4 karakter',
@@ -104,11 +104,11 @@ class SendRequest extends FormRequest
             'status_pembelian.required' => 'Status Pembelian tidak boleh kosong',
             'total.required' => 'Total Pembelian tidak boleh kosong',
             'supplier.required' => 'Supplier tidak boleh kosong',
-            'supplier.min' => 'Minimal 5 karakter',
-        ];
+            'supplier.min' => 'Nama Supplier Minimal 5 karakter',
+       
 
         // Biaya
-        return [
+        
             'tanggal.required' => 'Tanggal tidak boleh kosong',
             'penerima.required' => 'Nama Penerima tidak boleh kosong',
             'jenis_biaya.required' => 'Jenis Biaya tidak boleh kosong',
@@ -117,20 +117,20 @@ class SendRequest extends FormRequest
             'keterangan.required' => 'Keterangan tidak boleh kosong',
             'tag.required' => 'Tag tidak boleh kosong',
             'total.required' => 'Total tidak boleh kosong',
-            'penerima.min' => 'Nama Penerima minimal 10 karakter',
-        ];
+            'penerima.min' => 'Nama Penerima minimal 5 karakter',
+       
 
         // PattyCash
-        return [
+        
             'tanggal.required' => 'Tanggal tidak boleh kosong',
             'nilai_transaksi.required' => 'Nilai Transaksi tidak boleh kosong',
             'jenis_transaksi.required' => 'Jenis Transaksi tidak boleh kosong',
             'referensi_akun.required' => 'Referensi Akun tidak boleh kosong',
             'keterangan.required' => 'Keterangan tidak boleh kosong',
-        ];
+       
 
         // Invoice
-        return [
+        
             'nomor_faktur.required' => 'Nomor Faktur tidak boleh kosong',
             'tanggal_invoice.required' => 'Tanggal invoice tidak boleh kosong',
             'alamat.required' => 'Alamat tidak boleh kosong',

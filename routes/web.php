@@ -81,7 +81,7 @@ Route::get('/labarugi', 'LabaRugiController@index');
 Route::post('/labarugi', 'LabaRugiController@store');
 
 Route::get('/rencanaaruskas', 'RencanaKasController@index');
-Route::get('/rencanaaruskas', 'RencanaKasController@store');
+Route::post('/rencanaaruskas', 'RencanaKasController@store');
 
 // Route::get('surat', function () {
 //     return view('surat.index');
