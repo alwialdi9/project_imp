@@ -55,7 +55,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Faktur</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control is_valid" placeholder="Masukkan Nomor Faktur" required="" name="nomor_faktur" value="{{old('nomor_faktur')}}">
+                        <input type="text" class="form-control is_valid" placeholder="Masukkan Nomor Faktur" required="" name="nomor_faktur" value="F-{{$faktur}}">
                         <div class="has-feedback{{ $errors->has('nomor_faktur') ? 'has-error' : ''}}">
                           @if ($errors->has('nomor_faktur'))
                             <span class="help-block">
@@ -107,10 +107,17 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Penjualan</label>
                       <div class="col-sm-12 col-md-7">
                         <select class="form-control selectric" name="status_penjualan" id="status_penjualan" required value="{{old('status_penjualan')}}">
-                          <option>Lunas</option>
-                          <option>Belum</option>
+                          <option value="Lunas">Lunas</option>
+                          <option value="Belum">Belum</option>
                           {{-- <option>Pending</option> --}}
                         </select>
+                        <div class="has-feedback{{ $errors->has('status_penjualan') ? 'has-error' : ''}}">
+                          @if ($errors->has('status_penjualan'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('status_penjualan') }} </p>
+                            </span>
+                            @endif
+                       </div>
                       </div>
                     </div>
 
@@ -123,7 +130,7 @@
                                 Rp
                               </div>
                             </div>     
-                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required value="{{old('total')}}"><br>
+                          <input type="text" class="form-control currency" placeholder="Masukkan Total" name="total" required value="{{old('total')}}">
                           <div class="has-feedback{{ $errors->has('total') ? 'has-error' : ''}}"> 
                             @if ($errors->has('total'))
                             <span class="help-block">
@@ -143,12 +150,11 @@
                       </div>
                      </div>
                     </div>
-                   </div>
                    </form>
                   </div>
+                 </div>
                 </div>
-              </div>
-            </div> 
+              </div> 
         </section>
       </div>
 @endsection

@@ -54,6 +54,7 @@ Route::get('/surat', 'SuratController@index');
 Route::get('/surat/suratmasuk', 'SuratController@create');
 Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
 Route::post('/surat', 'SuratController@store');
+Route::post('/search', 'SuratController@show');
 
 Route::get('akun', 'AkunController@index');
 Route::get('akun/{id}', 'AkunController@show');
@@ -61,6 +62,9 @@ Route::get('akun/{id}', 'AkunController@show');
 Route::get('/invoice', 'InvoiceController@index');
 Route::get('/invoice/buatinvoice', 'InvoiceController@create');
 Route::post('/invoice', 'InvoiceController@store');
+Route::get('/invoice/edit/{id}', 'InvoiceController@edit');
+Route::post('/invoice/update', 'InvoiceController@update');
+Route::get('/invoice/hapus/{id}', 'InvoiceController@hapus');
 Route::get('invoicepreview', function () {
     return view('invoice.preview');
 });
@@ -71,8 +75,10 @@ Route::post('/petty', 'PettyCashController@store');
 Route::get('/pelanggan', 'PelangganController@index');
 
 Route::get('/labarugi', 'LabaRugiController@index');
+Route::post('/labarugi', 'LabaRugiController@store');
 
 Route::get('/rencanaaruskas', 'RencanaKasController@index');
+Route::get('/rencanaaruskas', 'RencanaKasController@store');
 
 // Route::get('surat', function () {
 //     return view('surat.index');

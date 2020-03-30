@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Invoice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
@@ -70,7 +71,7 @@ class InvoiceController extends Controller
             'keterangan' => $request->keterangan,
             'kuantitas' => $request->kuantitas,
             'harga_satuan' => $request->harga_satuan,
-            'harga_penjualan' => '',
+            'harga_penjualan' => '120000',
             'pajak' => $request->pajak,
             'total_tagihan' => $request->total_tagihan,
             'terbilang' => $request->terbilang,
@@ -99,7 +100,8 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $invoice = DB::table('invoice')->where('id', $id)->get();
+        return view('invoice.edit', ['invoice' => $invoice]);
     }
 
     /**
@@ -109,9 +111,18 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // $total = str_replace(',', '', $request->total);
+        DB::table('invoice')->where('id', $request->id)->update([
+            'tanggal_invoice' => $request->tanggal_invoice,
+            'nomor_faktur' => $request->nomor_faktur,
+            'pelanggan' => $request->pelanggan,
+            'status_invoice' => $request->status_invoice,
+            'keterangan' => $request->keterangan,
+            'total_tagihan' => $request->total_tagihan,
+        ]);
+        return redirect('/invoice');
     }
 
     /**
@@ -123,5 +134,11 @@ class InvoiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus($id)
+    {
+        DB::table('invoice')->where('id', $id)->delete();
+        return redirect('/invoice');
     }
 }

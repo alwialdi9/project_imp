@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Surat;
+use App\Petty;
 use App\kategori_surat;
 use App\Petty;
 use App\Http\Controllers\Controller;

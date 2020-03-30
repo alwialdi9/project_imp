@@ -90,21 +90,26 @@
                           <th>Keterangan</th>
                           <th>Keterangan</th>
                           <th>Nilai Transaksi</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                       @foreach ($invoice as $voice)
                       <tr>
-                      <th class="border" scope="row">{{ $loop->iteration}}</th>
-                      <th class="border">{{ $voice->tanggal_invoice }}</th>
-                      <th class="border">{{ $voice->nomor_faktur }}</th>
-                      <th class="border">{{ $voice->pelanggan }}</th>
-                      <th class="border">{{ $voice->status_invoice }}</th>
-                      <th class="border">{{ $voice->keterangan }}</th>
-                      <th class="border">{{ $voice->keterangan }}</th>
-                      <th class="border">{{ $voice->total_tagihan }}</th>
-                      <th class="border"><a href="" class="btn btn-outline-success">view</a></th>
+                      <td class="border" scope="row">{{ $loop->iteration}}</td>
+                      <td class="border">{{ $voice->tanggal_invoice }}</td>
+                      <td class="border">{{ $voice->nomor_faktur }}
+                      <div class="table-links">
+                        <a href="/invoice/edit/{{ $voice->id }}"><i class="fas fa-edit"></i> Ubah</a>
+                          <div class="bullet"></div>
+                          <a href="#"><i class="far fa-eye"></i> Lihat</a>
+                          <div class="bullet"></div>
+                          <a href="/invoice/hapus/{{ $voice->id }}" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+                        </div>
+                      </td>
+                      <td class="border">{{ $voice->pelanggan }}</td>
+                      <td class="border">{{ $voice->status_invoice }}</td>
+                      <td class="border">{{ $voice->keterangan }}</td>
+                      <td class="border">{{ $voice->total_tagihan }}</td>
                       </tr>
                       @endforeach
                       </tbody>

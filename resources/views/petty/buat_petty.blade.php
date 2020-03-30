@@ -57,11 +57,9 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                         <div class="col-sm-12 col-md-7">
                           <select class="form-control select2" id="referensi_akun" name="referensi_akun" required>
-                            <option value="pembelian">7-50001 PattyCash</option>
-                            <option>7-50002 PattyCash</option>
-                            <option>7-50003 PattyCash</option>
-                            <option>7-50004 PattyCash</option>
-                            <option>7-50005 PattyCash</option>
+                            @foreach ($ref_akun as $akun)
+                          <option value="{{ $akun->nama_akun }} ">{{ $akun->nama_akun }} </option>
+                          @endforeach
                           </select>
                           <div class="valid-feedback">
                             {{-- formvalidation --}}

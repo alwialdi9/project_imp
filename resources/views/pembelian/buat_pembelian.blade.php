@@ -23,6 +23,7 @@
                   <div class="card-header">
                     <h4>Isi Form Pembelian</h4>
                   </div>
+                  
                   <form method="post" action="{{url ('/pembelian')}}">
                     @csrf
                   <div class="card-body">
@@ -49,7 +50,17 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Faktur</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control inputtags" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" value="{{old('nomor_faktur')}}" required="">
+                        <input type="text" class="form-control inputtags" id="nomor_faktur" placeholder="Masukkan Nomor Faktur" name="nomor_faktur" value="F-{{$faktur}}" required="">
+                        <div class="has-feedback{{ $errors->has('nomor_faktur') ? 'has-error' : ''}}">
+                          @if ($errors->has('nomor_faktur'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('nomor_faktur') }} </p>
+                            </span>
+                            @endif
+                          {{-- formvalidation --}}
+                          {{-- jika valid, tambahkan di input class is_valid --}}
+                          {{-- jika invalid, tambahkan di input class is_invalid --}}
+                        </div>
                       </div>
                     </div>
 
@@ -90,8 +101,8 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Pembelian</label>
                       <div class="col-sm-12 col-md-7">
                         <select class="form-control selectric" name="status_pembelian" id="status_pembelian" value="{{old('status_pembelian')}}" required>
-                          <option value="lunas">Lunas</option>
-                          <option value="belum">Belum</option>
+                          <option value="Lunas">Lunas</option>
+                          <option value="Belum">Belum</option>
                           {{-- <option>Pending</option> --}}
                         </select>
                         <div class="has-feedback{{ $errors->has('status_pembelian') ? 'has-error' : ''}}">
