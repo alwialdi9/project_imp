@@ -24,10 +24,10 @@
                     <h4>Buat Surat Masuk</h4>
                   </div>
                   
-                  <form action="{{url('/surat')}}" method="post" enctype="multipart/form-data">
+                  <form action="{{ url('surat/form') }} " method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                   <div class="card-body">
-                    <input type="hidden" name="jenissurat" value="Masuk">
+                    <input type="hidden" name="jenis" value="masuk">
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
@@ -79,12 +79,20 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">File Surat</label>
                         <div class="col-sm-12 col-md-7">
-                          <div id="image-preview" class="image-preview">
-                            <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" name="surat_path" id="image-upload">
-                          </div>
+                        <div class="custom-file">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                          <input type="file" class="custom-file-input" id="customFile" name="filesurat">
+                        </div>
                         </div>
                       </div>
+
+                      <script>
+                      $('#customFile').change(function() {
+                        var i = $(this).prev('label').clone();
+                        var file = $('#customFile')[0].files[0].name;
+                        $(this).prev('label').text(file);
+                      });
+                      </script>
 
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>

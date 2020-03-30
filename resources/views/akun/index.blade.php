@@ -10,7 +10,7 @@
             <h1>Daftar Akun</h1>
 
             <div class="section-header-breadcrumb">
-              <a href="#" class="btn btn-primary" id="modal-5"><i class="fas fa-user-plus"></i> Buat Akun</a>
+              <a href="#" class="btn btn-primary modal-5" id="modal-5"><i class="fas fa-user-plus"></i> Buat Akun</a>
             </div>
         </div>
         
@@ -62,9 +62,9 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-hover" id="table-1">
-                    <thead>                                 
+                    <thead class="text-center">                                 
                       <tr>
-                          <th class="text-center">
+                          <th>
                             #
                           </th>
                         <th>Kode Akun</th>
@@ -72,7 +72,7 @@
                         <th>Kategori Akun</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody class="text-center" >
                           @foreach ($akun as $akun)    
                           <tr>
                             <td class="text-center">
@@ -83,8 +83,12 @@
                               {{ $akun->nama_akun }}
                             </td>
                             <td>
-                              {{ $akun->kategori_akun }}
+                              {{ $akun->kategori_akun }} 
+                              <div class="float-right">
+                                <a href="{{ url('akunhapus/'.$akun->id) }}" class="mx-3" ><i class="fas fa-trash"></i></a>
+                                <a href="javascript:void(0)" data-id="{{ $akun->id }}" data-toggle="tooltip" id="editakun" class="modal-5"><i class="fas fa-edit"></i></a></div>
                             </td>
+                            {{-- data-confirm="Realy?|Do you want to continue?" data-confirm-yes="" --}}
                             
                           </tr>
                           @endforeach
@@ -97,8 +101,10 @@
           </div>
     </section>
 
-    <form class="modal-part" id="modal-login-part">
+    <form class="modal-part" id="akuncreate">
+      {{ csrf_field() }}
         <div class="form-group">
+          <input type="hidden" name="id" id="id">
           <label>Kode Akun</label>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -106,7 +112,7 @@
                 <i class="fas fa-fw fa-user-cog"></i>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Kode Akun" name="email">
+            <input type="text" class="form-control" placeholder="Kode Akun" name="kode_akun" id="kode_akun">
           </div>
         </div>
 
@@ -118,7 +124,7 @@
                 <i class="fas fa-fw fa-user"></i>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Nama Akun" name="email">
+            <input type="text" class="form-control" placeholder="Nama Akun" name="nama_akun" id="nama_akun">
           </div>
         </div>
 
@@ -130,7 +136,7 @@
                 <i class="fas fa-user-tag"></i>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Kategori Akun" name="password">
+            <input type="text" class="form-control" placeholder="Kategori Akun" name="kategori_akun" id="kategori_akun">
           </div>
         </div>
       </form>

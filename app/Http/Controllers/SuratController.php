@@ -6,9 +6,9 @@ namespace App\Http\Controllers;
 use App\Surat;
 use App\Petty;
 use App\kategori_surat;
-use App\Petty;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Validator;
 use Illuminate\Http\UploadedFile;
 
 class SuratController extends Controller
@@ -59,28 +59,17 @@ class SuratController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->tanggal_surat);
-
-        // function ubahTanggal($tanggal)
-        // {
-        //     $pisah = explode('/', $tanggal);
-        //     $array = array($pisah[2], $pisah[1], $pisah[0]);
-        //     $satukan = implode('-', $array);
-        //     return $satukan;
-        // }
-
-        // dd($date1, $date2);
-        // $waktu_surat = ubahTanggal($date1);
-        // $waktu_surat2 = ubahTanggal($date2);
-
         //inputfile
-        $file = $request->file('surat_path');
-        // \var_dump($request->file('surat_path'));
+        // dd($request->all());
+        $file = $request->file('filesurat');
+        // dd($request->file('filesurat'));
         // nama file
         $nama_file = $file->getClientOriginalName();
+        // $nama_file = time() . '.' . $request->file->extension();
+
         $file->move(public_path('file'), $nama_file);
 
-        Validator::make($request->all(), [
+        $this->validate(request(), [
             'jenis' => 'required',
             'kategori_id' => 'required|numeric',
             'nomor_surat' => 'required',
@@ -89,22 +78,24 @@ class SuratController extends Controller
             'asal_surat' => 'required',
             'tujuan_surat' => 'required',
             'perihal' => 'required',
+            'surat_path' => 'required|mimes:pdf,xlx,csv,doc,docx,jpg,png,jpeg|max:2048',
         ]);
-        if ($request->jenissurat == "Masuk") {
-            $date1 = substr($request->tanggal_surat, 0, 10);
-            $date2 = substr($request->tanggal_surat, 13, 10);
 
+        $date1 = substr($request->tanggal_surat, 0, 10);
+        $date2 = substr($request->tanggal_surat, 13, 10);
+        if ($request->jenis == "masuk") {
             Surat::create([
                 'jenis' => $request->jenissurat,
                 'kategori_id' => $request->jenis_surat,
                 'nomor_surat' => $request->nomor_surat,
                 'tanggal_terima' => $date1,
                 'tanggal_surat' => $date2,
-                'asal_surat' => $request->surat_path,
+                'asal_surat' => $request->asal_surat,
                 'tujuan_surat' => '',
                 'perihal' => $request->perihal,
                 'surat_path' => $nama_file,
             ]);
+            // dd($masuk);
         } else {
             Surat::create([
                 'jenis' => $request->jenissurat,
@@ -127,7 +118,6 @@ class SuratController extends Controller
         $jumlah = Surat::all()->count();
         $petty = Petty::all();
         return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'surat_id', 'petty'));
-        // return view('/surat');
     }
 
     /**

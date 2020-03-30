@@ -27,6 +27,7 @@
                 <form action="{{url('/surat')}}" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <div class="card-body">
+                    <input type="hidden" name="jenis" value="keluar">
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
@@ -61,9 +62,9 @@
                       </div> --}}
                     </div>
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Asal Surat</label>
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tujuan Surat</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" placeholder="Masukkan Asal Surat" required="" name="asal_surat">
+                        <input type="text" class="form-control" placeholder="Masukkan tujuan Surat" required="" name="tujuan_surat">
                         <div class="valid-feedback">
                           {{-- formvalidation --}}
                           {{-- jika valid, tambahkan di input class is_valid --}}
@@ -82,11 +83,11 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">File Surat</label>
                         <div class="col-sm-12 col-md-7">
-                          <div id="image-preview" class="image-preview">
-                            <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" name="surat_path" id="image-upload" />
+                          <div class="custom-file">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                            <input type="file" class="custom-file-input" id="customFile" name="filesurat">
                           </div>
-                        </div>
+                          </div>
                       </div>
 
                     <div class="form-group row mb-4">

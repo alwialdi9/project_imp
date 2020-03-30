@@ -37,7 +37,21 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $this->validate(request(), [
+            'kode_akun' => 'required',
+            'nama_akun' => 'required',
+            'kategori_akun' => 'required',
+
+        ]);
+
+
+        Akun::create([
+            'kode_akun' => $request->get('kode_akun'),
+            'nama_akun' => $request->get('nama_akun'),
+            'kategori_akun' => $request->get('kategori_akun'),
+        ]);
+        return response()->json(['success' => 'Account Saved Successfully.']);
     }
 
     /**
@@ -83,7 +97,10 @@ class AkunController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id' => $id);
+        $akun = Akun::where($where)->first();
+
+        return response()->json($akun);
     }
 
     /**
@@ -106,6 +123,7 @@ class AkunController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Akun::where('id', $id)->delete();
+        return redirect('/akun');
     }
 }

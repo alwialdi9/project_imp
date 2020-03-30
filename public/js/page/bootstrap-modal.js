@@ -42,25 +42,27 @@ $("#modal-4").fireModal({
     }]
 });
 
-$("#modal-5").fireModal({
+$(".modal-5").fireModal({
+    // tambahkan fungsi if disini
     title: 'Tambah Akun',
-    body: $("#modal-login-part"),
+    body: $("#akuncreate"),
     footerClass: 'bg-whitesmoke',
-    autoFocus: false,
+    autoFocus: true,
     onFormSubmit: function (modal, e, form) {
         // Form Data
         let form_data = $(e.target).serialize();
         console.log(form_data)
 
+        // form.hide();
         // DO AJAX HERE
-        let fake_ajax = setTimeout(function () {
-            form.stopProgress();
-            modal.find('.modal-body').prepend('<div class="alert alert-info">Please check your browser console</div>')
+        // let fake_ajax = setTimeout(function () {
+        //     form.stopProgress();
+        //     modal.find('.modal-body').prepend('<div class="alert alert-info">Please check your browser console</div>')
 
-            clearInterval(fake_ajax);
-        }, 1500);
+        //     clearInterval(fake_ajax);
+        // }, 1500);
 
-        e.preventDefault();
+        // e.preventDefault();
     },
     shown: function (modal, form) {
         console.log(form)
@@ -68,8 +70,10 @@ $("#modal-5").fireModal({
     buttons: [{
         text: 'Tambah',
         submit: true,
-        class: 'btn btn-primary btn-shadow',
-        handler: function (modal) {}
+        class: 'btn btn-primary btn-shadow saveBtn',
+        handler: function (modal) {
+            // modal.hide();
+        }
     }]
 });
 
@@ -99,7 +103,7 @@ $("#modal-6").fireModal({
     buttons: [{
         text: 'Tambah',
         submit: true,
-        class: 'btn btn-primary btn-shadow',
+        class: 'btn btn-primary btn-shadow saveBtn',
         handler: function (modal) {}
     }]
 });

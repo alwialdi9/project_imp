@@ -117,5 +117,55 @@
     })
 </script>
 
+<script type="text/javascript">
+  $(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('body').on('click', '#editakun', function () {
+        $('#akuncreate').trigger("reset");
+        var id = $(this).data('id');
+        console.log(id);
+        $.get("{{ url('akunedit') }}"+"/"+id, function (data) {
+        $('#id').val(data.id);
+        $('#kode_akun').val(data.kode_akun);
+        $('#nama_akun').val(data.nama_akun);
+        $('#kategori_akun').val(data.kategori_akun);
+        })
+    })
+
+    $('.saveBtn').click(function (e) {
+        e.preventDefault();
+        $(this).html('Sending..');
+
+        var kode_akun = $("input[name=kode_akun]").val();
+        var nama_akun = $("input[name=nama_akun]").val();
+        var kategori_akun = $("input[name=kategori_akun]").val();
+
+        $.ajax({
+          data: {kode_akun:kode_akun, nama_akun:nama_akun, kategori_akun:kategori_akun},
+          url: "{{url('akuncreate')}} ",
+          type: "POST",
+          dataType: 'json',
+          success: function (data) {
+
+              $('#akuncreate').trigger("reset");
+              $('.modal-part').modal('hide');
+              // table.draw();
+              $( "#table-1" ).load( "{{url('akun')}} #table-1" );
+              swal("Success!", "Success Insert Data!", "success");
+          },
+          error: function (data) {
+              console.log('Error:', data);
+              $('.saveBtn').html('Save Changes');
+          }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

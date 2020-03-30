@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'LoginController@index');
 
-Route::get('/dashboard', 'LoginController@index');
+// Route::get('/dashboard', 'LoginController@index');
 Route::get('/login', 'LoginController@login');
 Route::post('/loginPost', 'LoginController@loginPost');
 Route::get('/register', 'LoginController@register');
@@ -48,16 +48,19 @@ Route::post('/biaya', 'BiayaController@store');
 Route::get('/petty', 'PettyCashController@index');
 Route::get('/petty/buat_petty', 'PettyCashController@create');
 Route::post('/petty', 'PettyCashController@store');
-Route::post('/search', 'PettyCashController@show');
+Route::post('/searchpetty', 'PettyCashController@show');
 
 Route::get('/surat', 'SuratController@index');
 Route::get('/surat/suratmasuk', 'SuratController@create');
 Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
-Route::post('/surat', 'SuratController@store');
+Route::post('/surat/form', 'SuratController@store');
 Route::post('/search', 'SuratController@show');
 
 Route::get('akun', 'AkunController@index');
 Route::get('akun/{id}', 'AkunController@show');
+Route::get('akunedit/{id}', 'AkunController@edit');
+Route::post('akuncreate', 'AkunController@store');
+Route::get('akunhapus/{id}', 'AkunController@destroy');
 
 Route::get('/invoice', 'InvoiceController@index');
 Route::get('/invoice/buatinvoice', 'InvoiceController@create');

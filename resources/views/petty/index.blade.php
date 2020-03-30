@@ -13,7 +13,7 @@
             </div>
             <div class="collapse" id="mycard-collapse">
               <div class="card-body">
-                <form action="{{ url('/search') }} " method="post">
+                <form action="{{ url('/searchpetty') }} " method="post">
                   @csrf
                 <div class="form-group">
                   <label>Transaksi :</label>
