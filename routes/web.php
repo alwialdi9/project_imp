@@ -53,7 +53,7 @@ Route::post('/searchpetty', 'PettyCashController@show');
 Route::get('/surat', 'SuratController@index');
 Route::get('/surat/suratmasuk', 'SuratController@create');
 Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
-Route::post('/surat/form', 'SuratController@store');
+Route::post('/surat', 'SuratController@store');
 Route::post('/search', 'SuratController@show');
 
 Route::get('akun', 'AkunController@index');
@@ -78,9 +78,11 @@ Route::post('/petty', 'PettyCashController@store');
 Route::get('/pelanggan', 'PelangganController@index');
 
 Route::get('/labarugi', 'LabaRugiController@index');
+Route::get('/labarugi/index', 'LabaRugiController@create');
 Route::post('/labarugi', 'LabaRugiController@store');
 
 Route::get('/rencanaaruskas', 'RencanaKasController@index');
+Route::get('/rencanaaruskas/index', 'RencanaKasController@create');
 Route::post('/rencanaaruskas', 'RencanaKasController@store');
 
 // Route::get('surat', function () {

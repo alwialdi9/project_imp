@@ -17,6 +17,8 @@
                     <h4>Isi Form Laba / Rugi</h4>
                   </div>
                   
+                  <form action="{{url('/labarugi')}}" method="post" class="wizard-content mt-2">
+                    @csrf
                   <div class="card-body">
                     <div class="row mt-4">
                         <div class="col-12 col-lg-8 offset-lg-2">
@@ -60,9 +62,7 @@
                           </div>
                         </div>
                       </div>
-  
-                      <form action="{{url('/invoice')}}" method="post" class="wizard-content mt-2">
-                        @csrf
+    
                         <div class="wizard-pane">
                             <div class="penerimaan">
                           <div class="form-group row align-items-center">
@@ -82,14 +82,14 @@
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Penerimaan Jasa Projek</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" placeholder="Penerimaan Jasa Projek" name="penerimaan_jasa_projek" id="penerimaan_jasa_projek" required>
+                                <input type="text" class="form-control" placeholder="Penerimaan Jasa Projek" name="jasa_projek" id="jasa_projek" required>
                             </div>
                           </div>
 
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Total Penerimaan</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" placeholder="Total Penerimaan" name="total_penerimaan" id="total_penerimaan" required>
+                                <input type="text" class="form-control currency" placeholder="Total Penerimaan" name="total_penerimaan" id="total_penerimaan" required>
                             </div>
                           </div>
                             </div>
@@ -100,14 +100,14 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Server</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Server" name="server" id="server" required>
+                                    <input type="text" class="form-control currency" placeholder="Server" name="svr" id="svr" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Transportasi</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Transportasi" name="transport" id="transport" required>
+                                    <input type="text" class="form-control currency" placeholder="Transportasi" name="transportasi" id="transportasi" required>
                                 </div>
                               </div>
 
@@ -121,7 +121,7 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Lain-lain</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Lainnya" name="lain_lain" id="lain_lain" required>
+                                    <input type="text" class="form-control currency" placeholder="Lainnya" name="lain_lain_biayaprojek" id="lain_lain_biayaprojek" required>
                                 </div>
                               </div>
 
@@ -146,14 +146,14 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Gaji Staff</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Gaji Staff" name="gaji_staff" id="gaji_staff" required>
+                                    <input type="text" class="form-control currency" placeholder="Gaji Staff" name="gaji_staf" id="gaji_staf" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Penyusutan</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Biaya Penyusutan" name="biaya_penyusutan" id="biaya_penyusutan" required>
+                                    <input type="text" class="form-control currency" placeholder="Biaya Penyusutan" name="biaya_penyusutan_labarugi" id="biaya_penyusutan_labarugi" required>
                                 </div>
                               </div>
 
@@ -171,7 +171,7 @@
                             <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Alat Tulis Kantor</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Alat Tulis Kantor" name="alat_tulis_kantor" id="alat_tulis_kantor" required>
+                                    <input type="text" class="form-control currency" placeholder="Alat Tulis Kantor" name="atk" id="atk" required>
                                 </div>
                               </div>
 
@@ -192,35 +192,35 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Lain-lain</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Lain-lain" name="administrasi_lain" id="administrasi_lain" required>
+                                    <input type="text" class="form-control currency" placeholder="Lain-lain" name="lain_lain_administrasi" id="lain_lain_administrasi" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Total Biaya</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Total Biaya" name="total_biaya" id="total_biaya" required>
+                                    <input type="text" class="form-control currency" placeholder="Total Biaya" name="total_biaya_administrasi" id="total_biaya_administrasi" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Laba Sebelum Pajak</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="" name="laba_sebelum_pajak" id="laba_sebelum_pajak" required>
+                                    <input type="text" class="form-control currency" placeholder="" name="laba_sb_pajak" id="laba_sb_pajak" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Pajak</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="" name="pajak" id="pajak" required>
+                                    <input type="text" class="form-control currency" placeholder="" name="pajak_adm" id="pajak_adm" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Laba Bersih</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="" name="laba_bersih" id="laba_bersih" required>
+                                    <input type="text" class="form-control currency" placeholder="" name="laba_bersih_adm" id="laba_bersih_adm" required>
                                 </div>
                               </div>
 
@@ -245,8 +245,8 @@
                             </div>
                           </div>
                         </div>
-                      </form>
-                </div>
+                      </div>
+                    </form>
               </div>
             </div>
           </div>

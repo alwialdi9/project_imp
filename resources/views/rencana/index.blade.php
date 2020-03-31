@@ -17,6 +17,8 @@
                     <h4>Isi Form Rencana Arus Kas</h4>
                   </div>
                   
+                  <form action="{{url('/rencanaaruskas')}}" method="post" class="wizard-content mt-2">
+                    @csrf
                   <div class="card-body">
                     <div class="row mt-4">
                         <div class="col-12 col-lg-8 offset-lg-2">
@@ -61,8 +63,6 @@
                         </div>
                       </div>
   
-                      <form action="{{url('/rencanaaruskas')}}" method="post" class="wizard-content mt-2">
-                        @csrf
                         <div class="wizard-pane">
                             <div class="penerimaan">
                           <div class="form-group row align-items-center">
@@ -74,7 +74,7 @@
                                         <i class="far far-fw fa-calendar-alt"></i>
                                       </div>
                                     </div>
-                                    <input type="text" id="bulan_transaksi" name="bulan_transaksi" class="form-control datepicker" placeholder="Search..." autocomplete="off">
+                                    <input type="text" id="bulan_transaksi_aruskas" name="bulan_transaksi_aruskas" class="form-control datepicker" placeholder="Search..." autocomplete="off">
                                   </div>
                             </div>
                           </div>
@@ -82,14 +82,14 @@
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Penerimaan Jasa Projek</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" placeholder="Penerimaan Jasa Projek" name="penerimaan_jasa_projek" id="penerimaan_jasa_projek" required>
+                                <input type="text" class="form-control" placeholder="Penerimaan Jasa Projek" name="jasa_projek_aruskas" id="jasa_projek_aruskas" required>
                             </div>
                           </div>
 
                           <div class="form-group row align-items-center">
                             <label class="col-md-4 text-md-right text-left">Total Penerimaan</label>
                             <div class="col-lg-4 col-md-6">
-                                <input type="text" class="form-control" placeholder="Total Penerimaan" name="total_penerimaan" id="total_penerimaan" required>
+                                <input type="text" class="form-control currency" placeholder="Total Penerimaan" name="total_penerimaan_aruskas" id="total_penerimaan_aruskas" required>
                             </div>
                           </div>
 
@@ -101,35 +101,35 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Server</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Server" name="server" id="server" required>
+                                    <input type="text" class="form-control currency" placeholder="Server" name="biaya_server_aruskas" id="biaya_server_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Transportasi</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Transportasi" name="transport" id="transport" required>
+                                    <input type="text" class="form-control currency" placeholder="Transportasi" name="biaya_transportasi_aruskas" id="biaya_transportasi_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Laporan</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Laporan" name="laporan" id="laporan" required>
+                                    <input type="text" class="form-control currency" placeholder="Laporan" name="biaya_laporan_aruskas" id="biaya_laporan_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Gaji Direktur</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="gaji_direktur" name="gaji_direktur" id="gaji_direktur" required>
+                                    <input type="text" class="form-control currency" placeholder="gaji_direktur" name="gaji_direktur_aruskas" id="gaji_direktur_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Gaji Staff</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Gaji Staff" name="gaji_staff" id="gaji_staff" required>
+                                    <input type="text" class="form-control currency" placeholder="Gaji Staff" name="gaji_staf_aruskas" id="gaji_staf_aruskas" required>
                                 </div>
                               </div>
 
@@ -140,28 +140,28 @@
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Penyusutan</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Biaya Penyusutan" name="biaya_penyusutan" id="biaya_penyusutan" required>
+                                    <input type="text" class="form-control currency" placeholder="Biaya Penyusutan" name="biaya_penyusutan_aruskas" id="biaya_penyusutan_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Administrasi</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Biaya Administrasi" name="biaya_administrasi" id="biaya_administrasi" required>
+                                    <input type="text" class="form-control currency" placeholder="Biaya Administrasi" name="biaya_adm_aruskas" id="biaya_adm_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Bunga Bank</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Bunga Bank" name="bunga_bank" id="bunga_bank" required>
+                                    <input type="text" class="form-control currency" placeholder="Bunga Bank" name="bunga_bank_aruskas" id="bunga_bank_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Biaya Pajak</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Biaya Pajak" name="bunga_bank" id="bunga_bank" required>
+                                    <input type="text" class="form-control currency" placeholder="Biaya Pajak" name="biaya_pajak_aruskas" id="biaya_pajak_aruskas" required>
                                 </div>
                               </div>
 
@@ -172,32 +172,31 @@
                             <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Total Pengeluaran</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Total Pengeluaran" name="total_pengeluaran" id="total_pengeluaran" required>
+                                    <input type="text" class="form-control currency" placeholder="Total Pengeluaran" name="total_pengeluaran_aruskas" id="total_pengeluaran_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Total Biaya</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="Total Biaya" name="total_biaya" id="total_biaya" required>
+                                    <input type="text" class="form-control currency" placeholder="Total Biaya" name="total_biaya_aruskas" id="total_biaya_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Laba Sebelum Pajak</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="" name="laba_sebelum_pajak" id="laba_sebelum_pajak" required>
+                                    <input type="text" class="form-control currency" placeholder="" name="laba_sblm_pajak_aruskas" id="laba_sblm_pajak_aruskas" required>
                                 </div>
                               </div>
 
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Pajak</label>
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control currency" placeholder="" name="pajak" id="pajak" required>
+                                    <input type="text" class="form-control currency" placeholder="" name="pajak_aruskas" id="pajak_aruskas" required>
                                 </div>
                               </div>
-
-                        </div>
+                          </div>
 
                           <div class="form-group row">
                             <div class="col-md-4"></div>
@@ -213,13 +212,19 @@
                               <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-kas" id="next-mid-button">Next <i class="fas fa-arrow-right"></i></a>
 
                               <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-kas" id="next-mid2-button">Next <i class="fas fa-arrow-right"></i></a>
-
-                              <button type="submit" class="btn btn-icon icon-right btn-primary btn-wizard-kas" id="save-button">Simpan <i class="fas fa-save"></i></button>
-                            </div>
+                              
+                              <button type="submit" class="btn btn-icon icon-right btn-primary btn-wizard-kas" id="save-button">Simpan <i class="fas fa-save"></i></but>
+                              {{-- @if ($message = Session::get('berhasil'))
+                                <div class="alert alert-success alert-block">
+                                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @endif
+                            </div> --}}
                           </div>
                         </div>
-                      </form>
-                </div>
+                      </div>
+                    </form>
               </div>
             </div>
           </div>

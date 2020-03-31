@@ -24,7 +24,7 @@
                     <h4>Buat Surat Masuk</h4>
                   </div>
                   
-                  <form action="{{ url('surat/form') }} " method="post" enctype="multipart/form-data">
+                  <form action="{{ url('/surat') }} " method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                   <div class="card-body">
                     <input type="hidden" name="jenis" value="masuk">
@@ -32,11 +32,13 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
                           <input type="text" class="form-control" placeholder="Masukkan Nomor Surat" required="" name="nomor_surat" id="nomor_surat">
-                          <div class="valid-feedback">
-                            {{-- formvalidation --}}
-                            {{-- jika valid, tambahkan di input class is_valid --}}
-                            {{-- jika invalid, tambahkan di input class is_invalid --}}
-                          </div>
+                          <div class="has-feedback{{ $errors->has('nomor_surat') ? 'has-error' : ''}}">
+                            @if ($errors->has('nomor_surat'))
+                              <span class="help-block">
+                                <p>{{ $errors->first('nomor_surat') }} </p>
+                              </span>
+                              @endif
+                         </div>
                         </div>
                       </div>
 
@@ -50,7 +52,13 @@
                                     </div>
                                   </div>
                                   <input type="text" id="tanggal_surat" name="tanggal_surat" class="form-control daterange" placeholder="Search..." autocomplete="off" required>
-                                  
+                                  <div class="has-feedback{{ $errors->has('tanggal_surat') ? 'has-error' : ''}}">
+                                    @if ($errors->has('tanggal_surat'))
+                                      <span class="help-block">
+                                        <p>{{ $errors->first('tanggal_surat') }} </p>
+                                      </span>
+                                      @endif
+                                 </div>
                                 </div>
                           </div>
                       {{-- <div class="col-sm-10 col-md-7">
@@ -61,11 +69,13 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Asal Surat</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control" placeholder="Masukkan Asal Surat" required="" name="asal_surat">
-                        <div class="valid-feedback">
-                          {{-- formvalidation --}}
-                          {{-- jika valid, tambahkan di input class is_valid --}}
-                          {{-- jika invalid, tambahkan di input class is_invalid --}}
-                        </div>
+                        <div class="has-feedback{{ $errors->has('asal_surat') ? 'has-error' : ''}}">
+                          @if ($errors->has('asal_surat'))
+                            <span class="help-block">
+                              <p>{{ $errors->first('asal_surat') }} </p>
+                            </span>
+                            @endif
+                       </div>
                       </div>
                     </div>
 
@@ -73,6 +83,13 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Perihal</label>
                         <div class="col-sm-12 col-md-7">
                           <input type="text" class="form-control" placeholder="Masukkan Perihal" name="perihal">
+                          <div class="has-feedback{{ $errors->has('perihal') ? 'has-error' : ''}}">
+                            @if ($errors->has('perihal'))
+                              <span class="help-block">
+                                <p>{{ $errors->first('perihal') }} </p>
+                              </span>
+                              @endif
+                         </div>
                         </div>
                       </div>
 
@@ -82,6 +99,13 @@
                         <div class="custom-file">
                           <label class="custom-file-label" for="customFile">Choose file</label>
                           <input type="file" class="custom-file-input" id="customFile" name="filesurat">
+                          <div class="has-feedback{{ $errors->has('filesurat') ? 'has-error' : ''}}">
+                            @if ($errors->has('filesurat'))
+                              <span class="help-block">
+                                <p>{{ $errors->first('filesurat') }} </p>
+                              </span>
+                              @endif
+                         </div>
                         </div>
                         </div>
                       </div>

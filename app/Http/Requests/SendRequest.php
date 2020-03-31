@@ -80,6 +80,17 @@ class SendRequest extends FormRequest
             'terbilang' => 'required',
             'pelanggan' => 'required',
             'status_invoice' => 'required',
+
+            // Surat
+            'jenis' => 'required',
+            'kategori_id' => 'required|numeric',
+            'nomor_surat' => 'required',
+            'tanggal_terima' => 'required',
+            'tanggal_surat' => 'required',
+            'asal_surat' => 'required',
+            'tujuan_surat' => 'required',
+            'perihal' => 'required',
+            'surat_path' => 'required|mimes:pdf,xlx,csv,doc,docx,jpg,png,jpeg|max:2048',
         ];
     }
 
@@ -145,6 +156,21 @@ class SendRequest extends FormRequest
             'terbilang.required' => 'Tidak boleh kosong',
             'pelanggan.required' => 'Pelanggan tidak boleh kosong',
             'status_invoice.required' => 'Status Invoice tidak boleh kosong',
+
+            // Surat
+            'jenis.required' => 'jenis surat tidak bole kosong',
+            'kategori_id.required' => 'Tidak boleh kosong',
+            'kategori_id.numeric' => 'Harus angka',
+            'nomor_surat.required' => 'Tidak boleh kosong',
+            'tanggal_terima.required' => 'Tidak boleh kosong',
+            'tanggal_surat.required' => 'Tidak boleh kosong',
+            'asal_surat.required' => 'Tidak boleh kosong',
+            'tujuan_surat.required' => 'Tidak boleh kosong',
+            'perihal.required' => 'Tidak boleh kosong',
+            'surat_path.required' => 'Tidak boleh kosong',
+            'surat_path.mimes' => 'File harus format pdf,xlx,csv,doc,docx,jpg,png,jpeg',
+            'surat_path.max' => 'maximal 2048',
+
         ];
     }
 }

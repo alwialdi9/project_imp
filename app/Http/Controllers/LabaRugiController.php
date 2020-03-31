@@ -14,8 +14,8 @@ class LabaRugiController extends Controller
      */
     public function index()
     {
-        LabaRugi::all();
-        return view('labarugi.index');
+        $labarugi = LabaRugi::all();
+        return view('labarugi.index', compact('labarugi'));
     }
 
     /**
@@ -25,7 +25,7 @@ class LabaRugiController extends Controller
      */
     public function create()
     {
-        // return view('labarugi.index');
+        return view('labarugi.index');
     }
 
     /**
@@ -36,28 +36,28 @@ class LabaRugiController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(request(),[
-            'bulan_transaksi' => 'required',
-            'jasa_projek' => 'required',
-            'total_penerimaan' => 'required',
-            'svr' => 'required',
-            'transportasi' => 'required',
-            'laporan' => 'required',
-            'lain_lain_biayaprojek' => 'required',
-            'total_biaya_projek' => 'required',
-            'gaji_direktur' => 'required',
-            'gaji_staf' => 'required',
-            'biaya_penyusutan' => 'required',
-            'total_biaya_tetap' => 'required',
-            'atk' => 'required',
-            'listrik_air_telepon' => 'required',
-            'internet' => 'required',
-            'lain_lain_administrasi' => 'required',
-            'total_biaya_administrasi' => 'required',
-            'laba_sb_pajak' => 'required',
-            'pajak_adm' => 'required',
-            'laba_bersih_adm' => 'required',
-        ]);
+        // $this->validate(request(),[
+        //     'bulan_transaksi' => 'required',
+        //     'jasa_projek' => 'required',
+        //     'total_penerimaan' => 'required',
+        //     'svr' => 'required',
+        //     'transportasi' => 'required',
+        //     'laporan' => 'required',
+        //     'lain_lain_biayaprojek' => 'required',
+        //     'total_biaya_projek' => 'required',
+        //     'gaji_direktur' => 'required',
+        //     'gaji_staf' => 'required',
+        //     'biaya_penyusutan' => 'required',
+        //     'total_biaya_tetap' => 'required',
+        //     'atk' => 'required',
+        //     'listrik_air_telepon' => 'required',
+        //     'internet' => 'required',
+        //     'lain_lain_administrasi' => 'required',
+        //     'total_biaya_administrasi' => 'required',
+        //     'laba_sb_pajak' => 'required',
+        //     'pajak_adm' => 'required',
+        //     'laba_bersih_adm' => 'required',
+        // ]);
 
         LabaRugi::create([
             'bulan_transaksi' => $request->bulan_transaksi,
@@ -70,8 +70,8 @@ class LabaRugiController extends Controller
             'total_biaya_projek' => $request->total_biaya_projek,
             'gaji_direktur' => $request->gaji_direktur,
             'gaji_staf' => $request->gaji_staf,
-            'biaya_penyusutan' => $request->biaya_penyusutan,
-            'total_biaya_tetap' => $request->total_biaya-tetap,
+            'biaya_penyusutan_labarugi' => $request->biaya_penyusutan_labarugi,
+            'total_biaya_tetap' => $request->total_biaya_tetap,
             'atk' => $request->atk,
             'listrik_air_telepon' => $request->listrik_air_telepon,
             'internet' => $request->internet,
@@ -81,6 +81,7 @@ class LabaRugiController extends Controller
             'pajak_adm' => $request->pajak_adm,
             'laba_bersih_adm' => $request->laba_bersih_adm,
         ]);
+        return redirect('/labarugi');
     }
 
     /**

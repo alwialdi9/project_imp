@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Validator;
 use Illuminate\Http\UploadedFile;
+use App\Http\Requests\SendRequest;
 
 class SuratController extends Controller
 {
@@ -57,7 +58,7 @@ class SuratController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SendRequest $request)
     {
         //inputfile
         // dd($request->all());
@@ -95,6 +96,7 @@ class SuratController extends Controller
                 'perihal' => $request->perihal,
                 'surat_path' => $nama_file,
             ]);
+            
             // dd($masuk);
         } else {
             Surat::create([
@@ -106,8 +108,9 @@ class SuratController extends Controller
                 'asal_surat' => '',
                 'tujuan_surat' => $request->tujuan_surat,
                 'perihal' => $request->perihal,
-                'surat_path' => $nama_file,
+                'surat_path' => $nama_file, 
             ]);
+            return redirect('/surat');
         }
 
         $surat = Surat::all();
