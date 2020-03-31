@@ -176,8 +176,8 @@ $(document).ready(function () {
             $('#next-button').hide();
             $('#back-button').show();
             $('.penerimaan').hide(1200);
-            $('.biaya_projek').show(1200);
-            $('.biaya_tetap').hide(1200);
+            $('.biaya_projek').hide(1200);
+            $('.biaya_tetap').show(1200);
             $('.biaya_administrasi').hide(1200);
         }
     })

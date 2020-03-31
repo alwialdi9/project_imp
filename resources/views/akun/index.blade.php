@@ -9,8 +9,24 @@
         <div class="section-header">
             <h1>Daftar Akun</h1>
 
+            {{-- @if (session('status'))
+              <script>
+              const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000
+              });
+              
+              Toast.fire({
+                type: 'success',
+                title: "{{ session('status') }} "
+              })
+              </script>
+          @endif --}}
+
             <div class="section-header-breadcrumb">
-              <a href="#" class="btn btn-primary modal-5" id="modal-5"><i class="fas fa-user-plus"></i> Buat Akun</a>
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="modal-create"><i class="fas fa-user-plus"></i> Buat Akun</a>
             </div>
         </div>
         
@@ -85,8 +101,8 @@
                             <td>
                               {{ $akun->kategori_akun }} 
                               <div class="float-right">
-                                <a href="{{ url('akunhapus/'.$akun->id) }}" class="mx-3" ><i class="fas fa-trash"></i></a>
-                                <a href="javascript:void(0)" data-id="{{ $akun->id }}" data-toggle="tooltip" id="editakun" class="modal-5"><i class="fas fa-edit"></i></a></div>
+                                <a href="javascript:void(0)" class="mx-3" id="deleteakun" data-id="{{ $akun->id }}" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                <a href="javascript:void(0)" data-id="{{ $akun->id }}" data-toggle="tooltip" id="modal-edit"><i class="fas fa-edit"></i></a></div>
                             </td>
                             {{-- data-confirm="Realy?|Do you want to continue?" data-confirm-yes="" --}}
                             
@@ -101,45 +117,66 @@
           </div>
     </section>
 
-    <form class="modal-part" id="akuncreate">
-      {{ csrf_field() }}
-        <div class="form-group">
-          <input type="hidden" name="id" id="id">
-          <label>Kode Akun</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <i class="fas fa-fw fa-user-cog"></i>
-              </div>
-            </div>
-            <input type="text" class="form-control" placeholder="Kode Akun" name="kode_akun" id="kode_akun">
-          </div>
-        </div>
+    
 
-        <div class="form-group">
-          <label>Nama Akun</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <i class="fas fa-fw fa-user"></i>
+      <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Akun</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="akunform" name="akunForm" class="form-horizontal">
+          {{ csrf_field() }}
+            <div class="form-group">
+              <input type="hidden" name="id" id="id">
+              <label>Kode Akun</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-fw fa-user-cog"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Kode Akun" name="kode_akun" id="kode_akun">
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Nama Akun" name="nama_akun" id="nama_akun">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Kategori Akun</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <i class="fas fa-user-tag"></i>
+    
+            <div class="form-group">
+              <label>Nama Akun</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-fw fa-user"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Nama Akun" name="nama_akun" id="nama_akun">
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Kategori Akun" name="kategori_akun" id="kategori_akun">
-          </div>
-        </div>
-      </form>
+    
+            <div class="form-group">
+              <label>Kategori Akun</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-user-tag"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Kategori Akun" name="kategori_akun" id="kategori_akun">
+              </div>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" id="saveBtn" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 

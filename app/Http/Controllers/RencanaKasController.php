@@ -75,9 +75,7 @@ class RencanaKasController extends Controller
             'pajak_aruskas' => $request->pajak_aruskas,
         ]);
         // Session::flash('berhasil','Data Berhasil Disimpan');
-        return redirect('/rencanaaruskas');
-
-		
+        return redirect('/rencanaaruskas')->with('status', 'Data Berhasil Ditambahkan');
     }
 
     /**

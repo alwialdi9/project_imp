@@ -42,7 +42,7 @@ $("#modal-4").fireModal({
     }]
 });
 
-$(".modal-5").fireModal({
+$("#modal-5").fireModal({
     // tambahkan fungsi if disini
     title: 'Tambah Akun',
     body: $("#akuncreate"),

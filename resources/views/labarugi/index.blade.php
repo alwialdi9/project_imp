@@ -9,6 +9,22 @@
             <h1>Laba / Rugi</h1>
           </div>
 
+          @if (session('status'))
+              <script>
+              const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000
+              });
+              
+              Toast.fire({
+                type: 'success',
+                title: "{{ session('status') }} "
+              })
+              </script>
+          @endif
+
           <div class="section-body">
             <div class="row">
               <div class="col-12">

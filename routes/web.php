@@ -60,7 +60,7 @@ Route::get('akun', 'AkunController@index');
 Route::get('akun/{id}', 'AkunController@show');
 Route::get('akunedit/{id}', 'AkunController@edit');
 Route::post('akuncreate', 'AkunController@store');
-Route::get('akunhapus/{id}', 'AkunController@destroy');
+Route::delete('akunhapus/{id}', 'AkunController@destroy');
 
 Route::get('/invoice', 'InvoiceController@index');
 Route::get('/invoice/buatinvoice', 'InvoiceController@create');

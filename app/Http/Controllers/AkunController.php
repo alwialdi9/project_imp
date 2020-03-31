@@ -44,14 +44,23 @@ class AkunController extends Controller
             'kategori_akun' => 'required',
 
         ]);
+        if ($request->id == null) {
+            Akun::create([
+                'kode_akun' => $request->get('kode_akun'),
+                'nama_akun' => $request->get('nama_akun'),
+                'kategori_akun' => $request->get('kategori_akun'),
+            ]);
+            $status = 'Account Saved Successfully.';
+        } else {
+            Akun::where('id', '=', $request->id)->update([
+                'kode_akun' => $request->get('kode_akun'),
+                'nama_akun' => $request->get('nama_akun'),
+                'kategori_akun' => $request->get('kategori_akun'),
+            ]);
+            $status = 'Account Update Successfully.';
+        }
 
-
-        Akun::create([
-            'kode_akun' => $request->get('kode_akun'),
-            'nama_akun' => $request->get('nama_akun'),
-            'kategori_akun' => $request->get('kategori_akun'),
-        ]);
-        return response()->json(['success' => 'Account Saved Successfully.']);
+        return response()->json(['success' => $status]);
     }
 
     /**

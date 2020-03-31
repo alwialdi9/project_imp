@@ -29,11 +29,13 @@
   <link rel="stylesheet" href="{{ asset('modules/prism/prism.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
   {{-- <script src="{{ asset('datepicker/picker.js') }} "></script> --}}
   <script src="{{ asset('modules/jquery.min.js') }}"></script>
   <script src="{{ asset('modules/popper.js') }}"></script>
   <script src="{{ asset('modules/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('modules/sweetalert/sweetalert.min.js') }} "></script>
+  <script src="{{ asset('js/sweetalert2.min.js') }} "></script>
   <script src="{{ asset('js/wizard.js') }} "></script>
 
   
@@ -125,11 +127,25 @@
         }
     });
 
-    $('body').on('click', '#editakun', function () {
-        $('#akuncreate').trigger("reset");
+    $('#modal-create').click(function () {
+        $('#saveBtn').val("create-product");
+        $('#saveBtn').html("Create Account");
+        $('#id').val('');
+        $('#akunform').trigger("reset");
+        $('#exampleModalCenterTitle').html("Tambah Akun");
+        $('#exampleModalCenter').modal('show');
+    });
+
+
+    $('body').on('click', '#modal-edit', function () {
+        $('#akunform').trigger("reset");
         var id = $(this).data('id');
         console.log(id);
         $.get("{{ url('akunedit') }}"+"/"+id, function (data) {
+        $('#exampleModalCenterTitle').html("Edit Akun");
+        $('#saveBtn').val("edit-akun");
+        $('#saveBtn').html("Edit Data");
+        $('#exampleModalCenter').modal('show');
         $('#id').val(data.id);
         $('#kode_akun').val(data.kode_akun);
         $('#nama_akun').val(data.nama_akun);
@@ -137,33 +153,69 @@
         })
     })
 
-    $('.saveBtn').click(function (e) {
+    $('#saveBtn').click(function (e) {
         e.preventDefault();
         $(this).html('Sending..');
 
-        var kode_akun = $("input[name=kode_akun]").val();
-        var nama_akun = $("input[name=nama_akun]").val();
-        var kategori_akun = $("input[name=kategori_akun]").val();
-
         $.ajax({
-          data: {kode_akun:kode_akun, nama_akun:nama_akun, kategori_akun:kategori_akun},
+          data: new FormData($("#akunform")[0]),
           url: "{{url('akuncreate')}} ",
           type: "POST",
+          contentType: false,
+          cache: false,
+          processData: false,
           dataType: 'json',
           success: function (data) {
 
               $('#akuncreate').trigger("reset");
-              $('.modal-part').modal('hide');
+              $('#saveBtn').html('Simpan Data');
+              $('#exampleModalCenter').modal('hide');
               // table.draw();
               $( "#table-1" ).load( "{{url('akun')}} #table-1" );
-              swal("Success!", "Success Insert Data!", "success");
+              swal("Success!", "Success Update Data!", "success");
           },
           error: function (data) {
               console.log('Error:', data);
-              $('.saveBtn').html('Save Changes');
+              $('#saveBtn').html('Save Changes');
           }
       });
     });
+
+    $('body').on('click', '#deleteakun', function () {
+     var id = $(this).data("id");   
+  swal({
+       title: "Data Akan Dihapus?",
+       text: "Anda tidak bisa memulihkannya lagi setelah data dihapus",
+       icon: "warning",
+       buttons: [
+         'Batal',
+         'Hapus Data'
+       ],
+       dangerMode: true,
+     }).then(function(isConfirm) {
+       if (isConfirm) {
+         $.ajax({
+               type: "DELETE",
+               url: "{{ url('akunhapus') }}"+'/'+id,
+               success: function (data) {
+               $("#id_" + id).remove();
+               $( "#table-1" ).load( "{{url('akun')}} #table-1" );
+               },
+               error: function (data) {
+                   console.log('Error:', data);
+               }
+           });
+         swal({
+           title: 'Berhasil Dihapus!',
+           text: 'Data Akun Berhasil Dihapus',
+           icon: 'success'
+         });
+       } else {
+         swal("Gagal Dihapus", "Data Akun Masih Tersimpan", "error");
+       }
+     });
+     });
+
   });
 </script>
 

@@ -81,7 +81,8 @@ class LabaRugiController extends Controller
             'pajak_adm' => $request->pajak_adm,
             'laba_bersih_adm' => $request->laba_bersih_adm,
         ]);
-        return redirect('/labarugi');
+
+        return redirect('/labarugi')->with('status', 'Data Berhasil Ditambahkan');
     }
 
     /**
