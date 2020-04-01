@@ -29,13 +29,13 @@
   <link rel="stylesheet" href="{{ asset('modules/prism/prism.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}"> --}}
   {{-- <script src="{{ asset('datepicker/picker.js') }} "></script> --}}
   <script src="{{ asset('modules/jquery.min.js') }}"></script>
   <script src="{{ asset('modules/popper.js') }}"></script>
   <script src="{{ asset('modules/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('modules/sweetalert/sweetalert.min.js') }} "></script>
-  <script src="{{ asset('js/sweetalert2.min.js') }} "></script>
+  {{-- <script src="{{ asset('js/sweetalert2.min.js') }} "></script> --}}
   <script src="{{ asset('js/wizard.js') }} "></script>
 
   
@@ -71,9 +71,9 @@
   <script src="{{ asset('modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }} "></script>
   <script src="{{ asset('js/page/modules-sweetalert.js') }} "></script>
 
-  @if ($nampilgambar ?? '')
+  {{-- @if ($nampilgambar ?? '')
   <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }} "></script>
-  @endif
+  @endif --}}
   <script src="{{ asset('modules/select2/dist/js/select2.full.min.js') }} "></script>
   
   <script src="{{ asset('modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }} "></script>
@@ -138,6 +138,8 @@
 
 
     $('body').on('click', '#modal-edit', function () {
+      var jenis = document.getElementById('jenisform').value;
+      if (jenis == 'akun') {
         $('#akunform').trigger("reset");
         var id = $(this).data('id');
         console.log(id);
@@ -150,14 +152,34 @@
         $('#kode_akun').val(data.kode_akun);
         $('#nama_akun').val(data.nama_akun);
         $('#kategori_akun').val(data.kategori_akun);
-        })
+      })
+      } else {
+        $('#pelangganform').trigger("reset");
+        var id = $(this).data('id');
+        console.log(id);
+        $.get("{{ url('pelangganedit') }}"+"/"+id, function (data) {
+        $('#exampleModalCenterTitle').html("Edit Pelanggan");
+        $('#saveBtn').val("edit-akun");
+        $('#saveBtn').html("Edit Data");
+        $('#exampleModalCenter').modal('show');
+        $('#id').val(data.id);
+        $('#nama_lengkap').val(data.nama_lengkap);
+        $('#email').val(data.email);
+        $('#telepon').val(data.telepon);
+        $('#faksimile').val(data.faksimile);
+        $('#instansi').val(data.instansi);
+        $('#alamat').val(data.alamat);
+      })
+      }
+        
     })
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
         $(this).html('Sending..');
-
-        $.ajax({
+        var jenis = document.getElementById('jenisform').value;
+        if (jenis == 'akun') {
+          $.ajax({
           data: new FormData($("#akunform")[0]),
           url: "{{url('akuncreate')}} ",
           type: "POST",
@@ -167,7 +189,7 @@
           dataType: 'json',
           success: function (data) {
 
-              $('#akuncreate').trigger("reset");
+              $('#akunform').trigger("reset");
               $('#saveBtn').html('Simpan Data');
               $('#exampleModalCenter').modal('hide');
               // table.draw();
@@ -179,10 +201,74 @@
               $('#saveBtn').html('Save Changes');
           }
       });
+        } else {
+          $.ajax({
+          data: new FormData($("#pelangganform")[0]),
+          url: "{{url('pelanggancreate')}} ",
+          type: "POST",
+          contentType: false,
+          cache: false,
+          processData: false,
+          dataType: 'json',
+          success: function (data) {
+
+              $('#pelangganform').trigger("reset");
+              $('#saveBtn').html('Simpan Data');
+              $('#exampleModalCenter').modal('hide');
+              // table.draw();
+              $( "#table-1" ).load( "{{url('pelanggan')}} #table-1" );
+              swal("Success!", "Success Update Data!", "success");
+          },
+          error: function (data) {
+              console.log('Error:', data);
+              $('#saveBtn').html('Save Changes');
+          }
+      });
+        }
     });
 
     $('body').on('click', '#deleteakun', function () {
-     var id = $(this).data("id");   
+     var id = $(this).data("id"); 
+     var surat = $("#deleteakun").attr("class");
+     if (surat == "surat") {
+      swal({
+       title: "Data Akan Dihapus?",
+       text: "Anda tidak bisa memulihkannya lagi setelah data dihapus",
+       icon: "warning",
+       buttons: [
+         'Batal',
+         'Hapus Data'
+       ],
+       dangerMode: true,
+     }).then(function(isConfirm) {
+       if (isConfirm) {
+        
+          $.ajax({
+               type: "DELETE",
+               url: "{{ url('surathapus') }}"+'/'+id,
+               success: function (data) {
+              //  $("#id_" + id).remove();
+               
+               },
+               error: function (data) {
+                   console.log('Error:', data);
+               }
+           });
+         
+         swal({
+           title: 'Berhasil Dihapus!',
+           text: 'Data Surat Berhasil Dihapus',
+           icon: 'success'
+         });
+          $("#table-1").load("{{url('surat')}} #table-1");
+          $(".section-body").load("{{url('surat')}} .section-body");
+        //  window.location = window.location;
+       } else {
+         swal("Gagal Dihapus", "Data Akun Masih Tersimpan", "error");
+       }
+     });
+
+     } else {
   swal({
        title: "Data Akan Dihapus?",
        text: "Anda tidak bisa memulihkannya lagi setelah data dihapus",
@@ -194,7 +280,9 @@
        dangerMode: true,
      }).then(function(isConfirm) {
        if (isConfirm) {
-         $.ajax({
+        var jenis = document.getElementById('jenisform').value;
+        if (jenis == 'akun') {
+          $.ajax({
                type: "DELETE",
                url: "{{ url('akunhapus') }}"+'/'+id,
                success: function (data) {
@@ -205,6 +293,20 @@
                    console.log('Error:', data);
                }
            });
+        } else {
+          $.ajax({
+               type: "DELETE",
+               url: "{{ url('pelangganhapus') }}"+'/'+id,
+               success: function (data) {
+               $("#id_" + id).remove();
+               $( "#table-1" ).load( "{{url('pelanggan')}} #table-1" );
+               },
+               error: function (data) {
+                   console.log('Error:', data);
+               }
+           });
+        }
+         
          swal({
            title: 'Berhasil Dihapus!',
            text: 'Data Akun Berhasil Dihapus',
@@ -214,6 +316,8 @@
          swal("Gagal Dihapus", "Data Akun Masih Tersimpan", "error");
        }
      });
+
+    }
      });
 
   });

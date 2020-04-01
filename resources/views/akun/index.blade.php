@@ -134,6 +134,7 @@
           {{ csrf_field() }}
             <div class="form-group">
               <input type="hidden" name="id" id="id">
+              <input type="hidden" name="jenisform" id="jenisform" value="akun">
               <label>Kode Akun</label>
               <div class="input-group">
                 <div class="input-group-prepend">

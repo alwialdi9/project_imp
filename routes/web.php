@@ -55,6 +55,7 @@ Route::get('/surat/suratmasuk', 'SuratController@create');
 Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
 Route::post('/surat', 'SuratController@store');
 Route::post('/search', 'SuratController@show');
+Route::delete('/surathapus/{id}', 'SuratController@destroy');
 
 Route::get('akun', 'AkunController@index');
 Route::get('akun/{id}', 'AkunController@show');
@@ -76,6 +77,9 @@ Route::post('/petty', 'PenjualanController@validation');
 Route::post('/petty', 'PettyCashController@store');
 
 Route::get('/pelanggan', 'PelangganController@index');
+Route::post('/pelanggancreate', 'PelangganController@store');
+Route::get('pelangganedit/{id}', 'PelangganController@edit');
+Route::delete('pelangganhapus/{id}', 'PelangganController@destroy');
 
 Route::get('/labarugi', 'LabaRugiController@index');
 Route::get('/labarugi/index', 'LabaRugiController@create');

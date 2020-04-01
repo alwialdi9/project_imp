@@ -17,8 +17,8 @@ class PelangganTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama_lengkap');
             $table->string('email')->unique();
-            $table->integer('telepon');
-            $table->integer('faksimile');
+            $table->string('telepon');
+            $table->string('faksimile');
             $table->string('instansi');
             $table->string('alamat');
             $table->timestamps();

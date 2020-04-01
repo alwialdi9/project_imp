@@ -6,9 +6,8 @@ namespace App\Http\Controllers;
 use App\Surat;
 use App\Petty;
 use App\kategori_surat;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Validator;
+use Validator;
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\SendRequest;
 
@@ -24,8 +23,8 @@ class SuratController extends Controller
         $surat = Surat::all();
         $surat_id = Surat::orderBy('id', 'desc')->first();
         $kategori_surat = kategori_surat::all();
-        $masuk = Surat::where('jenis', 'Masuk')->count();
-        $keluar = Surat::where('jenis', 'Keluar')->count();
+        $masuk = Surat::where('jenis', 'masuk')->count();
+        $keluar = Surat::where('jenis', 'keluar')->count();
         $jumlah = Surat::all()->count();
         $petty = Petty::all();
         return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'surat_id', 'petty'));
@@ -41,15 +40,24 @@ class SuratController extends Controller
     {
         //
         $nampilgambar = True;
-        return view('surat.suratmasuk', compact('nampilgambar'));
+        $surat = Surat::all();
+        $surat_id = Surat::orderBy('id', 'desc')->first();
+        $id = $surat_id->id;
+        $kategori_surat = kategori_surat::all();
+        // dd($surat_id);
+        return view('surat.suratmasuk', compact('nampilgambar', 'kategori_surat', 'surat', 'id'));
     }
 
     public function createkeluar()
     {
         //
         $nampilgambar = True;
-
-        return view('surat.suratkeluar', compact('nampilgambar'));
+        $surat = Surat::all();
+        $surat_id = Surat::orderBy('id', 'desc')->first();
+        $id = $surat_id->id;
+        $kategori_surat = kategori_surat::all();
+        // dd($surat_id);
+        return view('surat.suratkeluar', compact('nampilgambar', 'kategori_surat', 'surat', 'id'));
     }
 
     /**
@@ -58,19 +66,17 @@ class SuratController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SendRequest $request)
+    public function store(Request $request)
     {
-        //inputfile
+
         // dd($request->all());
         $file = $request->file('filesurat');
-        // dd($request->file('filesurat'));
-        // nama file
+
         $nama_file = $file->getClientOriginalName();
-        // $nama_file = time() . '.' . $request->file->extension();
 
         $file->move(public_path('file'), $nama_file);
 
-        $this->validate(request(), [
+        Validator::make($request->all(), [
             'jenis' => 'required',
             'kategori_id' => 'required|numeric',
             'nomor_surat' => 'required',
@@ -81,12 +87,13 @@ class SuratController extends Controller
             'perihal' => 'required',
             'surat_path' => 'required|mimes:pdf,xlx,csv,doc,docx,jpg,png,jpeg|max:2048',
         ]);
+        // dd($request->all());
 
         $date1 = substr($request->tanggal_surat, 0, 10);
         $date2 = substr($request->tanggal_surat, 13, 10);
         if ($request->jenis == "masuk") {
             Surat::create([
-                'jenis' => $request->jenissurat,
+                'jenis' => $request->jenis,
                 'kategori_id' => $request->jenis_surat,
                 'nomor_surat' => $request->nomor_surat,
                 'tanggal_terima' => $date1,
@@ -96,11 +103,9 @@ class SuratController extends Controller
                 'perihal' => $request->perihal,
                 'surat_path' => $nama_file,
             ]);
-            
-            // dd($masuk);
         } else {
             Surat::create([
-                'jenis' => $request->jenissurat,
+                'jenis' => $request->jenis,
                 'kategori_id' => $request->jenis_surat,
                 'nomor_surat' => $request->nomor_surat,
                 'tanggal_terima' => '',
@@ -108,19 +113,18 @@ class SuratController extends Controller
                 'asal_surat' => '',
                 'tujuan_surat' => $request->tujuan_surat,
                 'perihal' => $request->perihal,
-                'surat_path' => $nama_file, 
+                'surat_path' => $nama_file,
             ]);
-            return redirect('/surat');
+            // return redirect('/surat');
         }
 
         $surat = Surat::all();
-        $surat_id = Surat::orderBy('id', 'desc')->first();
         $kategori_surat = kategori_surat::all();
         $masuk = Surat::where('jenis', 'Masuk')->count();
         $keluar = Surat::where('jenis', 'Keluar')->count();
         $jumlah = Surat::all()->count();
         $petty = Petty::all();
-        return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'surat_id', 'petty'));
+        return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'petty'));
     }
 
     /**
@@ -163,8 +167,9 @@ class SuratController extends Controller
      * @param  \App\Surat  $surat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Surat $surat)
+    public function destroy($id)
     {
-        //
+        Surat::where('id', $id)->delete();
+        return redirect('/surat');
     }
 }

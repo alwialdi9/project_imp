@@ -51,7 +51,7 @@
                         <h4>Surat Masuk </h4>
                       </div>
                       <div class="card-body">
-                        1
+                        {{ $masuk ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                         <h4>Surat Keluar </h4>
                       </div>
                       <div class="card-body">
-                        3
+                        {{ $keluar ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
                         <h4>Transaksi Surat</h4>
                       </div>
                       <div class="card-body">
-                        4
+                        {{ $jumlah ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -110,7 +110,6 @@
                         <th scope="col">Jenis Surat</th>
                         <th scope="col">Perihal</th>
                         <th scope="col">Dari/Kepada</th>
-                        <th scope="col">Aksi</th>
                       </tr>
                     </thead>
                       <tbody>
@@ -118,7 +117,20 @@
                         <tr>
                         <td class="border" scope="row">{{ $loop->iteration }} </td>
                         <td class="border">{{ $s->tanggal_surat }} </td>
-                        <td class="border">{{ $s->nomor_surat }} </td>
+                        <td class="border">{{ $s->nomor_surat }} 
+                          <div class="table-links">
+                            <input type="hidden" name="deletesurat" id="deletesurat">
+                            <a href="javascript:void(0)" id="deleteakun" class="surat" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                              @if ($s->jenis == "keluar" && $s->kategori_id == '2' || $s->kategori_id == '4' && $s->jenis == "keluar")
+                              <div class="bullet"></div>
+                              <a href="javascript:void(0)" id="verifikasi" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="far fa-check-square"></i></a>
+                                @else
+                                  -
+                                @endif
+                              <div class="bullet"></div>
+                              <a href="javascript:void(0)" data-id="{{ $s->id }}" data-toggle="tooltip" id="modal-edit"><i class="fas fa-edit"></i></a>
+                            </div>
+                        </td>
                         <td class="border">{{ $s->jenis }} </td>
                         <td class="border">{{ $s->perihal }} </td>
                         <td class="border">
@@ -128,13 +140,6 @@
                             {{ $s->asal_surat }}
                           @endif
                           </td>
-                        <td class="text-center border">
-                          @if ($s->jenis == "Keluar" && $s->kategori_id == '2' || $s->kategori_id == '4' && $s->jenis == "Keluar")
-                          <button type="button" class="btn btn-outline-success">Verifikasi</button>
-                          @else
-                            -
-                          @endif
-                        </td>
                         </tr>
                         @endforeach
                       </tbody>

@@ -37,7 +37,39 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'nama_lengkap' => 'required',
+            'email' => 'required',
+            'telepon' => 'required',
+            'faksimile' => 'required',
+            'instansi' => 'required',
+            'alamat' => 'required',
+
+        ]);
+        
+        if ($request->id == null) {
+            Pelanggan::create([
+                'nama_lengkap' => $request->get('nama_lengkap'),
+                'email' => $request->get('email'),
+                'telepon' => $request->get('telepon'),
+                'faksimile' => $request->get('faksimile'),
+                'instansi' => $request->get('instansi'),
+                'alamat' => $request->get('alamat'),
+            ]);
+            $status = 'Customer Saved Successfully.';
+        } else {
+            Pelanggan::where('id', '=', $request->id)->update([
+                'nama_lengkap' => $request->get('nama_lengkap'),
+                'email' => $request->get('email'),
+                'telepon' => $request->get('telepon'),
+                'faksimile' => $request->get('faksimile'),
+                'instansi' => $request->get('instansi'),
+                'alamat' => $request->get('alamat'),
+            ]);
+            $status = 'Customer Update Successfully.';
+        }
+
+        return response()->json(['success' => $status]);
     }
 
     /**
@@ -54,12 +86,16 @@ class PelangganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pelanggan  $pelanggan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pelanggan $pelanggan)
+    public function edit($id)
     {
-        //
+        $where = array('id' => $id);
+        $pelanggan = Pelanggan::where($where)->first();
+        // dd($pelanggan);
+
+        return response()->json($pelanggan);
     }
 
     /**
@@ -80,8 +116,9 @@ class PelangganController extends Controller
      * @param  \App\Pelanggan  $pelanggan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelanggan $pelanggan)
+    public function destroy($id)
     {
-        //
+        Pelanggan::where('id', $id)->delete();
+        return redirect('/pelanggan');
     }
 }

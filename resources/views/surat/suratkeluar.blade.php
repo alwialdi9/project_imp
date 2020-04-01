@@ -29,6 +29,22 @@
                   <div class="card-body">
                     <input type="hidden" name="jenis" value="keluar">
                     <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis Surat</label>
+                      <div class="col-sm-12 col-md-7">
+                        <select class="form-control select2" id="jenis_surat" name="jenis_surat" required>
+                          @foreach ($kategori_surat as $k)
+                          <option value="{{ $k->id }}" id="{{ $k->nama_kategori }}">{{ $k->nama_kategori }} </option>
+                          @endforeach
+                        </select>
+                        <div class="valid-feedback">
+                          {{-- formvalidation --}}
+                          {{-- jika valid, tambahkan di input class is_valid --}}
+                          {{-- jika invalid, tambahkan di input class is_invalid --}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
                           <input type="text" class="form-control" placeholder="Masukkan Nomor Surat" required="" name="nomor_surat" id="nomor_surat">
@@ -102,21 +118,21 @@
                         </div>
                       </div>
 
-                    <div class="form-group row mb-4">
+                      <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">File Surat</label>
                         <div class="col-sm-12 col-md-7">
-                          <div class="custom-file">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                            <input type="file" class="custom-file-input" id="customFile" name="filesurat">
-                            <div class="has-feedback{{ $errors->has('surat_path') ? 'has-error' : ''}}">
-                              @if ($errors->has('surat_path'))
-                                <span class="help-block">
-                                  <p>{{ $errors->first('surat_path') }} </p>
-                                </span>
-                                @endif
-                           </div>
-                          </div>
-                          </div>
+                        <div class="custom-file">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                          <input type="file" class="custom-file-input" id="customFile" name="filesurat">
+                          <div class="has-feedback{{ $errors->has('filesurat') ? 'has-error' : ''}}">
+                            @if ($errors->has('filesurat'))
+                              <span class="help-block">
+                                <p>{{ $errors->first('filesurat') }} </p>
+                              </span>
+                              @endif
+                         </div>
+                        </div>
+                        </div>
                       </div>
 
                       <script>
@@ -125,6 +141,44 @@
                           var file = $('#customFile')[0].files[0].name;
                           $(this).prev('label').text(file);
                         });
+
+                        document.getElementById("nomor_surat").disabled = true;
+                      $("#jenis_surat").on("change", function(){
+                        // ambil nilai
+                        var kategori = $("#jenis_surat option:selected").attr("id");
+                        document.getElementById("nomor_surat").disabled = false;
+                        if (kategori == "Faktur") {
+                          var jenis = "FK";
+                        }
+                        if (kategori == "Penawaran Harga") {
+                          var jenis = "PH";
+                        }
+                        if (kategori == "Kwitansi") {
+                          var jenis = "KW";
+                        }
+                        if (kategori == "Memorandum of Understanding") {
+                          var jenis = "MOU";
+                        }
+                        if (kategori == "Permintaan") {
+                          var jenis = "PER";
+                        }
+                        if (kategori == "Keterangan") {
+                          var jenis = "KET";
+                        }
+                        if (kategori == "Penerimaan Magang") {
+                          var jenis = "PM";
+                        }
+                        
+                        var nosurat;
+                        if ({{ $id }} == null) {
+                          nosurat = 001;
+                        } else{
+                          nosurat = ({{ $id }})+1;
+                        }
+                        // pindahkan nilai ke input
+                        $("#nomor_surat").val(nosurat+"/"+jenis);
+
+                      });
                         </script>
 
                     <div class="form-group row mb-4">
