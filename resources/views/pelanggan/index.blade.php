@@ -65,7 +65,7 @@
                             </td>
                             <td>{{ $p->nama_lengkap }} 
                               <div class="table-links">
-                                <a href="javascript:void(0)" class="mx-3" id="deleteakun" data-id="{{ $p->id }}" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                                <a href="javascript:void(0)" class="mx-3" id="deletepelanggan" data-id="{{ $p->id }}" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
                                   <div class="bullet"></div>
                                   <a href="javascript:void(0)" data-id="{{ $p->id }}" data-toggle="tooltip" id="modal-edit"><i class="fas fa-edit"></i></a>
                                 </div>

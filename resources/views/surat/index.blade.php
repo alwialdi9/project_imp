@@ -99,7 +99,7 @@
               <div class="card-header">
                 <h4>Penjualan Table</h4>
               </div>
-              <div class="card-body">
+              <div class="card-body" id="table-surat"
                 <div class="table-responsive">
                   <table class="table table-striped table-hover text-center" id="table-1">
                     <thead>                                 
@@ -120,15 +120,17 @@
                         <td class="border">{{ $s->nomor_surat }} 
                           <div class="table-links">
                             <input type="hidden" name="deletesurat" id="deletesurat">
-                            <a href="javascript:void(0)" id="deleteakun" class="surat" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="fas fa-trash"></i></a>
+                            <a href="javascript:void(0)" id="deletesurat" class="surat" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="fas fa-trash"></i>Hapus</a>
+
                               @if ($s->jenis == "keluar" && $s->kategori_id == '2' || $s->kategori_id == '4' && $s->jenis == "keluar")
                               <div class="bullet"></div>
-                              <a href="javascript:void(0)" id="verifikasi" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="far fa-check-square"></i></a>
+                              <a href="javascript:void(0)" id="verifikasi" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="far fa-check-square"></i>Verifikasi</a>
                                 @else
                                   -
                                 @endif
+
                               <div class="bullet"></div>
-                              <a href="javascript:void(0)" data-id="{{ $s->id }}" data-toggle="tooltip" id="modal-edit"><i class="fas fa-edit"></i></a>
+                              <a href="javascript:void(0)" class="surat" data-id="{{ $s->id }}" data-toggle="tooltip" id="modal-edit"><i class="fas fa-edit"></i>Ubah</a>
                             </div>
                         </td>
                         <td class="border">{{ $s->jenis }} </td>

@@ -46,7 +46,7 @@
                         <h4>Transaksi </h4>
                       </div>
                       <div class="card-body">
-                        3
+                        {{ $transaksi ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -62,7 +62,7 @@
                         <h4>Total Transaksi (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        155.000.000
+                        {{ $total ?? '' }}
                       </div>
                     </div>
                   </div>
@@ -109,7 +109,7 @@
                       <td class="border">{{ $voice->pelanggan }}</td>
                       <td class="border">{{ $voice->status_invoice }}</td>
                       <td class="border">{{ $voice->keterangan }}</td>
-                      <td class="border">{{ $voice->total_tagihan }}</td>
+                      <td class="border currency">{{ $voice->total_tagihan }}</td>
                       </tr>
                       @endforeach
                       </tbody>

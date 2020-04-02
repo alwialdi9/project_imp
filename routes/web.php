@@ -69,6 +69,7 @@ Route::post('/invoice', 'InvoiceController@store');
 Route::get('/invoice/edit/{id}', 'InvoiceController@edit');
 Route::post('/invoice/update', 'InvoiceController@update');
 Route::get('/invoice/hapus/{id}', 'InvoiceController@hapus');
+Route::get('pelangganinvoice/{id}', 'InvoiceController@getinfo');
 Route::get('invoicepreview', function () {
     return view('invoice.preview');
 });

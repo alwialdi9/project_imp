@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\SendRequest;
+use PhpParser\Builder\Function_;
 
 class SuratController extends Controller
 {
@@ -87,10 +88,109 @@ class SuratController extends Controller
             'perihal' => 'required',
             'surat_path' => 'required|mimes:pdf,xlx,csv,doc,docx,jpg,png,jpeg|max:2048',
         ]);
-        // dd($request->all());
+
+        function getRomawi($bln)
+        {
+            switch ($bln) {
+                case '01':
+                    return "I";
+                    break;
+
+                case '02':
+                    return "II";
+                    break;
+
+                case '03':
+                    return "III";
+                    break;
+
+                case '04':
+                    return "IV";
+                    break;
+
+                case '05':
+                    return "V";
+                    break;
+
+                case '06':
+                    return "VI";
+                    break;
+
+                case '07':
+                    return "VII";
+                    break;
+
+                case '08':
+                    return "VIII";
+                    break;
+
+                case '09':
+                    return "IX";
+                    break;
+
+                case '10':
+                    return "X";
+                    break;
+
+                case '11':
+                    return "XI";
+                    break;
+
+                case '12':
+                    return "XII";
+                    break;
+            }
+        }
+
+        function kategori($kategori)
+        {
+            switch ($kategori) {
+                case 'Faktur':
+                    return "FK";
+                    break;
+
+                case 'Penawaran Harga':
+                    return "PH";
+                    break;
+
+                case 'Kwitansi':
+                    return "KW";
+                    break;
+
+                case 'Memorandum of Understanding':
+                    return "MOU";
+                    break;
+
+                case 'Permintaan':
+                    return "PM";
+                    break;
+
+                case 'Keterangan':
+                    return "KET";
+                    break;
+
+                case 'Penerimaan Magang':
+                    return "PM";
+                    break;
+            }
+        }
 
         $date1 = substr($request->tanggal_surat, 0, 10);
         $date2 = substr($request->tanggal_surat, 13, 10);
+        $tahun = substr($date1, 0, 4);
+        $bulan = substr($date1, 5, 2);
+        $romawi = getRomawi($bulan);
+
+        // $singkatan = getKategori
+
+        $nomor = Surat::orderBy('id', 'desc')->first();
+        $no = substr($nomor->nomor_surat, 0, 3) + 1;
+        $nomornya = sprintf("%03s", $no);
+        // $no = $data['maxKode'];
+        // $noUrut = $no + 1;
+
+        $nomor_surat = $nomornya . "/" . $request->jenis_surat . "/" . $request->asal_surat . "/" . $romawi . "/" . $tahun;
+        dd($bulan, $tahun, $date1, $date2, $romawi, $nomor_surat);
         if ($request->jenis == "masuk") {
             Surat::create([
                 'jenis' => $request->jenis,

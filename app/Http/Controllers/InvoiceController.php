@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Invoice;
+use App\Pelanggan;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,9 +18,12 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        $pelanggan = Pelanggan::all();
         $invoice = Invoice::all();
-        return view('invoice.index', compact('invoice'));
+        $transaksi = Invoice::all()->count();
+        $totaldb = Invoice::all()->sum('total_tagihan');
+        $total = number_format($totaldb, 0, ".", ".");
+        return view('invoice.index', compact('invoice', 'pelanggan', 'transaksi', 'total'));
     }
 
     /**
@@ -28,8 +33,8 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
-        return view('invoice.buatinvoice');
+        $pelanggan = Pelanggan::all();
+        return view('invoice.buatinvoice', compact('pelanggan'));
     }
 
     /**
@@ -40,7 +45,6 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $this->validate(request(), [
             'nomor_faktur' => 'required',
             'tanggal_invoice' => 'required',
@@ -57,23 +61,27 @@ class InvoiceController extends Controller
             'pelanggan' => 'required',
             'status_invoice' => 'required',
         ]);
-
+        $kuantitas = str_replace(',', '', $request->kuantitas);
+        $harga_satuan = str_replace(',', '', $request->harga_satuan);
+        $total_tagihan = str_replace('.', '', $request->total_tagihan);
+        $harga_penjualan = $kuantitas * $harga_satuan;
+        // dd($harga_penjualan, $kuantitas, $harga_satuan);
         Invoice::create([
 
             'nomor_faktur' => $request->nomor_faktur,
             'tanggal_invoice' => $request->tanggal_invoice,
-            'pelanggan_id' => '1',
+            'pelanggan_id' => $request->pelanggan,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'faximile' => $request->faximile,
             'jatuh_tempo' => $request->jatuh_tempo,
             'metode_pembayaran' => $request->metode_pembayaran,
             'keterangan' => $request->keterangan,
-            'kuantitas' => $request->kuantitas,
-            'harga_satuan' => $request->harga_satuan,
-            'harga_penjualan' => '120000',
+            'kuantitas' => $kuantitas,
+            'harga_satuan' => $harga_satuan,
+            'harga_penjualan' => $harga_penjualan,
             'pajak' => $request->pajak,
-            'total_tagihan' => $request->total_tagihan,
+            'total_tagihan' => $total_tagihan,
             'terbilang' => $request->terbilang,
             'pelanggan' => $request->pelanggan,
             'status_invoice' => $request->status_invoice,
@@ -140,5 +148,11 @@ class InvoiceController extends Controller
     {
         DB::table('invoice')->where('id', $id)->delete();
         return redirect('/invoice');
+    }
+
+    public function getinfo($id)
+    {
+        $info = Pelanggan::where('id', $id)->first();
+        return response()->json($info);
     }
 }

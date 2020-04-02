@@ -97,10 +97,11 @@
                           <div class="form-group row">
                             <label class="col-md-4 text-md-right text-left mt-2">Pelanggan</label>
                             <div class="col-lg-4 col-md-6">
-                                <select class="form-control select2" id="pelanggan" name="pelanggan">
-                                    <option value="Kementrian Agama RI">Kementrian Agama RI</option>
-                                    <option value="Direktorat Jenderal Pendidikan Islam">Direktorat Jenderal Pendidikan Islam</option>
-                                    <option value="BNN">BNN</option>
+                                <select class="form-control select2" id="pelanggan" name="pelanggan" onchange="tampilkan()">
+                                  <option>Pilih Pelanggan</option>
+                                  @foreach ($pelanggan as $p)
+                                  <option value="{{ $p->id }} " id="{{ $p->id }}">{{ $p->instansi }} </option>
+                                  @endforeach  
                                   </select>
                                   <div class="has-feedback{{ $errors->has('pelanggan') ? 'has-error' : ''}}">
                                     @if ($errors->has('pelanggan'))
@@ -230,7 +231,7 @@
                             <label class="col-md-4 text-md-right text-left">Kuantitas (Qty)</label>
                             <div class="col-lg-4 col-md-6">
                                 <div class="input-group only-numbers">
-                                    <input type="text" class="form-control phone-number" name="kuantitas" id="telepon" placeholder="Masukkan Kuantitas" value="{{old('kuantitas')}}"> 
+                                    <input type="text" class="form-control currency" name="kuantitas" id="kuantitas" placeholder="Masukkan Kuantitas" value="{{old('kuantitas')}}"> 
                                   </div>
                             </div>
                           </div>
@@ -293,6 +294,58 @@
                                 </div>
                               </div>
                           </div>
+
+                          <script>
+                          $(document).ready(function() {
+                            function HapusKoma(num)
+                            {
+                              return (num.replace(/,/g,''));  
+                            }
+                            function TambahKoma(number)
+                            {
+                                number = '' + number;
+                                if (number.length > 3)
+                                {
+                                      var mod = number.length % 3;
+                                      var output = (mod > 0 ? (number.substring(0,mod)) : '');
+                                      for (i=0 ; i < Math.floor(number.length / 3); i++)
+                                      {
+                                            if ((mod == 0) && (i == 0))
+                                            {
+                                                  output += number.substring(mod + (3 * i), mod + (3 * (i + 1)));
+                                            }
+                                            else
+                                            {
+                                            output += ',' + number.substring(mod + (3 * i), mod + (3 * (i + 1)));
+                                            }
+                                      }
+                                      return (output);
+                                }
+                                else
+                                {
+                                      return (number);
+                                }
+                            }
+
+                            $('#harga_satuan').keyup(function () {
+                              var harga = $('#harga_satuan').val();
+                              var angka = HapusKoma(harga);
+                              var jumlah = HapusKoma($('#kuantitas').val());
+                              var pajak = angka*jumlah*10/100;
+
+                              $('#pajak').val(TambahKoma(pajak));
+                            });
+
+                            $('#kuantitas').keyup(function () {
+                              var harga = $('#harga_satuan').val();
+                              var angka = HapusKoma(harga);
+                              var jumlah = HapusKoma($('#kuantitas').val());
+                              var pajak = angka*jumlah*10/100;
+
+                              $('#pajak').val(TambahKoma(pajak));
+                            });
+                          })
+                          </script>
 
                           <div class="form-group row">
                             <div class="col-md-4"></div>
