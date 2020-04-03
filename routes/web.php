@@ -90,6 +90,10 @@ Route::get('/rencanaaruskas', 'RencanaKasController@index');
 Route::get('/rencanaaruskas/index', 'RencanaKasController@create');
 Route::post('/rencanaaruskas', 'RencanaKasController@store');
 
+Route::get('/neraca', 'NeracaController@index');
+Route::get('/neraca/index', 'NeracaController@create');
+Route::post('/neraca', 'NeracaController@store');
+
 // Route::get('surat', function () {
 //     return view('surat.index');
 // });
