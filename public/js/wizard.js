@@ -310,12 +310,8 @@ $(document).ready(function () {
     $('#back-button').hide();
     $('#back-mid-button').hide();
     $('#back-mid2-button').hide();
-    $('#back-mid3-button').hide();
-    $('#back-mid4-button').hide();
     $('#next-mid-button').hide();
     $('#next-mid2-button').hide();
-    $('#next-mid3-button').hide();
-    $('#next-mid4-button').hide();
     $('#save-button').hide();
     $('.aktivatetap').hide();
     $('.kewajibanlancar').hide();
