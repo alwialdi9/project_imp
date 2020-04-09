@@ -71,19 +71,9 @@
                                 <i class="fas fa-comment-dollar"></i>
                               </div>
                               <div class="wizard-step-label">
-                                Kewajiban Jangka Panjang
+                                Kewajiban Jangka Panjang & Modal
                               </div>
                             </div>
-                            
-                            <div class="wizard-step" id="modal">
-                              <div class="wizard-step-icon">
-                                <i class="fas fa-comment-dollar"></i>
-                              </div>
-                              <div class="wizard-step-label">
-                                Modal
-                              </div>
-                            </div>
-
                           </div>
                         </div>
                       </div>
@@ -212,7 +202,7 @@
 
                         </div>
 
-                        {{-- Kewajiban Jangka Panjang --}}
+                        {{-- Kewajiban Jangka Panjang & Modal--}}
                         <div class="kewajiban_jangkapanjang">
                             <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Hutang Bank</label>
@@ -234,10 +224,8 @@
                                     <input type="text" class="form-control currency" placeholder="Jumlah Kewajiban Jangka Panjang" name="jumlah_kewajiban_jangkapanjang" id="jumlah_kewajiban_jangkapanjang" required>
                                 </div>
                               </div>
-                        
-                        {{-- Modal --}}
-                        <div class="modal">
-                            <div class="form-group row align-items-center">
+
+                              <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Modal Disetor</label>
                                 <div class="col-lg-4 col-md-6">
                                     <input type="text" class="form-control currency" placeholder="Modal Disetor" name="modal_disetor" id="modal_disetor" required>
@@ -266,32 +254,24 @@
                               </div>
                         </div>
 
-                          <div class="form-group row">
-                            <div class="col-md-4"></div>
-                            <div class="col-lg-4 col-md-6 text-right">
-                              <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+                        <div class="form-group row">
+                          <div class="col-md-4"></div>
+                          <div class="col-lg-4 col-md-6 text-right">
+                            <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-button"><i class="fas fa-arrow-left"></i> Back</a>
 
-                              <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-mid-button"><i class="fas fa-arrow-left"></i> Back</a>
+                            <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-mid-button"><i class="fas fa-arrow-left"></i> Back</a>
 
-                              <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-mid2-button"><i class="fas fa-arrow-left"></i> Back</a>
-                              
-                              <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-mid3-button"><i class="fas fa-arrow-left"></i> Back</a>
-                              
-                              <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-mid4-button"><i class="fas fa-arrow-left"></i> Back</a>
+                            <a href="#" class="btn btn-icon icon-left mx-3 btn-info btn-wizard-neraca" id="back-mid2-button"><i class="fas fa-arrow-left"></i> Back</a>
 
-                              <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-button">Next <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-button">Next <i class="fas fa-arrow-right"></i></a>
 
-                              <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-mid-button">Next <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-mid-button">Next <i class="fas fa-arrow-right"></i></a>
 
-                              <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-mid2-button">Next <i class="fas fa-arrow-right"></i></a>
-                              
-                              <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-mid3-button">Next <i class="fas fa-arrow-right"></i></a>
-                              
-                              <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-mid4-button">Next <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="next-mid2-button">Next <i class="fas fa-arrow-right"></i></a>
 
-                              <button type="submit" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="save-button">Simpan <i class="fas fa-save"></i></button>
-                            </div>
+                            <button type="submit" class="btn btn-icon icon-right btn-primary btn-wizard-neraca" id="save-button">Simpan <i class="fas fa-save"></i></button>
                           </div>
+                        </div>
                         </div>
                       </div>
                     </form>
