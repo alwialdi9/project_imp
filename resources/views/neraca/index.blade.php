@@ -125,7 +125,6 @@
 
                         {{-- Aktiva Tetap --}}
                         <div class="aktivatetap">
-            
                               <div class="form-group row align-items-center">
                                 <label class="col-md-4 text-md-right text-left">Tanah</label>
                                 <div class="col-lg-4 col-md-6">
@@ -167,7 +166,6 @@
                                     <input type="text" class="form-control currency" placeholder="Jumlah Aktiva" name="jumlah_aktiva" id="jumlah_aktiva" required>
                                 </div>
                               </div>
-
                         </div>
 
                         {{-- Kewajiban lancar --}}

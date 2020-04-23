@@ -192,132 +192,6 @@ $(document).ready(function () {
     $('.biaya_administrasi').hide();
     // -------------------------------------
 
-    $('.btn-wizard-neraca').click(function () {
-        var menu = $(this).attr('id');
-        var element = document.getElementById("aktivalancar");
-        var element2 = document.getElementById("aktivatetap");
-        var element3 = document.getElementById("kewajibanlancar");
-        var element4 = document.getElementById("kewajiban_jangkapanjang");
-
-        if (menu == "next-button") {
-            element.classList.remove("wizard-step-active");
-            element4.classList.remove("wizard-step-active");
-            element2.classList.add("wizard-step-active");
-            element3.classList.remove("wizard-step-active");
-            $('#back-mid-button').show();
-            $('#back-mid2-button').hide();
-            $('#next-mid-button').show();
-            $('#next-mid2-button').hide();
-            $('#next-button').hide();
-            $('#save-button').hide();
-            $('#back-button').hide();
-            $('.aktivalancar').hide(1200);
-            $('.aktivatetap').show(1200);
-            $('.kewajibanlancar').hide(1200);
-            $('.kewajiban_jangkapanjang').hide(1200);
-        }
-
-        if (menu == "back-mid-button") {
-            element2.classList.remove("wizard-step-active");
-            element3.classList.remove("wizard-step-active");
-            element4.classList.remove("wizard-step-active");
-            element.classList.add("wizard-step-active");
-            $('#back-button').hide();
-            $('#next-button').show();
-            $('#next-mid-button').hide();
-            $('#next-mid2-button').hide();
-            $('#back-mid-button').hide();
-            $('#back-mid2-button').hide();
-            $('#save-button').hide();
-            $('.aktivalancar').show(1200);
-            $('.aktivatetap').hide(1200);
-            $('.kewajibanlancar').hide(1200);
-            $('.kewajiban_jangkapanjang').hide(1200);
-        }
-
-        if (menu == "next-mid-button") {
-            element2.classList.remove("wizard-step-active");
-            element.classList.remove("wizard-step-active");
-            element4.classList.remove("wizard-step-active");
-            element3.classList.add("wizard-step-active");
-            $('#back-button').show();
-            $('#save-button').hide();
-            $('#next-mid-button').hide();
-            $('#next-mid2-button').show();
-            $('#back-mid-button').hide();
-            $('#back-mid2-button').hide();
-            $('#next-button').hide();
-            $('.aktivalancar').hide(1200);
-            $('.aktivatetap').hide(1200);
-            $('.kewajibanlancar').show(1200);
-            $('.kewajiban_jangkapanjang').hide(1200);
-        }
-
-        if (menu == "back-button") {
-            element.classList.remove("wizard-step-active");
-            element4.classList.remove("wizard-step-active");
-            element3.classList.remove("wizard-step-active");
-            element2.classList.add("wizard-step-active");
-            $('#back-mid-button').show();
-            $('#back-mid2-button').hide();
-            $('#next-mid-button').show();
-            $('#next-mid2-button').hide();
-            $('#save-button').hide();
-            $('#next-button').hide();
-            $('#back-button').hide();
-            $('.aktiva;ancar').hide(1200);
-            $('.aktivatetap').show(1200);
-            $('.kewajibanlancar').hide(1200);
-            $('.kewajiban_jangkapanjang').hide(1200);
-        }
-
-        if (menu == "next-mid2-button") {
-            element.classList.remove("wizard-step-active");
-            element4.classList.add("wizard-step-active");
-            element3.classList.remove("wizard-step-active");
-            element2.classList.remove("wizard-step-active");
-            $('#back-mid-button').hide();
-            $('#back-mid2-button').show();
-            $('#next-mid-button').hide();
-            $('#next-mid2-button').hide();
-            $('#save-button').show();
-            $('#next-button').hide();
-            $('#back-button').hide();
-            $('.aktivalancar').hide(1200);
-            $('.aktivatetap').hide(1200);
-            $('.kewajibanlancar').hide(1200);
-            $('.kewajiban_jangkapanjang').show(1200);
-        }
-
-        if (menu == "back-mid2-button") {
-            element.classList.remove("wizard-step-active");
-            element4.classList.remove("wizard-step-active");
-            element3.classList.add("wizard-step-active");
-            element2.classList.remove("wizard-step-active");
-            $('#back-mid-button').hide();
-            $('#back-mid2-button').hide();
-            $('#next-mid-button').show();
-            $('#next-mid2-button').hide();
-            $('#save-button').hide();
-            $('#next-button').hide();
-            $('#back-button').show();
-            $('.aktivalancar').hide(1200);
-            $('.aktivatetap').hide(1200);
-            $('.kewajibanlancar').show(1200);
-            $('.kewajiban_jangkapanjang').hide(1200);
-        }
-    })
-    $('#back-button').hide();
-    $('#back-mid-button').hide();
-    $('#back-mid2-button').hide();
-    $('#next-mid-button').hide();
-    $('#next-mid2-button').hide();
-    $('#save-button').hide();
-    $('.aktivatetap').hide();
-    $('.kewajibanlancar').hide();
-    $('.kewajiban_jangkapanjang').hide();
-    // ---------------------------------------------------
-
     $('.btn-wizard-kas').click(function () {
         var menu = $(this).attr('id');
         var element = document.getElementById("penerimaan");
@@ -443,4 +317,131 @@ $(document).ready(function () {
     $('.pengeluaran').hide();
     $('.pengeluaran_lainnya').hide();
     $('.total_keseluruhan').hide();
+    // ---------------------------------------------------
+
+    $('.btn-wizard-neraca').click(function () {
+        var menu = $(this).attr('id');
+        var element = document.getElementById("aktivalancar");
+        var element2 = document.getElementById("aktivatetap");
+        var element3 = document.getElementById("kewajibanlancar");
+        var element4 = document.getElementById("kewajiban_jangkapanjang");
+
+        if (menu == "next-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element2.classList.add("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            $('#back-mid-button').show();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#next-button').hide();
+            $('#save-button').hide();
+            $('#back-button').hide();
+            $('.aktivalancar').hide(1200);
+            $('.aktivatetap').show(1200);
+            $('.kewajibanlancar').hide(1200);
+            $('.kewajiban_jangkapanjang').hide(1200);
+        }
+
+        if (menu == "back-mid-button") {
+            element2.classList.remove("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element.classList.add("wizard-step-active");
+            $('#back-button').hide();
+            $('#next-button').show();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').hide();
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#save-button').hide();
+            $('.aktivalancar').show(1200);
+            $('.aktivatetap').hide(1200);
+            $('.kewajibanlancar').hide(1200);
+            $('.kewajiban_jangkapanjang').hide(1200);
+        }
+
+        if (menu == "next-mid-button") {
+            element2.classList.remove("wizard-step-active");
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.add("wizard-step-active");
+            $('#back-button').show();
+            $('#save-button').hide();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').show();
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#next-button').hide();
+            $('.aktivalancar').hide(1200);
+            $('.aktivatetap').hide(1200);
+            $('.kewajibanlancar').show(1200);
+            $('.kewajiban_jangkapanjang').hide(1200);
+        }
+
+        if (menu == "back-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element2.classList.add("wizard-step-active");
+            $('#back-mid-button').show();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#save-button').hide();
+            $('#next-button').hide();
+            $('#back-button').hide();
+            $('.aktivalancar').hide(1200);
+            $('.aktivatetap').show(1200);
+            $('.kewajibanlancar').hide(1200);
+            $('.kewajiban_jangkapanjang').hide(1200);
+        }
+
+        if (menu == "next-mid2-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.add("wizard-step-active");
+            element3.classList.remove("wizard-step-active");
+            element2.classList.remove("wizard-step-active");
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').show();
+            $('#next-mid-button').hide();
+            $('#next-mid2-button').hide();
+            $('#save-button').show();
+            $('#next-button').hide();
+            $('#back-button').hide();
+            $('.aktivalancar').hide(1200);
+            $('.aktivatetap').hide(1200);
+            $('.kewajibanlancar').hide(1200);
+            $('.kewajiban_jangkapanjang').show(1200);
+        }
+
+        if (menu == "back-mid2-button") {
+            element.classList.remove("wizard-step-active");
+            element4.classList.remove("wizard-step-active");
+            element3.classList.add("wizard-step-active");
+            element2.classList.remove("wizard-step-active");
+            $('#back-mid-button').hide();
+            $('#back-mid2-button').hide();
+            $('#next-mid-button').show();
+            $('#next-mid2-button').hide();
+            $('#save-button').hide();
+            $('#next-button').hide();
+            $('#back-button').show();
+            $('.aktivalancar').hide(1200);
+            $('.aktivatetap').hide(1200);
+            $('.kewajibanlancar').show(1200);
+            $('.kewajiban_jangkapanjang').hide(1200);
+        }
+    })
+    $('#back-button').hide();
+    $('#back-mid-button').hide();
+    $('#back-mid2-button').hide();
+    $('#next-mid-button').hide();
+    $('#next-mid2-button').hide();
+    $('#save-button').hide();
+    $('.aktivatetap').hide();
+    $('.kewajibanlancar').hide();
+    $('.kewajiban_jangkapanjang').hide();
+    
 })
