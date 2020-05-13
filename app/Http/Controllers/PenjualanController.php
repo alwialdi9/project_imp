@@ -7,6 +7,7 @@ use App\Http\Requests\SendRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Account;
+use App\Akun;
 
 class PenjualanController extends Controller
 {
@@ -37,10 +38,17 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        $ref_akun = Account::all();
+        $ref_akun = Akun::all();
         $no_faktur = Penjualan::orderBy('id', 'desc')->first();
-        $nomor = substr($no_faktur->nomor_faktur,2);
-        $faktur = $nomor+1;
+        // dd($no_faktur);
+        if ($no_faktur == null) {
+            $nomor = 0;
+        } else {
+            $nomor = substr($no_faktur->nomor_faktur, 2);
+        }
+
+        $faktur = $nomor + 1;
+
         return view('penjualan.buat_penjualan', compact('ref_akun', 'no_faktur', 'faktur'));
     }
 
@@ -131,6 +139,12 @@ class PenjualanController extends Controller
     {
         DB::table('penjualan')->where('id', $id)->delete();
         return redirect('/penjualan');
+    }
+
+    public function getinfo($id)
+    {
+        $info = Akun::where('kode_akun', $id)->first();
+        return response()->json($info);
     }
 }
     //     public function rules()

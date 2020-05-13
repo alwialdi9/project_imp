@@ -80,27 +80,25 @@
                           <input type="radio" name="level" value="operator" class="selectgroup-input">
                           <span class="selectgroup-button">Operator</span>
                         </label>
+                        <label class="selectgroup-item">
+                          <input type="radio" name="level" value="owner" class="selectgroup-input">
+                          <span class="selectgroup-button">Owner</span>
+                        </label>
                       </div>
                     </div>
-
-                  <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                      <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
-                    </div>
-                  </div>
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
                       Register
                     </button>
+                    <a href="{{ url('dashboard') }} " class="btn btn-success btn-lg btn-block">Back to Dashboard</a>
                   </div>
                 </form>
               </div>
             </div>
-            <div class="simple-footer">
-              Copyright &copy; Stisla <?= date('Y') ?>
-            </div>
+            {{-- <div class="simple-footer">
+              Copyright &copy; IMP Studio <?= date('Y') ?>
+            </div> --}}
           </div>
         </div>
       </div>

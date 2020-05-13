@@ -56,6 +56,14 @@
         $('#faximile').val(data.faksimile);
       })
   }
+
+  function tampilkan_kode() {
+    var id = $("#kode_akun option:selected").attr("id");
+      $.get("{{ url('kode_penjualan') }}"+"/"+id, function (data) {
+        console.log(data.nama_akun);
+        $('#referensi_akun').change().val(data.nama_akun);
+      })
+  }
   </script>
   
 

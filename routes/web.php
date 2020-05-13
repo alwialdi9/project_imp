@@ -33,6 +33,7 @@ Route::post('/penjualan', 'PenjualanController@store');
 Route::get('/penjualan/edit/{id}', 'PenjualanController@edit');
 Route::post('/penjualan/update', 'PenjualanController@update');
 Route::get('/penjualan/hapus/{id}', 'PenjualanController@hapus');
+Route::get('kode_penjualan/{id}', 'PenjualanController@getinfo');
 
 Route::get('/pembelian', 'PembelianController@index');
 Route::get('/pembelian/buat_pembelian', 'PembelianController@create');

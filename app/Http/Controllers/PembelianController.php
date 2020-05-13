@@ -33,8 +33,12 @@ class PembelianController extends Controller
     {
         $ref_akun = Account::all();
         $no_faktur = Pembelian::orderBy('id', 'desc')->first();
-        $nomor = substr($no_faktur->nomor_faktur,2);
-        $faktur = $nomor+1;
+        if ($no_faktur == null) {
+            $nomor = 000;
+        } else {
+            $nomor = substr($no_faktur->nomor_faktur, 2);
+        }
+        $faktur = $nomor + 1;
         return view('pembelian.buat_pembelian', compact('ref_akun', 'no_faktur', 'faktur'));
     }
 
