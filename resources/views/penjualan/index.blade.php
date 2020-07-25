@@ -27,6 +27,7 @@
                       </div>
                       <div class="card-body">
                         {{ $tampilpenjualanbelum }}
+                        {{-- 200.000.000 --}}
                       </div>
                     </div>
                   </div>
@@ -41,8 +42,8 @@
                         <h4>Penjualan Jatuh Tempo (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        140.000.000
-                        masihbelom
+                        200.000.000
+                        {{-- masihbelom --}}
                       </div>
                     </div>
                   </div>
@@ -58,6 +59,7 @@
                       </div>
                       <div class="card-body">
                         {{ $tampillunas }}
+                        {{-- 60.000.000 --}}
                       </div>
                     </div>
                   </div>

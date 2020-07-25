@@ -38,10 +38,10 @@
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
-                        <h4>Saldo (Rp) tidak tahu datanya darimana</h4>
+                        <h4>Saldo (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        459.000
+                        {{-- 459.000 --}}0
                       </div>
                     </div>
                   </div>

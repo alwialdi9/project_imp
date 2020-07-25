@@ -26,7 +26,7 @@
                         <h4>Pemasukan (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        20.000.000
+                        {{ $tampilmasuk }}
                       </div>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
                         <h4>Pengeluaran (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        140.000.000
+                        {{ $tampilkeluar }}
                       </div>
                     </div>
                   </div>
@@ -56,7 +56,7 @@
                         <h4>Saldo (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        459.000
+                        {{ $tampilsaldo }}
                       </div>
                     </div>
                   </div>

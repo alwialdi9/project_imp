@@ -58,7 +58,7 @@ class PenjualanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SendRequest $request)
+    public function store(Request $request)
     {
         $total = str_replace(',', '', $request->total);
         $this->validate(request(), [

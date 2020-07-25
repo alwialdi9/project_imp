@@ -17,7 +17,19 @@ class BiayaController extends Controller
     public function index()
     {
         $biaya = Pbiaya::all();
-        return view('biaya.index', compact('biaya'));
+        $biaya_masuk = Pbiaya::where('jenis_biaya', 'masuk')->sum('total');
+        $biaya_keluar = Pbiaya::where('jenis_biaya', 'keluar')->sum('total');
+        $saldo = $biaya_masuk - $biaya_keluar;
+        // $jatohtempo = DB::table('biaya')
+        //              ->select(DB::raw(' as user_count, status'))
+        //              ->where('status', '<>', 1)
+        //              ->groupBy('status')
+        //              ->get();
+
+        $tampilmasuk = number_format($biaya_masuk, 0, ".", ".");
+        $tampilkeluar = number_format($biaya_keluar, 0, ".", ".");
+        $tampilsaldo = number_format($saldo, 0, ".", ".");
+        return view('biaya.index', compact('biaya', 'tampilmasuk', 'tampilkeluar', 'tampilsaldo'));
     }
 
     /**

@@ -190,7 +190,7 @@ class SuratController extends Controller
         // $noUrut = $no + 1;
 
         $nomor_surat = $nomornya . "/" . $request->jenis_surat . "/" . $request->asal_surat . "/" . $romawi . "/" . $tahun;
-        dd($bulan, $tahun, $date1, $date2, $romawi, $nomor_surat);
+        // dd($bulan, $tahun, $date1, $date2, $romawi, $nomor_surat);
         if ($request->jenis == "masuk") {
             Surat::create([
                 'jenis' => $request->jenis,
