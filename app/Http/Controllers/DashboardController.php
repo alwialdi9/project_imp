@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Dasboard;
+use App\Petty;
+use App\Invoice;
+use App\Pbiaya;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -19,8 +22,22 @@ class DashboardController extends Controller
         if (!Session::get('login')) {
             return redirect('login')->with('alert', 'Anda harus login dulu');
         } else {
+        $biaya_masuk = Pbiaya::where('jenis_biaya', 'masuk')->sum('total');
+        $biaya_keluar = Pbiaya::where('jenis_biaya', 'keluar')->sum('total');
+        $tampilmasuk = number_format($biaya_masuk, 0, ".", ".");
+        $tampilkeluar = number_format($biaya_keluar, 0, ".", ".");
 
-            return view('dashboard.index');
+        $petty = Petty::all();
+        $pettymasuk = Petty::where('jenis_transaksi', 'masuk')->sum('nilai_transaksi');
+        $pettykeluar = Petty::where('jenis_transaksi', 'keluar')->sum('nilai_transaksi');
+
+        $pettysaldo = $pettymasuk - $pettykeluar;
+        $pattycash = number_format($pettysaldo, 0, ".", ".");
+
+        // invoice
+        $totalinvoice = Invoice::all()->count();
+        
+        return view('dashboard.index', compact('pattycash', 'totalinvoice','tampilmasuk','tampilkeluar'));
         }
     }
 

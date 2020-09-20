@@ -44,9 +44,9 @@
               
               
 
-              <a href="features-settings.html" class="dropdown-item has-icon">
+              {{-- <a href="features-settings.html" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i> Settings
-              </a>
+              </a> --}}
               <div class="dropdown-divider"></div>
               <a href="{{ url('/logout') }} " class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -87,7 +87,7 @@
               <li class=""><a class="nav-link" href="{{ url('/akun') }} "><i class="fas fa-fw fa-user-alt"></i> <span>Akun</span></a></li>
               <li class=""><a class="nav-link" href="{{ url('/invoice') }} "><i class="fas fa-fw fa-file-invoice"></i> <span>Invoice</span></a></li>
 
-              <li class="menu-header">Lain-lainnya</li>
+             <li class="menu-header">Lain-lainnya</li>
               <li class=""><a class="nav-link" href="{{ url('/pelanggan') }} "><i class="fas fa-fw fa-users"></i> <span>Pelanggan</span></a></li>
               <li class=""><a class="nav-link" href="{{ url('/labarugi') }} "><i class="fas fa-fw fa-chart-line"></i> <span>Laba/Rugi</span></a></li>
               <li class=""><a class="nav-link" href="{{ url('/rencanaaruskas') }} "><i class="fas fa-fw fa-paper-plane"></i> <span>Rencana Arus Kas</span></a></li>

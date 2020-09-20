@@ -316,7 +316,7 @@
                                             }
                                             else
                                             {
-                                            output += ',' + number.substring(mod + (3 * i), mod + (3 * (i + 1)));
+                                            output += '.' + number.substring(mod + (3 * i), mod + (3 * (i + 1)));
                                             }
                                       }
                                       return (output);
@@ -331,7 +331,7 @@
                               var harga = $('#harga_satuan').val();
                               var angka = HapusKoma(harga);
                               var jumlah = HapusKoma($('#kuantitas').val());
-                              var pajak = angka*jumlah*10/100;
+                              var pajak = angka*jumlah*12/100;
 
                               $('#pajak').val(TambahKoma(pajak));
                             });

@@ -13,6 +13,8 @@
             </div>
             <div class="collapse" id="mycard-collapse">
               <div class="card-body">
+                <form action="{{ url('/searchinvoice') }} " method="post">
+                  @csrf
                 <div class="form-group">
                   <label>Transaksi :</label>
                   <div class="input-group">
@@ -21,10 +23,11 @@
                         <i class="fas fa-calendar"></i>
                       </div>
                     </div>
-                    <input type="text" class="form-control daterange">
+                    <input type="text" class="form-control daterange" name="search">
                   </div>
                 </div>
-                <a href="#" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</a>
+                <button type="submit" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</button>
+              </form>
               </div>
               
             </div>
@@ -95,21 +98,26 @@
                       <tbody>
                       @foreach ($invoice as $voice)
                       <tr>
-                      <td class="border" scope="row">{{ $loop->iteration}}</td>
-                      <td class="border">{{ $voice->tanggal_invoice }}</td>
-                      <td class="border">{{ $voice->nomor_faktur }}
+                      <td class="" scope="row">{{ $loop->iteration}}</td>
+                      <td class="">{{ $voice->tanggal_invoice }}</td>
+                      <td class="">{{ $voice->nomor_faktur }}
                       <div class="table-links">
-                        <a href="/invoice/edit/{{ $voice->id }}"><i class="fas fa-edit"></i> Ubah</a>
+                        <!-- <a href="/invoice/edit/{{ $voice->id }}"><i class="fas fa-edit"></i> Ubah</a>
                           <div class="bullet"></div>
                           <a href="#"><i class="far fa-eye"></i> Lihat</a>
-                          <div class="bullet"></div>
+                          <div class="bullet"></div> -->
                           <a href="/invoice/hapus/{{ $voice->id }}" class="text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
                         </div>
                       </td>
-                      <td class="border">{{ $voice->pelanggan }}</td>
-                      <td class="border">{{ $voice->status_invoice }}</td>
-                      <td class="border">{{ $voice->keterangan }}</td>
-                      <td class="border currency">{{ $voice->total_tagihan }}</td>
+                      <td class="">{{ $voice->pelanggan }}</td>
+                      <td class="">{{ $voice->status_invoice }}</td>
+                      <td class="">{{ $voice->keterangan }}
+                        <div class="table-links">
+                            <a href="/invoice/lihat/{{ $voice->id }}"><i class="far fa-eye"></i> Lihat</a>
+                            
+                          </div>
+                      </td>
+                      <td class=" currency">{{ $voice->total_tagihan }}</td>
                       </tr>
                       @endforeach
                       </tbody>

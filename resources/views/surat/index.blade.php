@@ -13,6 +13,8 @@
             </div>
             <div class="collapse" id="mycard-collapse">
               <div class="card-body">
+                <form action="{{ url('/searchsurat') }} " method="post">
+                  @csrf
                 <div class="form-group">
                   <label>Transaksi Surat :</label>
                   <div class="input-group">
@@ -21,10 +23,11 @@
                         <i class="fas fa-calendar"></i>
                       </div>
                     </div>
-                    <input type="text" class="form-control daterange">
+                    <input type="text" class="form-control daterange" name="search">
                   </div>
                 </div>
-               <a href="{{('/search')}}" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</a>
+                <button type="submit" class="btn btn-icon icon-left btn-primary"><i class="fas fa-search-plus"></i> Search</button>
+              </form>
               </div>
               
             </div>
@@ -126,7 +129,7 @@
                               <div class="bullet"></div>
                               <a href="javascript:void(0)" id="verifikasi" data-id="{{ $s->id }}" data-toggle="tooltip"><i class="far fa-check-square"></i>Verifikasi</a>
                                 @else
-                                  -
+                                  
                                 @endif
 
                               <div class="bullet"></div>

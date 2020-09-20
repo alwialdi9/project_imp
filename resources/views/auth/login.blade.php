@@ -15,7 +15,7 @@
 
               @if(Session::has('alert'))
                 <script>
-                  swal('Attention!!', 'You Must be Login to Continue!', 'warning');
+                  swal('Attention!!', '{{ Session::get("alert") }}' , 'warning');
                 </script>
             @endif
 
@@ -24,12 +24,13 @@
                   swal('Success!!', 'Kamu Sudah Logout', 'info');
                 </script>
             @endif
+            
               <div class="card-body">
                 <form method="post" action="{{ url('/loginPost') }}" class="needs-validation" novalidate="">
-                  {{ csrf_field() }}
+                  {{ csrf_field() }} 
                     <div class="form-group">
                     <label for="email">{{ __('E-Mail Address') }}</label>
-                    <input id="email" type="email" class="form-control" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus tabindex="1">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus tabindex="1">
                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -46,7 +47,7 @@
                         </a>
                       </div> --}}
                     </div>
-                    <input id="password" type="password" class="form-control" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" tabindex="2">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror " name="password" required autocomplete="current-password" tabindex="2">
 
                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -55,12 +56,12 @@
                                 @enderror
                   </div>
 
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
                       <label class="custom-control-label" for="remember-me">Remember Me</label>
                     </div>
-                  </div>
+                  </div> --}}
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">

@@ -8,7 +8,7 @@
   <title>IMP Studio</title>
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 
   <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('modules/fontawesome/css/all.min.css') }}">
@@ -37,6 +37,7 @@
   <script src="{{ asset('modules/sweetalert/sweetalert.min.js') }} "></script>
   {{-- <script src="{{ asset('js/sweetalert2.min.js') }} "></script> --}}
   <script src="{{ asset('js/wizard.js') }} "></script>
+
   <script>
   // $(document).ready(function () {
   //   $("#pelanggan").on("change", function() {
@@ -58,10 +59,11 @@
   }
 
   function tampilkan_kode() {
-    var id = $("#kode_akun option:selected").attr("id");
+    var id = $("#referensi_akun option:selected").attr("id");
       $.get("{{ url('kode_penjualan') }}"+"/"+id, function (data) {
         console.log(data.nama_akun);
-        $('#referensi_akun').change().val(data.nama_akun);
+        console.log(data.id);
+        $('#kode_akun').val(data.kode_akun);
       })
   }
   </script>

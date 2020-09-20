@@ -8,6 +8,7 @@ use App\Petty;
 use App\kategori_surat;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\SendRequest;
 use PhpParser\Builder\Function_;
@@ -43,10 +44,19 @@ class SuratController extends Controller
         $nampilgambar = True;
         $surat = Surat::all();
         $surat_id = Surat::orderBy('id', 'desc')->first();
-        $id = $surat_id->id;
         $kategori_surat = kategori_surat::all();
-        // dd($surat_id);
-        return view('surat.suratmasuk', compact('nampilgambar', 'kategori_surat', 'surat', 'id'));
+        $nomor = Surat::orderBy('id', 'desc')->first();
+        if ($nomor || $surat_id) {
+            $id = $surat_id->id;
+            $no = substr($nomor->nomor_surat, 0, 3) + 1;
+            $nomornya = sprintf("%03d", $no);
+        } else {
+            $id = '001';
+            $nomornya = '001';
+        }
+        // dd($nomor,$no, $nomornya);
+
+        return view('surat.suratmasuk', compact('nampilgambar', 'kategori_surat', 'surat', 'id', 'nomornya'));
     }
 
     public function createkeluar()
@@ -55,10 +65,18 @@ class SuratController extends Controller
         $nampilgambar = True;
         $surat = Surat::all();
         $surat_id = Surat::orderBy('id', 'desc')->first();
-        $id = $surat_id->id;
+        // $id = $surat_id->id;
         $kategori_surat = kategori_surat::all();
-        // dd($surat_id);
-        return view('surat.suratkeluar', compact('nampilgambar', 'kategori_surat', 'surat', 'id'));
+        $nomor = Surat::orderBy('id', 'desc')->first();
+        if ($nomor || $surat_id) {
+            $id = $surat_id->id;
+            $no = substr($nomor->nomor_surat, 0, 3) + 1;
+            $nomornya = sprintf("%03d", $no);
+        } else {
+            $id = '001';
+            $nomornya = '001';
+        }
+        return view('surat.suratkeluar', compact('nampilgambar', 'kategori_surat', 'surat', 'id', 'nomornya'));
     }
 
     /**
@@ -183,13 +201,13 @@ class SuratController extends Controller
 
         // $singkatan = getKategori
 
-        $nomor = Surat::orderBy('id', 'desc')->first();
-        $no = substr($nomor->nomor_surat, 0, 3) + 1;
-        $nomornya = sprintf("%03s", $no);
-        // $no = $data['maxKode'];
-        // $noUrut = $no + 1;
+        // $nomor = Surat::orderBy('id', 'desc')->first();
+        // $no = substr($nomor->nomor_surat, 0, 3) + 1;
+        // $nomornya = sprintf("%03s", $no);
+        // // $no = $data['maxKode'];
+        // // $noUrut = $no + 1;
 
-        $nomor_surat = $nomornya . "/" . $request->jenis_surat . "/" . $request->asal_surat . "/" . $romawi . "/" . $tahun;
+        // $nomor_surat = $nomornya . "/" . $request->jenis_surat . "/" . $request->asal_surat . "/" . $romawi . "/" . $tahun;
         // dd($bulan, $tahun, $date1, $date2, $romawi, $nomor_surat);
         if ($request->jenis == "masuk") {
             Surat::create([
@@ -215,16 +233,17 @@ class SuratController extends Controller
                 'perihal' => $request->perihal,
                 'surat_path' => $nama_file,
             ]);
-            // return redirect('/surat');
+            return redirect('/surat');
         }
-
+        return redirect('/surat');
         $surat = Surat::all();
         $kategori_surat = kategori_surat::all();
         $masuk = Surat::where('jenis', 'Masuk')->count();
         $keluar = Surat::where('jenis', 'Keluar')->count();
         $jumlah = Surat::all()->count();
         $petty = Petty::all();
-        return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'petty'));
+
+        // return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'petty'));
     }
 
     /**
@@ -233,9 +252,41 @@ class SuratController extends Controller
      * @param  \App\Surat  $surat
      * @return \Illuminate\Http\Response
      */
-    public function show(Surat $surat)
+    public function show(Request $request)
     {
-        //
+        $date1 = substr($request->search, 0, 10);
+        $date2 = substr($request->search, 13, 10);
+        $surat = DB::table('surat')
+            ->whereBetween('tanggal_terima', [$date1, $date2])
+            ->get();
+
+        $masuk = DB::table('surat')
+            ->whereBetween('tanggal_terima', [$date1, $date2])
+            ->where(function ($query) {
+                $query->where('jenis', '=', 'masuk');
+            })
+            ->count();
+
+        // dd($masuk);
+        $keluar = DB::table('surat')
+            ->whereBetween('tanggal_terima', [$date1, $date2])
+            ->where(function ($query) {
+                $query->where('jenis', '=', 'keluar');
+            })
+            ->count();
+
+        $jumlah = DB::table('surat')
+            ->whereBetween('tanggal_terima', [$date1, $date2])
+            ->count();
+        ##############################################################
+
+        $surat_id = Surat::orderBy('id', 'desc')->first();
+        $kategori_surat = kategori_surat::all();
+        $petty = Petty::all();
+        return view('surat.index', compact('surat', 'kategori_surat', 'masuk', 'keluar', 'jumlah', 'surat_id', 'petty'));
+        #############################################################
+
+        return view('petty.index', compact('petty', 'masuk', 'keluar', 'jumlah', 'saldo'));
     }
 
     /**

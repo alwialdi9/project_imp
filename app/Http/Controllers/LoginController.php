@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\User;
+use App\Dasboard;
+use App\Petty;
+use App\Invoice;
+use App\Pbiaya;
 
 class LoginController extends Controller
 {
@@ -15,7 +19,22 @@ class LoginController extends Controller
         if (!Session::get('login')) {
             return redirect('login');
         } else {
-            return view('dashboard.index');
+            $biaya_masuk = Pbiaya::where('jenis_biaya', 'masuk')->sum('total');
+            $biaya_keluar = Pbiaya::where('jenis_biaya', 'keluar')->sum('total');
+            $tampilmasuk = number_format($biaya_masuk, 0, ".", ".");
+            $tampilkeluar = number_format($biaya_keluar, 0, ".", ".");
+
+            $petty = Petty::all();
+            $pettymasuk = Petty::where('jenis_transaksi', 'masuk')->sum('nilai_transaksi');
+            $pettykeluar = Petty::where('jenis_transaksi', 'keluar')->sum('nilai_transaksi');
+
+            $pettysaldo = $pettymasuk - $pettykeluar;
+            $pattycash = number_format($pettysaldo, 0, ".", ".");
+
+            // invoice
+            $totalinvoice = Invoice::all()->count();
+
+            return view('dashboard.index', compact('pattycash', 'totalinvoice', 'tampilmasuk', 'tampilkeluar'));
         }
     }
 
@@ -38,10 +57,12 @@ class LoginController extends Controller
                 Session::put('login', TRUE);
                 return redirect('dashboard');
             } else {
-                return redirect('login')->with('alert', 'Password atau Email, Salah !');
+                Session::flash('alert', 'Password Salah !');
+                return redirect('login');
             }
         } else {
-            return redirect('login')->with('alert', 'Password atau Email, Salah!');
+            Session::flash('alert', 'Email Tidak Terdaftar!! Hubungi Admin');
+            return redirect('login');
         }
     }
 
@@ -78,6 +99,6 @@ class LoginController extends Controller
             'password' => Hash::make($request->password),
             'level' => $request->level,
         ]);
-        return redirect('login')->with('alert-success', 'Kamu berhasil Register');
+        return redirect('dashboard')->with('alert-success', 'Kamu berhasil tambah data');
     }
 }

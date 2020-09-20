@@ -21,14 +21,24 @@ class PenjualanController extends Controller
         //
         $penjualan = Penjualan::all();
         $penjualan_belum = Penjualan::where('status_penjualan', 'Belum')->sum('total');
+        // $penjualan_tempo = Penjualan::where('status_penjualan', 'Belum')->sum('total');
         $tampilpenjualanbelum = number_format($penjualan_belum, 0, ".", ".");
         $month = date('m');
         $lunas = DB::table('penjualan')
-            ->whereDate('tanggal', $month)
-            ->orWhere('status_penjualan', '=', 'Lunas')
+            ->whereMonth('tanggal', $month)
+            ->where('status_penjualan', '=', 'Lunas')
             ->sum('total');
         $tampillunas = number_format($lunas, 0, ".", ".");
-        return view('penjualan.index', compact('penjualan', 'tampilpenjualanbelum', 'lunas', 'tampillunas'));
+
+        $date = date('Y-m-d');
+        $tempo = DB::table('penjualan')
+            ->whereDate('tanggal', '<',$date)
+            ->where('status_penjualan', '=', 'Belum')
+            ->sum('total');
+        $jatuhtempo = number_format($tempo, 0, ".", ".");
+
+        // dd($lunas);
+        return view('penjualan.index', compact('penjualan', 'tampilpenjualanbelum', 'lunas', 'tampillunas','jatuhtempo'));
     }
 
     /**
@@ -143,7 +153,7 @@ class PenjualanController extends Controller
 
     public function getinfo($id)
     {
-        $info = Akun::where('kode_akun', $id)->first();
+        $info = Akun::where('nama_akun', $id)->first();
         return response()->json($info);
     }
 }

@@ -48,18 +48,19 @@ class PembelianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SendRequest $request)
+    public function store(Request $request)
     {
         $total = str_replace(',', '', $request->total);
         $this->validate(request(), [
             'tanggal' => 'required',
-            'nomor_faktur' => 'required|min:4',
+            'nomor_faktur' => 'required',
             'referensi_akun' => 'required',
             'status_pembelian' => 'required',
             'total' => 'required',
-            'supplier' => 'required|min:5',
+            'supplier' => 'required|min:3',
         ]);
-
+        // dd($request->all());
+        
         Pembelian::create([
             'tanggal' => $request->tanggal,
             'status_pembelian' => $request->status_pembelian,
@@ -68,6 +69,7 @@ class PembelianController extends Controller
             'total' => $total,
             'supplier' => $request->supplier,
         ]);
+        
         return redirect('/pembelian');
     }
 

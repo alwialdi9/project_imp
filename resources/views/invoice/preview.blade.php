@@ -42,13 +42,12 @@
                   </div>
                   <div class="col-md-4 text-md-left">
                     {{-- <address> --}}
-                      <strong class="mr-3">Faktur# </strong>:
-                      179<br>
+                      <strong class="mr-3">Faktur# </strong>: {{ $faktur }}<br>
                       {{-- 1234 Main<br>
                       Apt. 4B<br>
                       Bogor Barat, Indonesia --}}
                       <strong class="mr-3">Tanggal </strong>:
-                      12/12/2019<br>
+                      {{ $tanggal }}<br>
                     {{-- </address> --}}
                   </div>
                 </div>
@@ -71,10 +70,10 @@
                           :<br>
                         </div>
                         <div class="col-md-8">
-                          Alwi Aldiansyach<br>
-                          Jl. BDN 1 Ujung Rt 001/013 Cilandak Barat, Jakarta Selatan<br>
-                          085891829851<br>
-                          -
+                          {{ $nama }}<br>
+                          {{ $alamat }}<br><br>
+                          {{ $telp }}<br>
+                          {{ $faks }}
                         </div>
                       </div>
                     </address>
@@ -82,7 +81,7 @@
                   <div class="col-md-4 text-md-left">
                     <address>
                       <strong>Jatuh Tempo:</strong><br>
-                      19 September, 2018<br><br>
+                      {{ $tempo }}<br><br>
                     </address>
                   </div>
                 </div>
@@ -103,14 +102,16 @@
                       <th class="text-right">Pajak</th>
                       <th class="text-right">Jumlah</th>
                     </tr>
+                    @foreach ($invoice as $ket)
                     <tr>
-                      <td>1</td>
-                      <td></td>
-                      <td class="text-center">1 Paket</td>
-                      <td class="text-center">41.877.000</td>
+                      <td>{{ $loop->iteration}}</td>
+                      <td>{{ $ket->keterangan }}</td>
+                      <td class="text-center">{{ $ket->kuantitas }}</td>
+                      <td class="text-center">{{ $hargasatuan }}</td>
                       <td class="text-right">X</td>
-                      <td class="text-right">41.877.000</td>
+                      <td class="text-right">{{ $hargapenjualan }}</td>
                     </tr>
+                    @endforeach
                   </table>
                 </div>
                 <div class="row mt-4">
@@ -129,20 +130,20 @@
                   <div class="col-lg-4 text-right">
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name"><strong>Subtotal (Rp)</strong></div>
-                      <div class="invoice-detail-value">37.390.179</div>
+                      <div class="invoice-detail-value">{{ $hargapenjualan }}</div>
                     </div>
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name"><strong>termasuk Pajak<br>(PPN+PPH) 12.0%</strong></div>
-                      <div class="invoice-detail-value">4.486.821</div>
+                      <div class="invoice-detail-value">{{ $info['pajak'] }}</div>
                     </div>
                     <hr class="mt-2 mb-2">
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name">Total</div>
-                      <div class="invoice-detail-value invoice-detail-value-lg">41.877.000</div>
+                    <div class="invoice-detail-value invoice-detail-value-lg">{{ $totaltagihan }}</div>
                     </div>
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name">Sisa Tagihan</div>
-                      <div class="invoice-detail-value">41.877.000</div>
+                      <div class="invoice-detail-value">{{ $sisa }}</div>
                     </div>
                   </div>
                 </div>
@@ -178,7 +179,7 @@
                 </address>
               </div>
               <div class="col-md-4 text-md-left">
-                <img src="{{ asset('img/logo/ttd-masagung.png') }} " alt="">
+                <img src="{{ asset('img/logo/ttd-masagung2.png') }} " alt="">
               </div>
             </div>
           </div>

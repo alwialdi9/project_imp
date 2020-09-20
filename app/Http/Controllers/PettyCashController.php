@@ -17,7 +17,6 @@ class PettyCashController extends Controller
     public function index()
     {
         $petty = Petty::all();
-        $petty = Petty::all();
         $pettymasuk = Petty::where('jenis_transaksi', 'masuk')->sum('nilai_transaksi');
         $masuk = number_format($pettymasuk, 0, ".", ".");
 

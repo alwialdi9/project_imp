@@ -169,14 +169,9 @@
                           var jenis = "PM";
                         }
                         
-                        var nosurat;
-                        if ({{ $id }} == null) {
-                          nosurat = 001;
-                        } else{
-                          nosurat = ({{ $id }})+1;
-                        }
-                        // pindahkan nilai ke input
-                        $("#nomor_surat").val(nosurat+"/"+jenis);
+                        var nosurat = '{{ $nomornya }}';
+                        console.log(nosurat);
+                        $("#nomor_surat").val( nosurat + '/' + jenis + '/');
 
                       });
                         </script>

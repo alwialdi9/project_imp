@@ -62,24 +62,17 @@
                               <p>{{ $errors->first('nomor_faktur') }} </p>
                             </span>
                             @endif
-                          {{-- formvalidation --}}
-                          {{-- jika valid, tambahkan di input class is_valid --}}
-                          {{-- jika invalid, tambahkan di input class is_invalid --}}
                         </div>
                       </div>
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Referensi Akun</label>
                       <div class="col-sm-12 col-md-2">
-                        <select class="form-control select2" id="kode_akun" name="kode_akun" onchange="tampilkan_kode()">
-                          @foreach ($ref_akun as $akun)
-                          <option value="{{ $akun->kode_akun }} " id="{{ $akun->kode_akun }} ">{{ $akun->kode_akun }} </option>
-                          @endforeach
-                        </select>
+                        <input type="text" class="form-control is_valid" id="kode_akun" required="" name="kode_akun" readonly value="1-10001">
                       </div>
 
                       <div class="col-sm-12 col-md-5">
-                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" required value="{{old('referensi_akun')}}">
+                        <select class="form-control select2" id="referensi_akun" name="referensi_akun" required value="{{old('referensi_akun')}}" onchange="tampilkan_kode()">
                           @foreach ($ref_akun as $akun)
                           <option value="{{ $akun->nama_akun }} " id="{{ $akun->nama_akun }}">{{ $akun->nama_akun }} </option>
                           @endforeach

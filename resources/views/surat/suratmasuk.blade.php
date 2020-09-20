@@ -47,7 +47,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Surat</label>
                         <div class="col-sm-12 col-md-7">
-                          <input type="text" class="form-control" placeholder="Masukkan Nomor Surat" required="" name="nomor_surat" id="nomor_surat">
+                          <input type="text" class="form-control" placeholder="Masukkan Nomor Surat" required="" name="nomor_surat" id="nomor_surat" value="{{ $nomornya }}/FK/">
                           <div class="has-feedback{{ $errors->has('nomor_surat') ? 'has-error' : ''}}">
                             @if ($errors->has('nomor_surat'))
                               <span class="help-block">
@@ -133,7 +133,7 @@
                         $(this).prev('label').text(file);
                       });
 
-                      document.getElementById("nomor_surat").disabled = true;
+                      // document.getElementById("nomor_surat").disabled = true;
                       $("#jenis_surat").on("change", function(){
                         // ambil nilai
                         var kategori = $("#jenis_surat option:selected").attr("id");
@@ -160,14 +160,15 @@
                           var jenis = "PM";
                         }
                         
-                        var nosurat;
-                        if ({{ $id }} == null) {
-                          nosurat = 001;
-                        } else{
-                          nosurat = ({{ $id }})+1;
-                        }
+                        var nosurat = '{{ $nomornya }}';
+                        // if ({{ $id }} == null) {
+                        //   nosurat = {{ $nomornya }};
+                        // } else{
+                        //   nosurat = {{ $nomornya }};
+                        // }
                         // pindahkan nilai ke input
-                        $("#nomor_surat").val(nosurat+"/"+jenis);
+                        console.log(nosurat);
+                        $("#nomor_surat").val( nosurat + '/' + jenis + '/');
 
                       });
                       </script>

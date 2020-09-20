@@ -25,7 +25,7 @@
                         <h4>Pemasukan (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        20.000.000.000
+                        {{ $tampilmasuk }}
                       </div>
                     </div>
                   </div>
@@ -40,7 +40,7 @@
                         <h4>Pengeluaran (Rp) </h4>
                       </div>
                       <div class="card-body">
-                        140.000.000
+                        {{ $tampilkeluar }}
                       </div>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                         <h4>Saldo (Rp)</h4>
                       </div>
                       <div class="card-body">
-                        459.000
+                        {{ $pattycash }}
                       </div>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
                         <h4>Invoice</h4>
                       </div>
                       <div class="card-body">
-                        60
+                        {{ $totalinvoice }}
                       </div>
                     </div>
                   </div>
@@ -158,9 +158,9 @@
                             <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
                           </div>
                         </td>
-                        <td>Value 8</td>
+                        <td>Hisam Humaidi</td>
                         <td class="align-middle">
-                          Value 9
+                          Departemen Agama
                         </td>
                         <td>
                           560.123
@@ -170,7 +170,7 @@
                         <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
                       </tr>
 
-                      <tr>
+                      <!-- <tr>
                         <td class="p-0 text-center">
                           <div class="custom-checkbox custom-control">
                             <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
@@ -187,7 +187,7 @@
                         <td><div class="badge badge-warning">Menunggu Verifikasi</div></td>
                         <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
-                      </tr>
+                      </tr> -->
 
                     </table>
                   </div>

@@ -55,7 +55,7 @@ Route::get('/surat', 'SuratController@index');
 Route::get('/surat/suratmasuk', 'SuratController@create');
 Route::get('/surat/suratkeluar', 'SuratController@createkeluar');
 Route::post('/surat', 'SuratController@store');
-Route::post('/search', 'SuratController@show');
+Route::post('/searchsurat', 'SuratController@show');
 Route::delete('/surathapus/{id}', 'SuratController@destroy');
 
 Route::get('akun', 'AkunController@index');
@@ -71,9 +71,9 @@ Route::get('/invoice/edit/{id}', 'InvoiceController@edit');
 Route::post('/invoice/update', 'InvoiceController@update');
 Route::get('/invoice/hapus/{id}', 'InvoiceController@hapus');
 Route::get('pelangganinvoice/{id}', 'InvoiceController@getinfo');
-Route::get('invoicepreview', function () {
-    return view('invoice.preview');
-});
+Route::post('/searchinvoice', 'InvoiceController@show');
+
+Route::get('/invoice/lihat/{id}', 'InvoiceController@preview');
 
 Route::post('/petty', 'PenjualanController@validation');
 Route::post('/petty', 'PettyCashController@store');
